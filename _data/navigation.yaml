@@ -1,0 +1,18 @@
+docs:
+  - title: Getting started
+    children:
+      - title: Introduction
+        url: /docs/index
+  - title: Using the Building Blocks
+    children:
+      - title: Finding Building Blocks
+      - title: Reusing schemas
+      - title: Linked Data / JSON-LD Context
+  - title: Creating Building Blocks
+    children:
+      - title: Overview
+      - title: Building Block metadata
+      - title: Defining a schema
+      - title: Adding JSON-LD context
+      - title: Creating examples
+      - title: Validation
