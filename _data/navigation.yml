@@ -1,0 +1,35 @@
+docs:
+  - title: Introduction
+    url: /
+  - title: Using the Building Blocks
+    children:
+      - title: Finding Building Blocks
+        url: /use/finding
+      - title: Reusing schemas
+      - title: Linked Data / JSON-LD Context
+  - title: Creating Building Blocks
+    children:
+      - title: Overview
+        url: /create
+      - title: Setting up imports
+        url: /create/imports
+      - title: Structure of a Building Block
+        url: /create/structure
+      - title: Postprocessing overview
+        url: /create/postprocessing
+      - title: Building Block metadata
+        url: /create/metadata
+      - title: Adding documentation
+        url: /create/documentation
+      - title: Defining a schema
+        url: /create/schema
+      - title: Adding JSON-LD context
+        url: /create/json-ld-context
+      - title: Creating examples
+        url: /create/examples
+      - title: Validation
+        url: /create/validation
+      - title: Transforms
+        url: /create/transforms
+      - title: RDF-only Building Blocks
+        url: /create/rdf-only
