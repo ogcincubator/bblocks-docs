@@ -9,6 +9,14 @@ This repository uses Jekyll to build the documentation. Please follow GitHub's d
 on [using Jekyll](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/testing-your-github-pages-site-locally-with-jekyll)
 for more information.
 
+For the truly impatient:
+
+Build locally with:
+`bundle exec jekyll serve`
+
+Access the page on:
+`http://127.0.0.1:4000/`
+
 The [Minimal Mistakes Jekyll theme](https://mmistakes.github.io/minimal-mistakes/) is used for styling.
 
 ### Repository layout
