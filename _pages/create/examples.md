@@ -3,6 +3,8 @@ title: Creating examples
 permalink: /create/examples
 ---
 
+Examples help developers understand how they can integrate the building block into their applications. Code snippets in specific programming languages, are not only supported, but encouraged.
+
 Each example consists of Markdown `content` and/or a list of `snippets`. `snippets`, in turn,
 have a `language` (for highlighting, language tabs in Slate, etc.) and the `code` itself.
 
