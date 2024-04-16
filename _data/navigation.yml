@@ -1,6 +1,10 @@
 docs:
   - title: Introduction
-    url: /
+    children:
+      - title: What is a Building Block
+        url: /overview/whatis
+      - title: Profiles
+        url: /overview/profiles  
   - title: Using the Building Blocks
     children:
       - title: Finding Building Blocks

@@ -1,5 +1,6 @@
 ---
-title: OGC Location Building Blocks
+title: OGC Building Blocks
 permalink: /
 ---
-This is the documentation for the OGC Location Building Blocks.
+This is the documentation for the OGC Building Blocks.
+
