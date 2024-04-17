@@ -1,9 +1,16 @@
 ---
-title: What is a Building Block?
-permalink: /overview/whatis
+title: Building Block Registers
+permalink: /overview/registers
 ---
-An Building Block is a way of packaging a component of a specification that can be re-used in other specifications.
 
-For various reasons specifications have often made statements in text regarding how they relate to other specifications, and created implementation artefacts such as schemas that may not make these intentions explicit. The following diagram shows how Building Blocks form a value-added packaging option for such specification elements that can then be exploited as part of a comprehensive knowledge base to support discovery and re-use (FAIR principles).
+OGC BuildingBlocks are published as registers (collections), with each repository defining a sub-register that can be aggregated.
 
-![Overview](https://lucid.app/publicSegments/view/266abfd3-ed51-43a8-a9b0-8e3251c28b54/image.png)
+Aggregated registers will all have their own governance regimes, which SHOULD be clearly defined as documentation describing scope and rules for inclusion.
+
+Key examples include:
+
+- [OGC Specification Building Blocks](https://opengeospatial.github.io/bblocks/register/) - Building Blocks defined by OGC specifications. (_may include common utility patterns common to multiple specifications_)
+- [OGC Incubator Building Blocks](https://ogcincubator.github.io/bblocks/) - Building Blocks needed by multiple application domains. (_not yet formally transferred to an appropriate SWG_)
+- [Examples](https://ogcincubator.github.io/bblocks-examples/) - Examples of different types and usage patterns. (_these are NOT intended as reuse except in examples and tutorials_)
+
+![OGC Building Block Register Ecosystem](https://lucid.app/publicSegments/view/9d075f82-8611-4f32-83eb-994143669cc8/image.png)
