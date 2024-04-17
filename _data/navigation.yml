@@ -6,7 +6,9 @@ docs:
       - title: Registers
         url: /overview/registers  
       - title: Profiles
-        url: /overview/profiles  
+        url: /overview/profiles 
+      - title: Types of Building Blocks
+        url: /overview/types 
   - title: Using the Building Blocks
     children:
       - title: Finding Building Blocks
