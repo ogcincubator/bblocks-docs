@@ -7,8 +7,11 @@ docs:
         url: /overview/registers  
       - title: Profiles
         url: /overview/profiles 
-      - title: Types of Building Blocks
+      - title: Types (Technologies)
         url: /overview/types 
+      - title: Types (Patterns)
+        url: /overview/types#patterns
+        
   - title: Using the Building Blocks
     children:
       - title: Finding Building Blocks
