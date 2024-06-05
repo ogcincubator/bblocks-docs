@@ -17,7 +17,9 @@ docs:
       - title: Finding Building Blocks
         url: /use/finding
       - title: Reusing schemas
+        url: /use/reusing-schemas
       - title: Linked Data / JSON-LD Context
+        url: /use/linked-data
   - title: Creating Building Blocks
     children:
       - title: Overview
