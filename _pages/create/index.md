@@ -2,13 +2,15 @@
 title: How to create Building Blocks
 permalink: /create
 ---
-Building Blocks can be reused by either:
+Building Blocks can be reused in several ways:
 
-- cut and paste "ready to use" forms from the `build/` directory
+- if creating a JSON schema based BuildingBlock then use the $ref: bblocks://{block id} to make a JSON schema reference to any building block in the import list [see imports](/create/imports)
+- for ther Building Blocks declare as an entry in the dependsOn element of a `block.json` metadata file
+- cut and paste "ready to use" forms from the `build/` directory of any building block repository into a some other form of application (not a reusable Building Block itself)
 - directly reference the artefacts in the `build` directory using the URL pattern specified in the building block
-  description
+  description (noting this may be affected by changes if a building block is moved from one register to another - bblocks:// references will still work if imports approach is used.)
 
-## Quick how-to
+## Quick how-to create
 
 1. Navigate to the [bblock-template](https://github.com/opengeospatial/bblock-template) repository.
 2. Click on "Use this template" on GitHub (do not fork this repository, or you will have to manually enable the

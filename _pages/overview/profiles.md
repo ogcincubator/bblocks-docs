@@ -28,6 +28,17 @@ Because many technologies like JSON and RDF are permissive (by default) about ad
 Profiles can be designed as separate re-usable sets of constraints that can be reused - for example a time-series of water-quality monitoring observations could be specified as a profile of both a time-series profile of Observations and a water-quality profile for the results of such observations.
 In turn the time-series profile could defined as data structure using GeoJSON, or Coverage JSON.  The water-quality content requirements could be described using constraints independent of the data structure.
 
+## Profiles for infrastructure compatibility
+
+Profiles can be layered to meet different needs. The typical usage is for applications that are compatible with shared infrastructures, where applications may be designed to interact with other applications, but the supporting infrastructures for these applications may also be designed to interoperate with other infrastructures.
+
+Underlying standards allow reusable software and libraries to be used at all levels.
+
+This can be visualised as a layered model of typical profiles, identifying the types of constraints typically present at each layer. 
+
+![Profile layers](profiles.png)
+
+
 ## What forms of constraints are possible?
 
 The **OGC BuildingBlock** model supports a range of possible constraint approaches.  The goal is to make such constraints **_machine-readable_** to the extent possible.
