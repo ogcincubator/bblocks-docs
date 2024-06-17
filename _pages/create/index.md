@@ -2,13 +2,13 @@
 title: How to create Building Blocks
 permalink: /create
 ---
-Building Blocks can be reused in several ways:
+## starting point options:
 
-- if creating a JSON schema based BuildingBlock then use the $ref: bblocks://{block id} to make a JSON schema reference to any building block in the import list [see imports](/create/imports)
-- for ther Building Blocks declare as an entry in the dependsOn element of a `block.json` metadata file
-- cut and paste "ready to use" forms from the `build/` directory of any building block repository into a some other form of application (not a reusable Building Block itself)
-- directly reference the artefacts in the `build` directory using the URL pattern specified in the building block
-  description (noting this may be affected by changes if a building block is moved from one register to another - bblocks:// references will still work if imports approach is used.)
+1. Create from scratch using a template - see below
+2. Fork an existing repository to update or add new building blocks, and generate a Pull Request to submit to the register owner
+2. Copy any building block repository and edit `bblocks-config.yaml` and the `_sources/*` to create a new register
+
+In all cases follow the [local build process](/build/local) to test before committing to an online repository.
 
 ## Quick how-to create
 
