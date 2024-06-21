@@ -31,7 +31,7 @@ In all cases follow the [local build process](/bblocks-docs/build/local) to test
 7. For each new building block, replace or create a copy of the `mySchema` or `myFeature` inside `_sources`.
    Note: **the path to and name of the new directory will be part of the building block identifier**.
 8. Update the [building block's files](create/structure).
-   1. [Add documentation](documentation) to your Building Block.
+   1. [Add documentation](create/documentation) to your Building Block.
    2. See [defining a schema](create/schema) for information how test an existing schema.
    3. See [adding JSON-LD context](create/json-ld-context) for information how to "uplift" a schema - linking to a model using JSON-LD.
    4. See [validation](create/validation) for information how to define powerful constraints for schemas and semantic models.
