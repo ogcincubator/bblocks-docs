@@ -6,7 +6,7 @@ Building Blocks can be defined that use RDF only. An RDF building block can:
 
 1. Define RDF (TTL) examples how to use the Semantic model
 2. Apply SHACL Rules to [validate examples](TESTING.md#SHACL)
-3. [Perform transforms](TXFORMS.md) and validate results
+3. [Perform transforms](create/transforms) and validate results
 
 Test cases and examples as either TTL or JSONLD will undergo syntax and SHACL validation.
 

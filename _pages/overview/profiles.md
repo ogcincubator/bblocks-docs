@@ -51,7 +51,7 @@ Built-in support is provided for automatic validation of the following forms:
 - JSON schema (for JSON examples) for **structure**
 - SHACL (Shapes Constraint Language for RDF) for **content** and **logical consistency**
 
-In addition [custom validators](VALIDATORS) can be added to the validation workflow. 
+In addition [custom validators](create/validation) can be added to the validation workflow. 
 
 Using a JSON-LD context "semantic uplift" of JSON to RDF supports use of SHACL and other forms of validators to 
 
