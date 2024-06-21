@@ -22,6 +22,6 @@ docker run --pull=always --rm --workdir /workspace -v "$(pwd):/workspace" \
  ```shell
 docker run --rm --pull=always -v "$(pwd):/register" -p 9090:9090 ghcr.io/ogcincubator/bblocks-viewer
 ```
-You can now experiment with the source material - or proceed to [create your own building blocks](/create).
+You can now experiment with the source material - or proceed to [create your own building blocks](/bblocks-docs/create).
 
 (create a fork if you want to update the the repository so you can submit pull requests. The local build outputs will be ignored automatically on updates.)

@@ -8,7 +8,7 @@ permalink: /create
 2. Fork an existing repository to update or add new building blocks, and generate a Pull Request to submit to the register owner
 2. Copy any building block repository and edit `bblocks-config.yaml` and the `_sources/*` to create a new register
 
-In all cases follow the [local build process](/build/local) to test before committing to an online repository.
+In all cases follow the [local build process](/bblocks-docs/build/local) to test before committing to an online repository.
 
 ## Quick how-to create
 
