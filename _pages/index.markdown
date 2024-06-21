@@ -4,6 +4,7 @@ permalink: /
 ---
 This is the documentation for OGC Building Blocks, a specification component packaging approach that can be used to **add documentation** to existing specification components, or to assemble specifications cost-effectively using a test-driven approach.
 
+![](/bblocks-docs/assets/bblocks-qr.png)
 Building Blocks may be various [types](/bblocks-docs/overview/types) - however the emphasis is semantically annotated schemas for use in OGC API definitions. 
 
 A key application is the [register of OGC Specification Building blocks](https://opengeospatial.github.io/bblocks/register/)
