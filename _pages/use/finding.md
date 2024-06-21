@@ -7,7 +7,7 @@ Whilst components described as Building Blocks may be referenced by individual s
 
 The OGC Building Block Framework provides two improved approaches:
 
-1. [Registers](/bblocks-docs/overview/registers)
+1. [Registers](../overview/registers)
 1. [RAINBOW (OGC Knowledge Graph)]() 
 
 # Well-known Building Blocks registers
