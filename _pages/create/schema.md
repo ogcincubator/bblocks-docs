@@ -39,7 +39,7 @@ this is done in a two-step process:
 
 2. use the `bblocks:://{id}` syntax as href in schema $ref elements. 
 
-    This means your building block will inherit all json-ld contexts and SHACL rules from the referenced building block automatically and apply during [testing](TESTING.md).
+    This means your building block will inherit all json-ld contexts and SHACL rules from the referenced building block automatically and apply during [testing](../create/validation).
 
 
 # Profiling JSON Schemas

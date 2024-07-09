@@ -5,7 +5,7 @@ permalink: /create/structure
 
 The following image summarizes the general usage of a building block:
 
-[![Usage](/assets/usage.png)](/assets/usage.png)
+[![Usage](../assets/usage.png)](../assets/usage.png)
 
 ## Building Block sources
 

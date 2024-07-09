@@ -2,13 +2,15 @@
 title: How to create Building Blocks
 permalink: /create
 ---
-Building Blocks can be reused by either:
+## starting point options:
 
-- cut and paste "ready to use" forms from the `build/` directory
-- directly reference the artefacts in the `build` directory using the URL pattern specified in the building block
-  description
+1. Create from scratch using a template - see below
+2. Fork an existing repository to update or add new building blocks, and generate a Pull Request to submit to the register owner
+2. Copy any building block repository and edit `bblocks-config.yaml` and the `_sources/*` to create a new register
 
-## Quick how-to
+In all cases follow the [local build process](../build/local) to test before committing to an online repository.
+
+## Quick how-to create
 
 1. Navigate to the [bblock-template](https://github.com/opengeospatial/bblock-template) repository.
 2. Click on "Use this template" on GitHub (do not fork this repository, or you will have to manually enable the

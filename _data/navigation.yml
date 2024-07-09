@@ -11,15 +11,18 @@ docs:
         url: /overview/types 
       - title: Types (Patterns)
         url: /overview/types#patterns
-        
+  - title: Quick Start
+    children:
+      - title: Local Build
+        url: /build/local
   - title: Using the Building Blocks
     children:
       - title: Finding Building Blocks
         url: /use/finding
       - title: Reusing schemas
-      - title: Reusing schemas
-        url: /use/ftc
+        url: /use/reusing-schemas
       - title: Linked Data / JSON-LD Context
+        url: /use/linked-data
   - title: Creating Building Blocks
     children:
       - title: Overview

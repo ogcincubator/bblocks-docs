@@ -8,7 +8,7 @@ Whilst components described as Building Blocks may be referenced by individual s
 
 The OGC Building Block Framework provides three improved approaches for discovery:
 
-1. [Registers](/overview/registers)
+1. [Registers](../overview/registers)
 1. [RAINBOW (OGC Knowledge Graph)]() 
 1. Transparent Dependencies 
 
