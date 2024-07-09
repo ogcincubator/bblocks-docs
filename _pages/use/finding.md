@@ -3,12 +3,15 @@ title: Finding Building Blocks
 permalink: /use/finding
 ---
 
-Whilst components described as Building Blocks may be referenced by individual specifications, due to evolution and legacy issues this is not consistent and is a challenge for discovery.  General text search options may assist.
 
-The OGC Building Block Framework provides two improved approaches:
+Whilst components described as Building Blocks may be referenced by individual specifications, due to evolution of the specification publication process over time this is not consistent in terms of identification or disposition of published artefacts. Such components may be published as discrete resources, or bundled in larger packages. They may or may not be in consistent machine-readable forms. This leads to many challenges for discovery of such components.  General text search options may assist, but will be subject to limited ability to precisely recall only relevant components.
+
+The OGC Building Block Framework provides three improved approaches for discovery:
 
 1. [Registers](/overview/registers)
 1. [RAINBOW (OGC Knowledge Graph)]() 
+1. Transparent Dependencies 
+
 
 # Well-known Building Blocks registers
 

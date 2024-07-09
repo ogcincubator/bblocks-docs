@@ -1,30 +1,12 @@
 ---
-title: Finding Building Blocks
-permalink: /use/finding
+title: Feature Type Catalogs
+permalink: /use/ftc
 ---
 
-Whilst components described as Building Blocks may be referenced by individual specifications, due to evolution and legacy issues this is not consistent and is a challenge for discovery.  General text search options may assist.
+The concept of a "Feature Type Catalog" (FTC) has been widely accepted as a concept, however interoperable implementations have been slow to emerge.
 
-The OGC Building Block Framework provides two improved approaches:
+This may be because FTCs in practice need to be technically aligned with the underlying infrastructure publishing Features as data, and this in turn has two distinct aspects: persistence (how features are stored) and transfer (how they are exposed). Both of these aspects tend to be technology dependent, and hence expression of Feature Types is often tied to one or other of such aspects.
 
-1. [Registers](/overview/registers)
-1. [RAINBOW (OGC Knowledge Graph)]() 
+Building Blocks provide a new opportunity to publish Feature Types in a technology agnostic way, using multiple schemas mapped to common semantic models, supported by examples and validation.
 
-# Well-known Building Blocks registers
-
-## OGC Specifications
-
-- [OGC Specification Building Blocks](https://opengeospatial.github.io/bblocks/register/) - Building Blocks defined by OGC specifications. (_may include common utility patterns common to multiple specifications_)
-
-## OGC Specifications (in development)
-
-- [OGC API - SOSA](https://opengeospatial.github.io/ogcapi-sosa/) - Implementation of the [OMS/ISO 19156 standard](http://www.opengis.net/def/docs/20-082r4) using the [SOSA ontology](https://www.w3.org/TR/vocab-ssn/).
-- [OGC API Records - GeoDCAT](https://ogcincubator.github.io/geodcat-ogcapi-records/) - Implementation of GeoDCAT using OGC API Records
-
-## Incubator
-
-- [OGC Incubator Building Blocks](https://ogcincubator.github.io/bblocks/) - Building Blocks needed by multiple application domains. (_not yet formally transferred to an appropriate SWG_)
-
-## Projects
-
-- [ILIAD Digital Twin of the Ocean - OGC API Profiles](https://ogcincubator.github.io/iliad-apis-features/)
+Effectively this means the design pattern of a schema mapped to a Class with a Frame (a set of properties). Building Blocks can handle abstract 
