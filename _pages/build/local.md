@@ -25,3 +25,7 @@ docker run --rm --pull=always -v "$(pwd):/register" -p 9090:9090 ghcr.io/ogcincu
 You can now experiment with the source material - or proceed to [create your own building blocks](../create).
 
 (create a fork if you want to update the the repository so you can submit pull requests. The local build outputs will be ignored automatically on updates.)
+
+## Postprocessing a subset of building blocks
+
+Adding `--filter {id}` to the docker build command,  where {id} is a Building Block id such as `ogc.bbr.examples.feature.externalSchema` will limit processing to a single BBlock
