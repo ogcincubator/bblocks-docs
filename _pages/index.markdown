@@ -3,7 +3,7 @@ title: OGC Specification Building Blocks
 permalink: /
 ---
 
-<img src="../assets/bblocks-qr.png" alt="drawing" width="50"/> [QR code](/overview/qr)
+[QR code](/overview/qr)
 
 This is the documentation for the OGC Building Blocks framework, a **specification component** packaging approach.
 
@@ -11,7 +11,7 @@ This supports the FAIR principles for **specifications** - with every specificat
 
 Building Blocks can be used to **add documentation** to existing specification components, or to **design** and **assemble** reusable specification components cost-effectively using a test-driven approach.
 
-Building Blocks are _"technology agnostic"_ - i.e. may be various [types](overview/types) - however a  emphasis is support for semantically annotated JSON schemas for use in OGC API definitions. 
+Building Blocks are _"technology agnostic"_ - i.e. may be various [types](overview/types) - however an  emphasis is support for semantically annotated JSON schemas for use in OGC API definitions. 
 
 Building Blocks can be organised into [registers](overview/registers) for convenience, each repository creating a local register that can be integrated with other application domain registers.
 
