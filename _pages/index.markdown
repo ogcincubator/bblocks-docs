@@ -3,7 +3,7 @@ title: OGC Specification Building Blocks
 permalink: /
 ---
 
-[<img src="../assets/bblocks-qr.png" alt="drawing" width="50"/> QR code](/qr)
+<img src="../assets/bblocks-qr.png" alt="drawing" width="50"/> [QR code](/qr)
 
 This is the documentation for the OGC Building Blocks framework, a **specification component** packaging approach.
 
