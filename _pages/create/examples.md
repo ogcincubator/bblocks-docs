@@ -14,16 +14,17 @@ URLs when the building block is published (see [Assets](#assets)).
 Instead of the `code`, a `ref` with a filename relative to `examples.yaml` can be provided:
 
 ```yaml
-- title: My inline example
-  content: Example with its code in the examples.yaml file
-  snippets:
-    - language: json
-      code: '{ "a": 1 }'
-- title: My referenced example
-  content: Example with its code pulled from a file
-  snippets:
-    - language: json
-      ref: example1.json # in the same directory as examples.yaml  
+examples:
+  - title: My inline example
+    content: Example with its code in the examples.yaml file
+    snippets:
+      - language: json
+        code: '{ "a": 1 }'
+  - title: My referenced example
+    content: Example with its code pulled from a file
+    snippets:
+      - language: json
+        ref: example1.json # in the same directory as examples.yaml
 ```
 
 Please refer to
@@ -31,3 +32,9 @@ Please refer to
 for more information.
 
 The `examples.yaml` file in `my-building-block` can be used as a template.
+
+## Prefixes
+
+Optionally, you can add a `prefixes` entry at the top level (alongside `examples:`) or inside a specific snippet,
+with a dictionary of prefix-to-URI mappings, allowing you to omit those prefixes when used in JSON, JSON-LD and
+Turtle examples, but that will be used when semantically uplifting the snippets.
