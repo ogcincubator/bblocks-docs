@@ -32,3 +32,17 @@ when `https://example.com/bbr` is provided as an import, these URLs will be trie
 
 The first URL to return a valid `register.json` will be used. 
 
+## Local imports
+
+Sometimes, a remote repository may not be available publicly (e.g., for security reasons). In that case,
+repository-URL-to-local-path mappings can be added inside an `imports-mappings` object in a
+`bblocks-config-local.yml` file:
+
+```yaml
+imports-local:
+  'https://example.com/bbr/build/register.json': '/home/jsmith/projects/bbr'
+  'https://example.com/relative/register.json': '../relative/'
+```
+
+Similarly to URL repositories, `build/register.json` and `register.json` will also be checked for a valid
+register file.
