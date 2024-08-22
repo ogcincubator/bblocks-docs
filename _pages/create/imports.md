@@ -20,5 +20,15 @@ For example, the following will import two repositories, one of them being the m
 name: Repository with imports
 imports:
   - default
-  - https://example.com/bbr/repository.json
+  - https://example.com/bbr/build/register.json
 ```
+
+*Note*: If the URL ends with `build/register.json` or `register.json`, you may omit the last part. For example,
+when `https://example.com/bbr` is provided as an import, these URLs will be tried:
+
+  * `https://example.com/bbr` 
+  * `https://example.com/bbr/build/register.json`
+  * `https://example.com/bbr/register.json`
+
+The first URL to return a valid `register.json` will be used. 
+
