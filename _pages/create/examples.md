@@ -35,6 +35,21 @@ The `examples.yaml` file in `my-building-block` can be used as a template.
 
 ## Prefixes
 
-Optionally, you can add a `prefixes` entry at the top level (alongside `examples:`) or inside a specific snippet,
+Optionally, you can add a `prefixes` entry at the top level (alongside `examples:`) or inside a specific example,
 with a dictionary of prefix-to-URI mappings, allowing you to omit those prefixes when used in JSON, JSON-LD and
-Turtle examples, but that will be used when semantically uplifting the snippets.
+Turtle examples, but that will be used when semantically uplifting the snippets:
+
+```yaml
+prefixes:
+  # Default prefixes for all examples
+  rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+  rdfs: http://www.w3.org/2000/01/rdf-schema#
+examples:
+  - title: Example with prefixes
+    prefixes:
+      ex: http://example.com/
+    snippets:
+      - language: turtle
+        code: |
+          ex:a rdfs:label "A" .
+```
