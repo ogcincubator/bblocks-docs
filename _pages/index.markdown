@@ -9,10 +9,10 @@ This is the documentation for the OGC Building Blocks framework, a **specificati
 This supports the FAIR principles for **specifications** - with every specification being a component that can be
 re-used. For more discussion see [Design Principles](overview/principles)
 
-Building Blocks can be used to **add documentation** to existing specification components, or to **design** and *
-*assemble** reusable specification components cost-effectively using a test-driven approach.
+Building Blocks can be used to **add documentation** to existing specification components, or to **design** and 
+**assemble** reusable specification components cost-effectively using a test-driven approach.
 
-Building Blocks are _"technology agnostic"_ - i.e. may be various [types](overview/types) - however an emphasis is
+Building Blocks are *technology-agnostic* - i.e. may be various [types](overview/types) - however an emphasis is
 support for semantically annotated JSON schemas for use in OGC API definitions.
 
 Building Blocks can be organised into [registers](overview/registers) for convenience, each repository creating a local

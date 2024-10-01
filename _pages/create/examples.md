@@ -28,7 +28,7 @@ examples:
 ```
 
 Please refer to
-[the updated JSON schema for `examples.yaml`](https://raw.githubusercontent.com/opengeospatial/bblocks-postprocess/master/ogc/bblocks/examples-schema.yaml)
+[the updated JSON schema for `examples.yaml`](https://raw.githubusercontent.com/opengeospatial/bblocks-postprocess/master/ogc/bblocks/schemas/examples.schema.yaml)
 for more information.
 
 The `examples.yaml` file in `my-building-block` can be used as a template.

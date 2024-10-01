@@ -15,7 +15,7 @@ Test cases defines in the `tests/` subdirectory of each building block get valid
 can be added in `tests.yaml` as a list of objects with a `ref` property pointing to the test resource's location,
 and optionally defining the `output-filename` and/or `require-fail` properties (for more information, see the 
 example `tests.yaml` file provided in the template and 
-[the JSON Schema for `tests.yaml`](https://github.com/opengeospatial/bblocks-postprocess/blob/master/ogc/bblocks/extra-tests-schema.yaml){:target="_blank"}.
+[the JSON Schema for `tests.yaml`](https://github.com/opengeospatial/bblocks-postprocess/blob/master/ogc/bblocks/schemas/tests.schema.yaml){:target="_blank"}.
 
 In each case, the `/build/tests/` directory contains a set of validation outputs.
 
