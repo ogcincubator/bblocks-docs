@@ -36,6 +36,7 @@ plugins:
   - jekyll-sitemap
   - jekyll-relative-links
   - jekyll-titles-from-headings
+  - jekyll-redirect-from
 
 include:
   - _pages

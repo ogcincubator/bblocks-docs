@@ -39,8 +39,8 @@ docs:
         url: /create/documentation
       - title: Defining a schema
         url: /create/schema
-      - title: Adding JSON-LD context
-        url: /create/json-ld-context
+      - title: Semantic uplift
+        url: /create/semantic-uplift
       - title: Creating examples
         url: /create/examples
       - title: Validation
