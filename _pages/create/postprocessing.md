@@ -2,8 +2,10 @@
 title: Postprocessing overview
 permalink: /create/postprocessing
 ---
-This repository comes with a GitHub workflow that detects, validates and processes its building blocks,
-so that their outputs can be tested before inclusion in the main OGC Register:
+
+Building Blocks sources are post-processed using a workflow package maintained by the OGC. You may modify this if needed to perform additional actions - however this is subject to continual improvement as new types of building blocks are supported and improvements in available tools are made.
+
+
 
 ![OGC Building Blocks processing](https://raw.githubusercontent.com/opengeospatial/bblocks-postprocess/master/process.png)
 

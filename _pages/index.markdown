@@ -27,3 +27,4 @@ The framework supports testing of examples, and validation using rules inherited
 re-used (by aggregation or profiling) to create compatible specifications for specific applications.
 
 For more details consider using the [Tutorial example](https://ogcincubator.github.io/bblocks-tutorial/) - a step-wise introduction to various features and configuration details for Building Blocks.
+
