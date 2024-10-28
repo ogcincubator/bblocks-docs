@@ -1,6 +1,6 @@
 ---
 title: Quick Start - Tutorials
-permalink: /build/tutorial
+permalink: /build/local
 ---
 
 
