@@ -1,3 +1,9 @@
+---
+title: Quick Start - local build
+permalink: /build/local
+---
+
+
 # Building Blocks Tutorials
 
 A range of tutorials will provide step by step introduction to the features of OGC Building Blocks.

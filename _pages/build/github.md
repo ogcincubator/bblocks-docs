@@ -1,3 +1,8 @@
+---
+title: Quick Start - Github Automation
+permalink: /build/github
+---
+
 # Configuring Github build
 
 Github repositories need configuration to allow automated building. 

@@ -1,12 +1,12 @@
 ---
-title: Quick Start - local build
-permalink: /build/local
+title: Quick Start - Tutorials
+permalink: /build/tutorial
 ---
 
 
-## Quick how-to create
+## Quick how-to build locally
 
-1. Install docker
+1. Install docker 
 2. Check out any valid Building Block implementation (e.g. [bblocks-examples](https://ogcincubator.github.io/bblocks-examples/))
 3. cd to the new directory
 4. run build.sh or build.bat if present
