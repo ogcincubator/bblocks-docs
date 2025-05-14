@@ -40,8 +40,13 @@ repository-URL-to-local-path mappings can be added inside an `imports-mappings` 
 
 ```yaml
 imports-local:
-  'https://example.com/bbr/build/register.json': '/home/jsmith/projects/bbr'
-  'https://example.com/relative/register.json': '../relative/'
+  'https://example.com/bbr/build/register.json': '/imports/ogc/bblock-prov-schema'
+  'https://example.com/relative/register.json': '../../ogc/bblock-prov-schema'
+```
+
+When running using the docker container these additional repository copies need to be made available by adding additional `volumes` to the container:
+```yaml
+ -v "$(pwd)/../../ogc/bblock-prov-schema:/imports/ogc/bblock-prov-schema"
 ```
 
 Similarly to URL repositories, `build/register.json` and `register.json` will also be checked for a valid
