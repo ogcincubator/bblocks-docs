@@ -51,3 +51,14 @@ When running using the docker container these additional repository copies need 
 
 Similarly to URL repositories, `build/register.json` and `register.json` will also be checked for a valid
 register file.
+
+If you are using `build.sh` as suggested in [Local Build](../create/local), you can automate the volumes that
+will be mounted in the `docker` command by creating a `.volumes` file in which each line will represent a
+`<local path>:<container mount path>` pair. For example:
+
+```
+/absolute/path/to/mount:/mount/absolute
+../relative/path:/mount/relative
+```
+
+When you run `build.sh`, the `.volumes` file will be parsed and the volumes will be mounted.
