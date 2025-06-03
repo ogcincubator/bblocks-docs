@@ -32,7 +32,7 @@ when `https://example.com/bbr` is provided as an import, these URLs will be trie
 
 The first URL to return a valid `register.json` will be used. 
 
-## Local URL mappings
+## Local URL mappings (for testing)
 
 Sometimes, a remote repository may not be available publicly (e.g., for security reasons). In that case,
 URL-to-local-path mappings can be added inside an `url-mappings` object in a
