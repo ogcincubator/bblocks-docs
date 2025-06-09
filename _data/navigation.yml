@@ -18,6 +18,10 @@ docs:
     children:
       - title: Local Build
         url: /build/local
+      - title: Github Configuration
+        url: /build/github
+      - title: Tutorial
+        url: /build/tutorial
   - title: Using the Building Blocks
     children:
       - title: Finding Building Blocks
