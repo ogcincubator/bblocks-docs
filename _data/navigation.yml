@@ -4,6 +4,8 @@ docs:
     children:
       - title: What is a Building Block?
         url: /overview/whatis
+      - title: Design (a.k.a. FAIR principles)
+        url: /overview/principles
       - title: Registers
         url: /overview/registers  
       - title: Profiles
