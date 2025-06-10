@@ -1,4 +1,3 @@
-
 # The Role of OGC Building Blocks in Advancing Open Science
 
 (work in progress - do not link)
@@ -7,7 +6,7 @@
 
 Science requires reproducability.
 
-This requires detailed documentation of many aspects of the methodology and execution, as well as the inputs and results. Such documentation becomes extremely complex to create and interpret - but this is greatly facilitated by standardised structures and contents. Open Science increasingly aims for machine-readability (as far as possible) of these descriptions to support validation and reuse of the underlying science through repeatable **workflows**. 
+This requires detailed documentation of many aspects of the methodology and execution, as well as the inputs and results. Such documentation becomes extremely complex to create and interpret - but this is greatly facilitated by standardised structures and contents. Open Science increasingly aims for machine-readability (as far as possible) of these descriptions to support validation and reuse of the underlying science through repeatable **workflows**.
 
 Scientific workflows are increasingly complex, encompassing not only data but also APIs, metadata structures, vocabularies, and methodological descriptions. Reusability, transparency, and interoperability across these components are essential for ensuring research processes align with the FAIR (Findable, Accessible, Interoperable, Reusable) principles. The OGC Building Blocks methodology offers a structured, component-based approach to standardization, validation, and discovery that directly supports these goals. This white paper explores its strategic relevance for open science.
 
@@ -47,8 +46,11 @@ The Building Block methodology aligns with and supports the FAIR principles:
 - **Interoperability**: Semantic mappings, conformance relationships, and transformation tools can be directly expressed and tested.
 - **Reusability**: Blocks can be referenced, composed, and refined without duplicating entire specifications.
 
+<<<<<<< HEAD
 Tools developed for dynamic JSON schema generation and mapping-based validation workflows ([schemagen]), as well as integration with provenance frameworks ([iaprovenance]), demonstrate practical implementation of these goals.
 
+=======
+>>>>>>> 06476e658dfc15f82a97314207b645252fdb8d0f
 ## 5. Strategic Recommendations
 
 To promote open science through better standards infrastructure, the following actions are recommended:
@@ -63,4 +65,7 @@ To promote open science through better standards infrastructure, the following a
 The OGC Building Block methodology offers a practical, future-proof path to composable, transparent, and validated specifications. Its application in the scientific domain can significantly lower the cost of interoperability, increase reuse of data and services, and help ensure that science is not only open—but also robustly machine-actionable.
 
 ## References
+<<<<<<< HEAD
 
+=======
+>>>>>>> 06476e658dfc15f82a97314207b645252fdb8d0f
