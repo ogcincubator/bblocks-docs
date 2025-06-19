@@ -46,11 +46,11 @@ The Building Block methodology aligns with and supports the FAIR principles:
 - **Interoperability**: Semantic mappings, conformance relationships, and transformation tools can be directly expressed and tested.
 - **Reusability**: Blocks can be referenced, composed, and refined without duplicating entire specifications.
 
-<<<<<<< HEAD
+
 Tools developed for dynamic JSON schema generation and mapping-based validation workflows ([schemagen]), as well as integration with provenance frameworks ([iaprovenance]), demonstrate practical implementation of these goals.
 
-=======
->>>>>>> 06476e658dfc15f82a97314207b645252fdb8d0f
+
+
 ## 5. Strategic Recommendations
 
 To promote open science through better standards infrastructure, the following actions are recommended:
@@ -65,7 +65,4 @@ To promote open science through better standards infrastructure, the following a
 The OGC Building Block methodology offers a practical, future-proof path to composable, transparent, and validated specifications. Its application in the scientific domain can significantly lower the cost of interoperability, increase reuse of data and services, and help ensure that science is not only open—but also robustly machine-actionable.
 
 ## References
-<<<<<<< HEAD
 
-=======
->>>>>>> 06476e658dfc15f82a97314207b645252fdb8d0f
