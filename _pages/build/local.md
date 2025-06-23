@@ -9,7 +9,7 @@ permalink: /build/local
 1. Install docker 
 2. Check out any valid Building Block implementation (e.g. [bblocks-examples](https://ogcincubator.github.io/bblocks-examples/))
 3. cd to the new directory
-4. run build.sh or build.bat if present
+4. run `build.sh` or `build.bat` if present
    - this will access the current build scripts and compile the building block locally
    - if not present run the command 
  ```shell
