@@ -11,6 +11,7 @@ The word "specification" is used in many cases - because the target may be less 
 - **Pre-conditions:**  
   - A new OGC standard is being written  
   - Building Block registry is available
+  - Building Blocks reference the published Requirements Classes (the reusable text content) and make text available for discovery
   - A mechanism to include Building Blocks by reference is available in the standards documentation environment
 
 - **Post-conditions:**  
