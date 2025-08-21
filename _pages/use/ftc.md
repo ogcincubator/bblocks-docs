@@ -1,7 +1,9 @@
 ---
-title: Feature Type Catalogs
+title: Accessibility: Feature Type Catalogs
 permalink: /use/ftc
 ---
+
+Building Blocks solve a key limitation of traditional specifications using mixtures of documentation styles and locations - by normalising the documentation for a wide range of specification types it allows for increased **Access** in practice - since all the reusable components can be reliably found via the underlying Linked Data and Register models.
 
 The concept of a "Feature Type Catalog" (FTC) has been widely accepted as a concept, however interoperable implementations have been slow to emerge.
 
@@ -9,4 +11,4 @@ This may be because FTCs in practice need to be technically aligned with the und
 
 Building Blocks provide a new opportunity to publish Feature Types in a technology agnostic way, using multiple schemas mapped to common semantic models, supported by examples and validation.
 
-Effectively this means the design pattern of a schema mapped to a Class with a Frame (a set of properties). Building Blocks can handle abstract 
+Effectively this means the design pattern of a schema mapped to a Class with a Frame (a set of properties). Building Blocks can handle abstract or conceptual models, or technology specific physical implementation schemas, and crucially and uniquely the **relationships between concepts and implementation options**.

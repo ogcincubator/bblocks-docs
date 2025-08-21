@@ -4,8 +4,6 @@ docs:
     children:
       - title: What is a Building Block?
         url: /overview/whatis
-      - title: Use Cases for Building Blocks
-        url: /usecases/usecases
       - title: Design (a.k.a. FAIR principles)
         url: /overview/principles
       - title: Registers
@@ -16,6 +14,9 @@ docs:
         url: /overview/types 
       - title: Types (Patterns)
         url: /overview/types#patterns
+  - title:
+      - title: Use Cases for Building Blocks
+        url: /usecases/usecases
   - title: Quick Start
     children:
       - title: Local Build
@@ -24,14 +25,16 @@ docs:
         url: /build/github
       - title: Tutorial
         url: /build/tutorial
-  - title: Using the Building Blocks
+  - title: FAIR Building Blocks
     children:
       - title: Finding Building Blocks
         url: /use/finding
+      - title: Accessibility
+        url: /use/ftc
+      - title: Interoperable Linked Data / JSON-LD Context
+        url: /use/linked-data
       - title: Reusing schemas
         url: /use/reusing-schemas
-      - title: Linked Data / JSON-LD Context
-        url: /use/linked-data
   - title: Creating Building Blocks
     children:
       - title: Overview

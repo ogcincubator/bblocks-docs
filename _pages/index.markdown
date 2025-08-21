@@ -15,6 +15,9 @@ This is the documentation for the OGC Building Blocks framework, a **specificati
 - testing of transformations and alignments to other specifications
 - management of registers and Knowledge Graph views of ecosystems of specifications.
 
+To provide suggestions for improvement on this documentation or ask questions please lodge issues [here](https://github.com/ogcincubator/bblocks-docs/issues) or submit pull requests.
+
+
 ## Overwhelmed?
 
 <img src="assets/explorer_cave.png"  style="float:right; width: 200px; max-width: 33%"/>
