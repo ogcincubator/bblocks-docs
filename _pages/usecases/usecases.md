@@ -1,4 +1,3 @@
-
 ---
 title: Uses Cases for OGC Building Block Registers
 permalink: /usecases/usecases
