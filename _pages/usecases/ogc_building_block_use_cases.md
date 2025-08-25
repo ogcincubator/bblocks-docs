@@ -53,7 +53,7 @@ The OGC API Records schema is being developed and declares (in text) an intent t
 - **Audience:** Standards Developers, Tool Vendors  
 - **Pre-conditions:**  
   - Examples exist in the standard  
-  - Schemas or other validatable descriptions (such as SHACL rules) are available to match the standard requirements  
+  - Schemas or other validatable descriptions (such as SHACL shapes) are available to match the standard requirements  
 - **Post-conditions:**  
   - Examples pass semantic and structural validation 
   - Detailed diagnostics are provided to confirm correct operation of the tests 
@@ -88,7 +88,7 @@ Complex rules - such as the inter-relationships between properties that must be 
   - Enhanced examples, validation tools, and integration guides are discoverable  
 
 **Scenario:**  
-The OGC API - Features standard is extended with additional examples, demonstrations of RDF mappings to semantic models to document feature types, SHACL rules, symbology rules, controlled vocabulary usage in particular circumstances and code to handle these patterns — all linked via the Building Block registry but published independently of the core document. 
+The OGC API - Features standard is extended with additional examples, demonstrations of RDF mappings to semantic models to document feature types, SHACL shapes, symbology rules, controlled vocabulary usage in particular circumstances and code to handle these patterns — all linked via the Building Block registry but published independently of the core document. 
 
 Augmented guidance can be published at any time without republishing standards and creating more demanding review of impacts.
 

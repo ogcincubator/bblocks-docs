@@ -23,7 +23,7 @@ Validation includes the following steps:
 
 1. JSON schema validation (if JSON schema supplied)
 2. JSON-LD uplift (if JSON and context supplied) ( `{testcase}.jsonld` and `{testcase}.ttl` generated)
-3. SHACL validation (if SHACL rules defined)
+3. SHACL validation (if SHACL shapes defined)
 
 A summary report is produced at `/build/tests/report.html`.
 
@@ -39,13 +39,13 @@ types of validations:
 
 Inside the `tests` directory, 3 types of files will be processed:
 
-- `*.ttl`: [Turtle](https://www.w3.org/TR/turtle/) RDF files that will be validated against the SHACL rules.
-    - SHACL rules are loaded from the `shaclRules` property inside `bblock.json`. If a `rules.shacl` file is found
+- `*.ttl`: [Turtle](https://www.w3.org/TR/turtle/) RDF files that will be validated against the SHACL shapes.
+    - SHACL shapes are loaded from the `shaclShapes` property inside `bblock.json`. If a `shapes.shacl` file is found
       in the Building Block directory it will be used by default. **SHACL files must be serialized as Turtle**.
 - `*.jsonld`: JSON-LD files that will be first validated against the Building Block JSON Schema
-  and then against the SHACL rules.
+  and then against the SHACL shapes.
 - `*.json`: JSON files that will be first validated against the JSON Schema, then "semantically uplifted"
-  by embedding the Building Block's `context.jsonld`, and finally validated against the SHACL rules.
+  by embedding the Building Block's `context.jsonld`, and finally validated against the SHACL shapes.
 
 If the filename for a test resource ends in `-fail` (e.g., `missing-id-fail.json`), validation will only pass
 if the test fails (JSON SCHEMA, SHACL shapes, etc.); this allows writing negative test cases.
@@ -54,10 +54,10 @@ if the test fails (JSON SCHEMA, SHACL shapes, etc.); this allows writing negativ
 
 ## SHACL Validation
 
-SHACL rules can be defined in a ```rules.shacl``` file or any other files or URLs in the `bblocks.json`:
+SHACL shapes can be defined in a ```shapes.shacl``` file or any other files or URLs in the `bblocks.json`:
 
 ```
- "shaclRules": [
+ "shaclShapes": [
     "vocabs-shacl.ttl"
   ]
   "shaclClosures": [

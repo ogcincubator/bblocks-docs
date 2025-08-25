@@ -30,7 +30,7 @@ Building Blocks defining JSON schemas can be annotated with JSON-LD contexts usi
 The JSON LD context:
 
 1. Maps JSON elements to URIs (which can be URIs of a richer semantic model)
-2. Allows validation of complex logical constraints using SHACL Rules to [validate examples](validation)
+2. Allows validation of complex logical constraints using SHACL Shapes to [validate examples](validation)
 3. [Perform transforms](transforms) to any other RDF model and validate results
 
 ## Modularity support
