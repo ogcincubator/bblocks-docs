@@ -1,4 +1,6 @@
-# OGC Location Building Blocks documentation
+# OGC Building Blocks documentation
+
+OGC Building Blocks support the development, testing and publishing of machine-readable standards. They standardise the way dependencies are managed and support transparent and efficient reuse of components of standards, aggregation into new standards and profiling for specific applications.
 
 This repository contains the sources for the
 [OGC Location Building Blocks documentation](https://ogcincubator.github.io/bblocks-docs).
