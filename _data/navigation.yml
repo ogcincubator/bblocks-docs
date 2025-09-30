@@ -18,8 +18,8 @@ docs:
     children:
       - title: Typical Use Cases
         url: /usecases/usecases
-     - title: STAC extensions
-        url: /usecases/stac_extensions
+      - title: STAC extensions
+        url: /usecases/stac_extension
   - title: Quick Start
     children:
       - title: Local Build

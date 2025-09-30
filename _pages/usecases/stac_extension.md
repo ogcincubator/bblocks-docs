@@ -1,6 +1,6 @@
 ---
 title: STAC extensions
-permalink: /usecases/stac_extensions
+permalink: /usecases/stac_extension
 ---
 
 ## Creating or updating a STAC extension
