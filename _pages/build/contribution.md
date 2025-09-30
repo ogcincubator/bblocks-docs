@@ -1,6 +1,6 @@
 ---
 title: Quick Start - local build
-permalink: /build/contributionion
+permalink: /build/contribution
 ---
 
 # Contributing updates to Building Blocks
