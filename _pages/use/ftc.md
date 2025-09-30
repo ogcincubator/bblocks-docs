@@ -1,5 +1,5 @@
 ---
-title: Accessibility: Feature Type Catalogs
+title: Feature Type Catalogs
 permalink: /use/ftc
 ---
 
