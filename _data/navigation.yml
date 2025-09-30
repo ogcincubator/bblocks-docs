@@ -18,6 +18,8 @@ docs:
     children:
       - title: Typical Use Cases
         url: /usecases/usecases
+     - title: STAC extensions
+        url: /usecases/stac_extensions
   - title: Quick Start
     children:
       - title: Local Build
@@ -26,6 +28,8 @@ docs:
         url: /build/github
       - title: Tutorial
         url: /build/tutorial
+      - title: Contributing to BBlocks
+        url: /build/contribution
   - title: FAIR Building Blocks
     children:
       - title: Finding Building Blocks

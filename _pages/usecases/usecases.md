@@ -26,7 +26,7 @@ Testing examples against specifications.  Building Blocks allow for more sophist
 
 ### QC - testing rules
 
-Rules are powerful aids in supporting use of standards. Often these are "buried" deep in descriptions of requirements. BuildingBlocks allow these to be re-used.
+Rules are powerful aids in supporting use of standards. Often these are "buried" deep in descriptions of requirements. Building Blocks allow these to be re-used.
 
 Re-use of complex rules has many advantages - it saves a lot of effort for downstream users of standards to interpret and fashion such rules, using expressions they may not be familiar with.
 

@@ -3,9 +3,10 @@ title: Quick Start - Github Automation
 permalink: /build/github
 ---
 
-# Configuring Github build
+# Configuring Github automations for CI/CT build
 
-Github repositories need configuration to allow automated building. 
+New and forked Github repositories need configuration to allow automated building. 
+
 1. Fork the template or another repository to a git organisation you have admin access for.
 1. In settings set "pages build" to "Github actions"
 ![](pages.png)
