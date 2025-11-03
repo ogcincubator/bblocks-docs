@@ -14,6 +14,8 @@ docs:
         url: /overview/types 
       - title: Types (Patterns)
         url: /overview/types#patterns
+      - title: Relationships
+        url: /overview/relationships
   - title: Use Cases for Building Blocks
     children:
       - title: Typical Use Cases
