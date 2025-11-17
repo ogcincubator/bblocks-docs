@@ -27,11 +27,38 @@ examples:
         ref: example1.json # in the same directory as examples.yaml
 ```
 
+
+
 Please refer to
 [the updated JSON schema for `examples.yaml`](https://raw.githubusercontent.com/opengeospatial/bblocks-postprocess/master/ogc/bblocks/schemas/examples.schema.yaml)
 for more information.
 
 The `examples.yaml` file in `my-building-block` can be used as a template.
+
+## Targeting specific sub-schemas
+
+Sometimes it is helpful to target a specific subschema with an example of just that part of a model.  This allows simplified views of a complex application schema to be collated in a single location.
+
+This is achieved with the `schema-ref` key:
+
+```
+`- title: Targetting a subschema
+    snippets:
+      - language: json
+        schema-ref: "#/$defs/Activity"
+        ref: "myfile.json"
+```
+
+the schema-ref can be in the form:
+
+- relative to bblock schema
+- an absolute HTTP url
+- a bblocks:// identifier
+- relative the file structure (..\)
+
+It is recommended to use `$defs` or `$anchor` in schemas to identify units that logically can be referenced externally, independent of the internal schema structure, which could be modified for various reasons in future versions.
+
+Note this validation may be done against the individual building block - but this is not necessarily convenient if this is managed in a separate register.  
 
 ## Prefixes
 

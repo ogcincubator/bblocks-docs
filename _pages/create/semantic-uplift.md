@@ -35,13 +35,21 @@ The JSON LD context:
 
 ## Modularity support
 
-JSON-LD contexts are very complex and hard to debug if the schema is at all complex.
+JSON-LD contexts need to be aware of the underlying JSON schema - and in many applications schemas are compplex with  nested sub-schemas. Examples of this are metadata schemas such as STAC, but even the basic GeoJSON Feature model is surprisingly hard to model in a consistent fashion.
 
-The Building Blocks design allows automatic combination of contexts based on the schema re-use patterns.
+The Building Blocks design allows automatic combination of contexts based on the schema re-use patterns.  As schema complexity grows through re-use of standard components the benefits of the Building Blocks approach rapidly evolves from an efficiency into a critical enabler. 
+
+_Its probable that the lack of JSON-LD support for existing metadata is due to this challenge.  This capability is not  only faster and better - but making semantic interoperability practically achievable for the first time._
 
 ## Context design
 
-_TBD: document local contexts and use of @base mappings. _
+If contexts are being combined, then a number of possibilities emerge, but need careful design and testing.
+
+One such possibility is the conversion of tokens into URIs depending on where these are encountered in a schemas. 
+
+This can be achieved through several mechanisms. 
+
+_TBD: document local contexts and use of @base mappings - and link to examples of different patterns_
 
 ## Additional semantic uplift steps
 
@@ -74,3 +82,7 @@ The following types are supported and will be automatically processed when uplif
     replace the graph obtained from the JSON-LD uplift.
   * `sparql-update`: A [SPARQL UPDATE](https://www.w3.org/TR/2013/REC-sparql11-update-20130321/) query that will
     be applied on the graph. The full resulting graph will be returned.
+
+### Semantic uplift in run-time
+
+If extra steps are required to map a schema to a model, then it becomes an implementation challenge to implement these steps. It is a work in progress to consider the reusability (FAIR) of transformations, and how these may be related to known profiles and allow software to automatically apply a small number of well-tested standard transformations.
