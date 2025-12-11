@@ -27,6 +27,17 @@ examples:
         ref: example1.json # in the same directory as examples.yaml
 ```
 
+The key `base-output-filename` can be used to specfiy a specific name for the generated test case. This is particularly useful if the result of transformations is intended to be further processed or validated.
+
+```yaml
+examples:
+  - title: Example with predictable output file name
+    base-output-filename: myExample
+    snippets:
+      - language: json
+        code: '{ "a": 1 }'
+```
+
 Please refer to
 [the updated JSON schema for `examples.yaml`](https://raw.githubusercontent.com/opengeospatial/bblocks-postprocess/master/ogc/bblocks/schemas/examples.schema.yaml)
 for more information.
