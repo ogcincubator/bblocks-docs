@@ -18,10 +18,12 @@ docs:
         url: /overview/relationships
   - title: Use Cases for Building Blocks
     children:
-      - title: Typical Use Cases
+      - title: Improving and Augmenting Standards
         url: /usecases/usecases
       - title: STAC extensions
         url: /usecases/stac_extension
+      - title: Specifying functions
+        url: /usecases/functions
   - title: Quick Start
     children:
       - title: Local Build

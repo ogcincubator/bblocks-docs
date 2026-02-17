@@ -5,24 +5,46 @@ permalink: /usecases/stac_extension
 
 ## Creating or updating a STAC extension
 
-_(This is a work in progress and we explore even better ways to support STAC and Records extensions)_
+_(This is a work in progress and we will explore even better ways to support STAC and Records extensions)_
+
+
+### STAC extension mechanisms
 
 STAC extensions are defined in a repository and provide a number of elements - they are in fact a "STAC Building Block" in that they can be combined with each other. ("Building" is the fundamental concept here!)
 
-One problem is that extensions may have inconsistent schemas, reuse of schema elements and duplication. 
+The current approach to defining a STAC extension](https://stac-extensions.github.io/) currently is based on a git repository template, then editing a full copy of the STAC item and/or collection schemas.
+
+This approach has several issues that could be improved:
+
+- interdependencies are not visible
+- recommended combinations are not named, and visibility of design intent limited to free text and examples.
+- extensions may have inconsistent schemas, reuse of schema elements and duplication.
+- version dependence is not well handled
+- duplications exist without a deprecation mechanism
+- a lot of JSON schema syntax is required to achieve very simple things
+- the actual extension is buried deep in a complex schema
+- there is no formal [governance of the extension mechanism](https://stac-extensions.github.io/) as a register
+- key prefixes are recommended to avoid clashes - but no register of these exist - nor are they synced to other prefix mechanisms such as namespaces for CURIEs
+
+
+### Building Blocks for STAC
+
+most of the limitations discussed above could be avoided by using a formal register of Building Blocks with a simplified profiling mechanism - with auto-generation of STAC schemas for a suite of supported versions.
 
 Using the OGC Building Blocks approach to define or annotate a STAC extension provides an additional layer of support for:
 
+- AI-ready semantic annotation of the meaning of elements.
 - validating examples work with other STAC schemas
 - documenting the relationships between STAC schemas
 - integration of STAC schemas and or conceptual model into other metadata models
 - integration of other building blocks into STAC schemas
 
+
 ### Dependency modelling and reduction of duplication
 
 Refactoring STAC schemas to reuse (rather than copy) sub-schemas for specific patterns makes it clear the common semantics and intended interoperability of these sub-schemas.
 
-For example, this could have avoided the triplication of "raster" models from EO, raster and core 1.1 schemas that now makes extensions like STAC-MLM very verbose and complex.
+For example, this could have avoided the triplication of "raster" models from EO, raster and core 1.1 schemas that now makes extensions like [STAC-MLM](https://ogcincubator.github.io/bblocks-stac/bblock/ogc.contrib.stac.extensions.mlm) very verbose and complex.
 
 ### Documentation management
 
