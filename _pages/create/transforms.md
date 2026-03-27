@@ -257,5 +257,101 @@ transform is silently skipped when the runtime does not meet the requirement.
 
 ## Unknown transform types
 
-Declaring a transform with a type not listed above is valid — it will be included in the building block register for
-other tools or systems that support it, and simply skipped during postprocessing.
+Declaring a transform with a type not listed above is valid — it will be included in the building block
+register for other tools or systems that support it, and skipped during postprocessing unless a matching
+[transform plugin](#transform-plugins) is declared.
+
+---
+
+## Transform plugins
+
+You can add support for custom transform types by declaring **transform plugins** in a
+`transform-plugins.yml` file at the root of your building blocks repository:
+
+```yaml
+plugins:
+  - pip: git+https://github.com/example/my-bblocks-plugin.git
+    modules:
+      - my_bblocks_plugin
+```
+
+Each plugin entry installs one or more pip packages and scans the listed Python modules for transformer
+classes. A transformer class is recognised by duck typing — it needs:
+
+- `transform_types`: a non-empty list of type name strings
+- `transform(metadata)`: a callable that accepts a metadata object and returns a string or bytes, or raises an exception on failure
+
+Each plugin runs in its own isolated virtualenv (created automatically under the postprocessing sandbox),
+so dependency conflicts between plugins, or between a plugin and the postprocessor itself, are not a
+concern.
+
+`pip` accepts any specifier that `pip install` understands, including version constraints, GitHub URLs,
+and local paths. It can be a string or a list when multiple packages are needed.
+
+The postprocessor automatically derives a human-facing URL from the `pip` specifier (PyPI page for
+package names, repository URL for `git+https://` references). You can override this with an explicit
+`url` field:
+
+```yaml
+plugins:
+  - pip: git+https://github.com/example/my-bblocks-plugin.git
+    url: https://github.com/example/my-bblocks-plugin
+    modules:
+      - my_bblocks_plugin
+```
+
+Plugin metadata (types, class names, pip reference, and URL) is included in `register.json` under
+`transformPlugins`, allowing viewers and tooling to attribute each transform type to its plugin.
+
+### The `metadata` object
+
+The `metadata` argument passed to `transform()` is a plain namespace with the following attributes:
+
+| Attribute | Type | Description |
+|-----------|------|-------------|
+| `type` | `str` | The transform type identifier (e.g. `jinja2`) |
+| `transform_content` | `str` | The code or script declared in `transforms.yaml` (`code` or `ref`) |
+| `input_data` | `str` | The example snippet text |
+| `source_mime_type` | `str` | MIME type of the input snippet |
+| `target_mime_type` | `str` | MIME type of the declared output |
+| `metadata` | `dict` | Extra metadata from the transform declaration (keys starting with `_` excluded) |
+| `sandbox_dir` | `None` | Always `None` in the plugin subprocess context |
+
+### Return value and error handling
+
+Return a `str` or `bytes` to produce output. Return `None` to produce no output (not an error).
+Raise any exception to signal failure — the exception message becomes the transform's stderr output.
+
+### Transformer class attributes
+
+| Attribute | Required | Description |
+|-----------|----------|-------------|
+| `transform_types` | yes | List of type name strings this class handles |
+| `default_inputs` | no | Default input media types (used when `inputs` is not declared in `transforms.yaml`) |
+| `default_outputs` | no | Default output media types (used when `outputs` is not declared in `transforms.yaml`) |
+
+### Example plugin
+
+The following skeleton shows the minimal structure. `metadata.transform_content` carries the
+user-supplied code or script from `transforms.yaml`, so the transform logic is data-driven rather
+than hard-coded in the plugin.
+
+```python
+# my_bblocks_plugin/__init__.py
+import json
+
+class MyTransformer:
+    transform_types = ['my-type']
+    default_inputs = ['application/json']
+    default_outputs = ['text/plain']
+
+    def transform(self, metadata):
+        data = json.loads(metadata.input_data)
+        # metadata.transform_content holds the code/expression from transforms.yaml
+        # return a string or bytes, or raise on error
+        return str(data)
+```
+
+A real-world example is the
+[bblocks-jinja2-transform-plugin](https://github.com/ogcincubator/bblocks-jinja2-transform-plugin),
+which adds a `jinja2` transform type that renders Jinja2 templates against JSON input.
