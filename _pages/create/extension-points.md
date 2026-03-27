@@ -17,13 +17,22 @@ An extension point consists of:
 - A set of **mappings** from referenced building blocks in the base (or its imports) to your custom building blocks.
 
 <div class="notice notice--warning" markdown="1">
-#### Schema support only
-Extensions are currently supported for building blocks with schemas, not for those with OpenAPI documents.
+#### OpenAPI building blocks
+For building blocks backed by an OpenAPI document rather than a standalone JSON Schema, extension points
+are **declarative only** — they are recorded in the register for clients to interpret, but no compiled
+schema document is produced.
 </div>
 
 
-This approach ensures that any references in the base schema (or recursively in its imports) to a 
+This approach ensures that any references in the base schema (or **recursively in its imports**) to a
 given building block are further constrained to conform to your specialized version.
+
+For example: if a base `FeatureCollection` building block references a `Feature` building block, and you
+need a collection that only accepts your specialized `MyFeature` type, you declare an extension mapping
+`Feature → MyFeature`. The postprocessor then produces a compiled schema for your extension in which
+every reference to `Feature` in the base — including references buried inside imported building blocks —
+is constrained to also satisfy `MyFeature`. Consumers can validate against that single compiled schema
+without needing to understand the extension relationship at all.
 
 Extension points also preserve semantic mappings in building blocks and (unless explicitly disabled) inherit
 SHACL validation shapes from both the base building block and the targets for the extensions.
@@ -35,8 +44,11 @@ SHACL validation shapes from both the base building block and the targets for th
 - **Customization**: Adapt standard building blocks to your domain-specific requirements.
 - **Consistency**: Maintain compatibility with OGC standards while introducing specialized semantics.
 - **Reusability**: Avoid duplicating entire schemas; only override what you need.
+- **Convenience**: The postprocessor compiles a single, self-contained schema document — no need to
+  chain multiple schemas together at validation time.
 
 ## How It Works
+
 When you declare an extension point:
 1. You specify a **base building block**.
 2. You provide a set of **from → to mappings**:
