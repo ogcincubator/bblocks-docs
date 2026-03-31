@@ -27,7 +27,7 @@ when the Pull Request is created, making the process more difficult.
 
 To work around this, the following bash script can be used to create a "clean" branch excluding all changes in the 
 `build/` directory, which can then be used to create the Pull Request from (instead of the `master`/`main` one):
-[create-clean-pr.sh](https://gist.githubusercontent.com/avillar/acb3e22d36ddf1ddbf8ff5c1aa64616f/raw/a0046485a48bc1ced94b8d2c6605d32df0f3c3eb/create-clean-pr.sh)
+[create-clean-pr.sh](https://gist.githubusercontent.com/avillar/acb3e22d36ddf1ddbf8ff5c1aa64616f/raw/create-clean-pr.sh)
 
 The script is run locally on the directory of the forked register, and it requires that the upstream repository
 (i.e., the original Building Blocks register) is
@@ -40,3 +40,22 @@ push the branch to your fork of the register, and provide you with a URL to crea
 It relies on the [`git-filter-repo`](https://github.com/newren/git-filter-repo) Python script, so you must have a working
 Python environment for it to work. If `git-filter-repo` is already installed on your system, the script will use it,
 and otherwise will download a copy to a temporary directory (which will be deleted once it is done).
+
+## Fork-specific configuration overrides
+
+When working on a fork, you may want to change some settings in `bblocks-config.yaml` — for example, to use a different
+identifier prefix or a different set of imports — without those changes being included in the Pull Request.
+
+You can do this by creating a `bblocks-config-override.yml` (or `.yaml`) file at the root of your repository. Any
+top-level key present in this file will override the corresponding value from `bblocks-config.yaml`. For example:
+
+```yaml
+# bblocks-config-override.yml
+identifier-prefix: my-fork.
+imports:
+  - https://www.example.com/overriden-import-1
+  - https://www.example.com/overriden-import-2
+```
+
+The `create-clean-pr.sh` script automatically excludes `bblocks-config-override.yml/yaml` from the clean PR branch,
+so these fork-specific settings will never appear in Pull Requests to the upstream register.
