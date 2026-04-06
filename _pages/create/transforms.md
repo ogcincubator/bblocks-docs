@@ -255,6 +255,57 @@ transform is silently skipped when the runtime does not meet the requirement.
 
 ---
 
+## Output profile validation
+
+A transform's outputs can be validated against one or more building blocks by declaring them as
+profiles. During postprocessing, every output file produced by the transform is validated against
+each declared profile using the same validators that run on regular test resources (JSON Schema,
+JSON-LD context, and SHACL).
+
+Profiles are declared under `outputs.profiles` as a list of building block identifiers, using the
+`bblocks://` URI scheme:
+
+```yaml
+transforms:
+  - id: to-geojson-feature
+    type: jq
+    inputs:
+      mediaTypes: [ application/json ]
+    outputs:
+      mediaTypes: [ application/geo+json ]
+      profiles:
+        - bblocks://ogc.geo.features.feature
+```
+
+Both locally-defined building blocks and imported building blocks from other registers are supported.
+
+### What gets produced
+
+For each declared profile, postprocessing creates a subdirectory named after the profile identifier
+alongside the transform outputs and writes:
+
+- A `.validation_{passed|failed}.txt` text report for each output file
+- Semantic uplift side-outputs (`.jsonld`, `.ttl`) when the profile includes a JSON-LD context
+- A consolidated `_report.json` covering all validated outputs for that profile
+
+The per-snippet transform result in `register.json` gains a `profilesValidation` map keyed by
+profile identifier:
+
+```json
+"profilesValidation": {
+  "ogc.geo.features.feature": {
+    "result": true,
+    "report": "build/tests/my.bblock/transforms/ogc.geo.features.feature/_report.json",
+    "upliftedFiles": {
+      "jsonld": "build/tests/my.bblock/transforms/ogc.geo.features.feature/output.jsonld",
+      "ttl":    "build/tests/my.bblock/transforms/ogc.geo.features.feature/output.ttl"
+    }
+  }
+}
+```
+
+---
+
 ## Unknown transform types
 
 Declaring a transform with a type not listed above is valid — it will be included in the building block
