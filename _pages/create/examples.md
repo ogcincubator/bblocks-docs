@@ -27,6 +27,21 @@ examples:
         ref: example1.json # in the same directory as examples.yaml
 ```
 
+A `json-path` expression can be combined with `ref` to extract a specific value from the referenced
+file instead of using its full contents. Both JSON and YAML files are supported. The first match of
+the expression is used as the snippet code. If the file cannot be parsed or the expression matches
+nothing, the snippet is skipped with a warning.
+
+```yaml
+examples:
+  - title: My extracted example
+    content: Only the "features" array from a GeoJSON file
+    snippets:
+      - language: json
+        ref: example1.json
+        json-path: $.features
+```
+
 Please refer to
 [the updated JSON schema for `examples.yaml`](https://raw.githubusercontent.com/opengeospatial/bblocks-postprocess/master/ogc/bblocks/schemas/examples.schema.yaml)
 for more information.
