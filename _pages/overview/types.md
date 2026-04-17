@@ -16,7 +16,7 @@ Key types include:
 - transformations from XML, CSV, etc to validatable forms (JSON, RDF)
 - rules (constraints on other schemas or RDF models)
 
-In all cases, the Building Block annotations provide transparent dependency declarations and the opportunity to systematically test example.
+In all cases, the Building Block annotations provide transparent dependency declarations and the opportunity to systematically test examples.
 
 # Patterns
 

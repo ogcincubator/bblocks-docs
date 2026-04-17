@@ -12,7 +12,7 @@ _(This is a work in progress and we will explore even better ways to support STA
 
 STAC extensions are defined in a repository and provide a number of elements - they are in fact a "STAC Building Block" in that they can be combined with each other. ("Building" is the fundamental concept here!)
 
-The current approach to defining a STAC extension](https://stac-extensions.github.io/) currently is based on a git repository template, then editing a full copy of the STAC item and/or collection schemas.
+The current approach to defining a [STAC extension](https://stac-extensions.github.io/) currently is based on a git repository template, then editing a full copy of the STAC item and/or collection schemas.
 
 This approach has several issues that could be improved:
 
@@ -29,7 +29,7 @@ This approach has several issues that could be improved:
 
 ### Building Blocks for STAC
 
-most of the limitations discussed above could be avoided by using a formal register of Building Blocks with a simplified profiling mechanism - with auto-generation of STAC schemas for a suite of supported versions.
+Most of the limitations discussed above could be avoided by using a formal register of Building Blocks with a simplified profiling mechanism - with auto-generation of STAC schemas for a suite of supported versions.
 
 Using the OGC Building Blocks approach to define or annotate a STAC extension provides an additional layer of support for:
 

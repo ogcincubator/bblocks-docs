@@ -12,7 +12,7 @@ This relationship implies that a building block depends on another, in a generic
 This is the default type of relationship that exists, for example, when the schema of a building
 block is referenced from another. 
 
-This type of dependency uses the `dependsOn` property in the building blocks register and metadata files.
+This type of dependency is declared using `dependsOn` in `bblock.json`.
 
 ## <a name="type-profileOf"></a>Profiling (`profileOf`)
 
@@ -27,7 +27,7 @@ When defining [extension points](../create/extension-points.md), three new types
 
 ### <a name="type-extends"></a>Extends
 
-This relationship links a building block with the another that is used as an extension base, and for 
+This relationship links a building block with another that is used as an extension base, and for 
 which extension points are defined. It is a special case of the `profileOf` property.
 
 ### <a name="type-extensionTarget"></a>Extension target

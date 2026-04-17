@@ -31,7 +31,7 @@ Many specification languages or target technologies are poor at exposing such de
 
 Building Blocks must support re-use of components across different governance domains. This is supported by [Transparency](#transparency-of-dependencies-and-commonality).
 
-Managing distributed development and evolution cycles is supported by [Regression Testing](#testing.)
+Managing distributed development and evolution cycles is supported by [Regression Testing](#testing).
 
 ## Profiling
 
@@ -43,10 +43,10 @@ See [Profiles](profiles.md)
 
 Testing is automated, and functions in at least four modes:
 
-1) Basic syntax checking of components and descriptions
-2) Unit tests of example implementations for individual components, including positive and negative tests
-3) Integration testing, including inheritance of tests from dependencies
-4) Regression testing to ensure continual compliance with dependent components.
+1. Basic syntax checking of components and descriptions
+2. Unit tests of example implementations for individual components, including positive and negative tests
+3. Integration testing, including inheritance of tests from dependencies
+4. Regression testing to ensure continual compliance with dependent components.
 
 
 

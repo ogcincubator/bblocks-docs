@@ -5,7 +5,7 @@ permalink: /usecases/usecases
 
 ## Writing a new standard
 
-SWGs and document Editors need a simple capability to search and determine if there is a _requirements class_ somewhere in some OGC Standard that they can reuse. Then, if they find that requirements class,  the can use a reference (and unique identifier).   Then at publication, the full content (including the conformance test classes and OpenAPI/YAML content for API standards) would be shown but not actually duplicated. This is the standards' developer use case.
+SWGs and document Editors need a simple capability to search and determine if there is a _requirements class_ somewhere in some OGC Standard that they can re-use. Then, if they find that requirements class,  they can use a reference (and unique identifier).   Then at publication, the full content (including the conformance test classes and OpenAPI/YAML content for API standards) would be shown but not actually duplicated. This is the standards' developer use case.
 
 Note that this is not something that is consistently done, or easy to do in the normal course of standards development:
 
@@ -76,7 +76,7 @@ Reduces cost, time, risk and documentation burden on application design.
 
 ### Interoperability of the application with other related applications
 
-Reuse of components accelerates design and reduces documentation and testing burdens.  A common documentation style reduces cost of interoperability when integrating different systems. Transparency of reuse of common components reduces the cost of identifying interoperability opportunities and where custom solutions will be required.  For a typical application it is expected that most components will not be unique, and use of well described profiles can address application specific requirements rather than design and documentation of all aspects of component behaviour.
+Re-use of components accelerates design and reduces documentation and testing burdens.  A common documentation style reduces cost of interoperability when integrating different systems. Transparency of re-use of common components reduces the cost of identifying interoperability opportunities and where custom solutions will be required.  For a typical application it is expected that most components will not be unique, and use of well described profiles can address application specific requirements rather than design and documentation of all aspects of component behaviour.
 
 ### Deployability of an application in an infrastructure context
 

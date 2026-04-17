@@ -3,11 +3,10 @@ title: Profiles
 permalink: /overview/profiles
 ---
 
-BuildingBlocks support two usage modes:
-- composition
-- profiling
+BuildingBlocks support several usage modes, as described in [Types (Patterns)](types#patterns)
 
-This document described profiling mechanisms.
+
+This section describes the profiling mechanisms in more detail.
 
 **Profiles** allow all the underlying details of base standards to be automatically included in testing and validation - this _encapsulates_ the underlying complexity of base specifications.
  
@@ -25,7 +24,7 @@ Because many technologies like JSON and RDF are permissive (by default) about ad
 
 ## Profiles of profiles... 
 
-Profiles can be designed as separate re-usable sets of constraints that can be reused - for example a time-series of water-quality monitoring observations could be specified as a profile of both a time-series profile of Observations and a water-quality profile for the results of such observations.
+Profiles can be designed as separate re-usable sets of [**constraints**](profiles#what-forms-of-constraints-are-possible) that can be reused - for example a time-series of water-quality monitoring observations could be specified as a profile of both a time-series profile of Observations and a water-quality profile for the results of such observations.
 In turn the time-series profile could defined as data structure using GeoJSON, or Coverage JSON.  The water-quality content requirements could be described using constraints independent of the data structure.
 
 ## Profiles for infrastructure compatibility
@@ -36,7 +35,7 @@ Underlying standards allow reusable software and libraries to be used at all lev
 
 This can be visualised as a layered model of typical profiles, identifying the types of constraints typically present at each layer. 
 
-![Profile layers](profiles.png)
+[![Profile layers](profiles.png)](profiles.png)
 
 
 ## What forms of constraints are possible?
@@ -53,7 +52,7 @@ Built-in support is provided for automatic validation of the following forms:
 
 In addition [custom validators](../create/validation) can be added to the validation workflow. 
 
-Using a JSON-LD context "semantic uplift" of JSON to RDF supports use of SHACL and other forms of validators to 
+Using a JSON-LD context "semantic uplift" of JSON to RDF supports use of SHACL and other forms of validators for validation.
 
 ## Testing
 
