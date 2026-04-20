@@ -168,6 +168,14 @@ Applies a semantic uplift mapping (as used by the OGC NA tools) to JSON input, p
 ### python
 
 Runs a Python code snippet. The snippet receives `input_data` (a string) and must assign its result to `output_data`.
+A `transform_metadata` namespace is also available with the following attributes:
+
+| Attribute | Description |
+|-----------|-------------|
+| `source_mime_type` | MIME type of the input snippet |
+| `target_mime_type` | MIME type of the declared output |
+| `metadata` | Extra metadata from the transform declaration (keys starting with `_` excluded) |
+| `context` | [Transform context](#transform-context) namespace |
 
 ```yaml
   - id: uppercase-keys
@@ -215,6 +223,14 @@ a string variable, and `output_data` is whatever string you assign.
 ### node
 
 Runs a Node.js code snippet. The snippet receives `inputData` (a string) and must assign its result to `outputData`.
+A `transformMetadata` object is also available with the following properties:
+
+| Property | Description |
+|----------|-------------|
+| `sourceMimeType` | MIME type of the input snippet |
+| `targetMimeType` | MIME type of the declared output |
+| `metadata` | Extra metadata from the transform declaration (keys starting with `_` excluded) |
+| `context` | [Transform context](#transform-context) object (snake_case keys) |
 
 ```yaml
   - id: add-metadata
@@ -306,6 +322,63 @@ profile identifier:
 
 ---
 
+## Transform context
+
+All executable transform types (Python, Node, and plugins) receive a **transform context** with metadata about
+the building block, example, and postprocessing run. In Python snippets it is `transform_metadata.context`
+(a `SimpleNamespace`); in Node snippets it is `transformMetadata.context` (a plain object); in plugins it is
+`metadata.ctx` (a `SimpleNamespace`). All fields use snake_case.
+
+**Building block:**
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `bblock_id` | `str` | Building block identifier |
+| `bblock_name` | `str \| None` | Human-readable name |
+| `bblock_version` | `str \| None` | Version string |
+| `bblock_tags` | `list` | Tags declared in `bblock.json` |
+| `bblock_files_path` | `str` | Absolute path to the building block source directory |
+| `bblock_annotated_path` | `str` | Absolute path to the annotated output directory |
+| `bblock_metadata` | `dict` | Full building block metadata snapshot at transform time |
+
+| `source_schema_path` | `str \| None` | Relative path to the source schema file, or URL if declared as a remote reference |
+| `annotated_schema_path` | `str \| None` | Relative path to the annotated schema, if generated |
+| `jsonld_context_path` | `str \| None` | Relative path to the generated JSON-LD context, if present |
+| `shacl_shapes_paths` | `list` | Relative paths or URLs of SHACL shapes (local files are relativized to CWD; remote references are preserved as URLs) |
+
+**Example and snippet:**
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `example_index` | `int` | Zero-based index of the current example |
+| `example` | `dict` | Full example object (title, prefixes, base-output-filename, etc.) — `snippets` excluded |
+| `snippet_index` | `int` | Zero-based index of the current snippet within the example |
+| `snippet` | `dict` | Full snippet object (language, url, ref, json-path, prefixes, etc.) — `code` excluded (use `input_data`) |
+
+**Output:**
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `output_file` | `str` | Absolute path where this transform's output will be written |
+| `output_dir` | `str` | Absolute path to the transform output directory for this building block |
+| `working_dir` | `str` | Working directory at postprocessing time |
+
+**Register and configuration:**
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `base_url` | `str \| None` | Base URL for generated output |
+| `github_base_url` | `str \| None` | GitHub repository base URL (e.g. `https://github.com/org/repo/`) |
+| `git_repository` | `str \| None` | Git remote URL |
+| `id_prefix` | `str` | Building block identifier prefix from `bblocks-config.yaml` |
+| `imported_register_urls` | `list` | Register import URLs from `bblocks-config.yaml` |
+| `transform_plugins` | `list` | Active transform plugins |
+
+Note: `bblock_metadata` reflects the state at transform time — fields populated after the transforms step
+(such as `shaclShapes` URLs and `documentation`) will not be present yet.
+
+---
+
 ## Unknown transform types
 
 Declaring a transform with a type not listed above is valid — it will be included in the building block
@@ -367,6 +440,7 @@ The `metadata` argument passed to `transform()` is a plain namespace with the fo
 | `target_mime_type` | `str` | MIME type of the declared output |
 | `metadata` | `dict` | Extra metadata from the transform declaration (keys starting with `_` excluded) |
 | `sandbox_dir` | `None` | Always `None` in the plugin subprocess context |
+| `ctx` | `SimpleNamespace` | [Transform context](#transform-context) |
 
 ### Return value and error handling
 
