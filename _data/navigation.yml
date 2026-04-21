@@ -70,3 +70,7 @@ docs:
         url: /create/transforms
       - title: RDF-only Building Blocks
         url: /create/rdf-only
+      - title: External resources
+        url: /create/resources
+      - title: Extension points
+        url: /create/extension-points

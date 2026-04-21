@@ -10,16 +10,16 @@ Building block metadata provides context information about the item in the build
 
 ### Core (ISO 19135)
 
-| Property | Required | Description |
-|---|---|---|
-| `name` * | yes | User-friendly name for this Building Block. |
-| `abstract` * | yes | Short description. Shown as a summary in the register. |
-| `status` * | yes | One of: `under-development`, `experimental`, `stable`, `superseded`, `retired`, `invalid`, `reserved`, `submitted`. |
-| `dateTimeAddition` * | yes | ISO 8601 date-time when this Building Block was added to the register (e.g. `2024-01-15T00:00:00Z`). |
-| `itemClass` * | yes | Type of Building Block. See [Item classes](#item-classes). |
-| `version` * | yes | Version string (e.g. `0.1`, `1.0.0`). |
-| `itemIdentifier` | auto | Unique identifier. Auto-generated from the register prefix and directory path — do not set manually. |
-| `dateOfLastChange` | no | ISO 8601 date of the latest change (e.g. `2024-06-01`). Falls back to `dateTimeAddition` if omitted. |
+| Property | Required | Description                                                                                                                 |
+|---|---|-----------------------------------------------------------------------------------------------------------------------------|
+| `name` * | yes | User-friendly name for this Building Block.                                                                                 |
+| `abstract` * | yes | Short description. Shown as a summary in the register.                                                                      |
+| `status` * | yes | One of: `under-development`, `experimental`, `stable`, `superseded`, `retired`, `invalid`, `reserved`, `submitted`.         |
+| `dateTimeAddition` * | yes | ISO 8601 date-time when this Building Block was added to the register (e.g. `2024-01-15T00:00:00Z`).                        |
+| `itemClass` * | yes | Type of Building Block. See [Item classes](#item-classes).                                                                  |
+| `version` * | yes | Version string (e.g. `0.1`, `1.0.0`).                                                                                       |
+| `itemIdentifier` | auto | Unique identifier. Auto-generated from the register prefix and directory path — do not set manually.                        |
+| `dateOfLastChange` | no | ISO 8601 date of the latest change (e.g. `2024-06-01`). Autodetected from git. Falls back to `dateTimeAddition` if omitted. |
 
 ### Item classes
 
