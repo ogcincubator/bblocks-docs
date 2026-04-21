@@ -31,3 +31,52 @@ Test cases and examples as either TTL or JSONLD will undergo syntax and SHACL va
         .
 
 ```
+
+## Ontology
+
+A building block can declare an ontology document — an RDF file that defines the classes, properties, and
+relationships that the building block's data model is based on.
+
+The `ontology` property in `bblock.json` accepts a file path (relative to the building block directory) or a URL:
+
+```json
+{
+  "ontology": "ontology.ttl"
+}
+```
+
+If `ontology` is not set, the postprocessor will automatically look for `ontology.ttl` or `ontology.owl` in the
+building block directory and use the first one found.
+
+The resolved ontology is published as part of the build output and included in the building block's register entry.
+
+## Semantic annotations
+
+Two metadata properties allow a building block to be linked to RDF concepts and classes:
+
+### `concept`
+
+`concept` is an array of URIs for the RDF concept(s) that this building block represents
+(mapped to `skos:closeMatch` in the register).
+
+```json
+{
+  "concept": [
+    "https://www.w3.org/ns/sosa/Observation"
+  ]
+}
+```
+
+### `rdfType`
+
+`rdfType` is an array of URIs for the RDF class(es) that instances of this building block conform to
+(mapped to `rdfs:subClassOf` in the register). Use this when you want to declare that instances of the
+building block belong to a particular RDF class.
+
+```json
+{
+  "rdfType": [
+    "https://www.w3.org/ns/sosa/Observation"
+  ]
+}
+```
