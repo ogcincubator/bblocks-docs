@@ -334,16 +334,16 @@ the building block, example, and postprocessing run. In Python snippets it is `t
 | Field | Type | Description |
 |-------|------|-------------|
 | `bblock_id` | `str` | Building block identifier |
-| `bblock_name` | `str \| None` | Human-readable name |
-| `bblock_version` | `str \| None` | Version string |
+| `bblock_name` | `str` \| `None` | Human-readable name |
+| `bblock_version` | `str` \| `None` | Version string |
 | `bblock_tags` | `list` | Tags declared in `bblock.json` |
 | `bblock_files_path` | `str` | Absolute path to the building block source directory |
 | `bblock_annotated_path` | `str` | Absolute path to the annotated output directory |
 | `bblock_metadata` | `dict` | Full building block metadata snapshot at transform time |
 
-| `source_schema_path` | `str \| None` | Relative path to the source schema file, or URL if declared as a remote reference |
-| `annotated_schema_path` | `str \| None` | Relative path to the annotated schema, if generated |
-| `jsonld_context_path` | `str \| None` | Relative path to the generated JSON-LD context, if present |
+| `source_schema_path` | `str` \| `None` | Relative path to the source schema file, or URL if declared as a remote reference |
+| `annotated_schema_path` | `str` \| `None` | Relative path to the annotated schema, if generated |
+| `jsonld_context_path` | `str` \| `None` | Relative path to the generated JSON-LD context, if present |
 | `shacl_shapes_paths` | `list` | Relative paths or URLs of SHACL shapes (local files are relativized to CWD; remote references are preserved as URLs) |
 
 **Example and snippet:**
@@ -367,9 +367,9 @@ the building block, example, and postprocessing run. In Python snippets it is `t
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `base_url` | `str \| None` | Base URL for generated output |
-| `github_base_url` | `str \| None` | GitHub repository base URL (e.g. `https://github.com/org/repo/`) |
-| `git_repository` | `str \| None` | Git remote URL |
+| `base_url` | `str` \| `None` | Base URL for generated output |
+| `github_base_url` | `str` \| `None` | GitHub repository base URL (e.g. `https://github.com/org/repo/`) |
+| `git_repository` | `str` \| `None` | Git remote URL |
 | `id_prefix` | `str` | Building block identifier prefix from `bblocks-config.yaml` |
 | `imported_register_urls` | `list` | Register import URLs from `bblocks-config.yaml` |
 | `transform_plugins` | `list` | Active transform plugins |
