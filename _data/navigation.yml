@@ -8,12 +8,12 @@ docs:
         url: /overview/principles
       - title: Registers
         url: /overview/registers  
-      - title: Profiles
-        url: /overview/profiles 
       - title: Types (Technologies)
         url: /overview/types 
       - title: Types (Patterns)
         url: /overview/types#patterns
+      - title: Profiles
+        url: /overview/profiles 
       - title: Relationships
         url: /overview/relationships
   - title: Use Cases for Building Blocks

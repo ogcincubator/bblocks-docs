@@ -7,7 +7,7 @@ Building Blocks sources are post-processed using a workflow package maintained b
 
 
 
-![OGC Building Blocks processing](https://raw.githubusercontent.com/opengeospatial/bblocks-postprocess/master/process.png)
+[![OGC Building Blocks processing](https://raw.githubusercontent.com/opengeospatial/bblocks-postprocess/master/process.png)](https://raw.githubusercontent.com/opengeospatial/bblocks-postprocess/master/process.png)
 
 ### Output testing
 

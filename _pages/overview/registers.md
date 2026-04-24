@@ -14,4 +14,4 @@ Key examples include:
 - [Examples](https://ogcincubator.github.io/bblocks-examples/) - Examples of different types and usage patterns. (_these are NOT intended as reuse except in examples and tutorials_)
 - [Tutorial](https://ogcincubator.github.io/bblocks-tutorial/) - a step-wise introduction to various features and configuration details for Building Blocks.
 
-![OGC Building Block Register Ecosystem](https://lucid.app/publicSegments/view/9d075f82-8611-4f32-83eb-994143669cc8/image.png)
+[![OGC Building Block Register Ecosystem](https://lucid.app/publicSegments/view/9d075f82-8611-4f32-83eb-994143669cc8/image.png)](https://lucid.app/publicSegments/view/9d075f82-8611-4f32-83eb-994143669cc8/image.png)

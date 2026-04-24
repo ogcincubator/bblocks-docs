@@ -9,7 +9,7 @@ Each example consists of Markdown `content` and/or a list of `snippets`. `snippe
 have a `language` (for highlighting, language tabs in Slate, etc.) and the `code` itself.
 
 `content` accepts text in Markdown format. Any relative links or images will be resolved to full
-URLs when the building block is published (see [Assets](#assets)).
+URLs when the building block is published.
 
 Instead of the `code`, a `ref` with a filename relative to `examples.yaml` can be provided:
 

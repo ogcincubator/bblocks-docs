@@ -12,7 +12,7 @@ The following image summarizes the general usage of a building block:
 The `_sources` directory will contain the sources for the building blocks inside this repository.
 
 - `bblock.json`: Contains the metadata for the building block. Please refer to this
-  [JSON schema](https://raw.githubusercontent.com/opengeospatial/bblocks-postprocess/master/ogc/bblocks/schemas/metadata.schema.yaml)
+  [JSON schema](https://raw.githubusercontent.com/opengeospatial/bblocks-postprocess/refs/heads/master/ogc/bblocks/schemas/bblock.schema.yaml)
   for more information.
 - `description.md`: Human-readable, Markdown document with the description of this building block.
   See [Adding documentation](documentation) for more information.
@@ -20,7 +20,7 @@ The `_sources` directory will contain the sources for the building blocks inside
 - `schema.json`: JSON schema for this building block, if any. See [JSON schema](schema).
     - `schema.yaml`, in YAML format, is also accepted (and even preferred).
 - `assets/`: Documentation assets (e.g. images) directory. See [Assets](#assets) below.
-- `tests/`: Test resources. See [Validation](#validation-and-tests).
+- `tests/`: Test resources. See [Validation](validation).
 
 Building Block identifiers are automatically generated in the form:
 
@@ -31,7 +31,7 @@ Building Block identifiers are automatically generated in the form:
 where:
 
 - `identifier-prefix` is read from `bblocks-config.yaml`. This will initially be a placeholder value,
-  but should have an official value eventually (see [How-to](#how-to)).
+  but should have an official value eventually (see [How-to](/create/#quick-how-to-create)).
 - `bb-path` is the dot-separated path to the building block inside the repository.
 
 For example, given a `r1.branch1.` identifier prefix and a `cat1/cat2/my-bb/bblock.json` metadata file,
