@@ -44,3 +44,5 @@ docker run --rm --pull=always -v "$(pwd):/register" -p 9090:9090 ghcr.io/ogcincu
 * Docker must be installed locally for the above commands to run
 * The syntax for `-v "$(pwd):/register"` may vary depending on your operating system
 * `-p 9090:9090` will publish the Viewer on port 9090 on your machine
+* By default the viewer shows only local building blocks. To also show imported ones, set
+  [`viewer.show-imported-depth`](/create/structure#additional-register-metadata-properties) in `bblocks-config.yaml`.

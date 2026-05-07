@@ -66,6 +66,14 @@ The following additional properties can be set inside `bblocks-config.yml`:
 * `abstract`: A short text to serve as an introduction to the register or building blocks collection. 
   Markdown can be used here.
 * `description`: A longer text with a description of the register or collection. Markdown can be used here.
+* `viewer`: Configuration for the [Building Blocks Viewer](/create/postprocessing#building-blocks-viewer).
+  * `show-imported-depth`: Controls which imported building blocks are shown in the viewer.
+    * `0` (default): only local building blocks.
+    * Positive integer (e.g. `1`, `2`): local building blocks plus imports up to that many levels deep.
+    * Negative integer (e.g. `-1`): all imported building blocks, regardless of depth.
+
+    This value is written to `register.json` and respected by the viewer both when deployed via GitHub Pages
+    and when [run locally](/create/postprocessing#building-blocks-viewer) against the register directly.
 
 ## Ready to use components
 
