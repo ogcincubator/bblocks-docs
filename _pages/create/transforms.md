@@ -353,7 +353,7 @@ the building block, example, and postprocessing run. In Python snippets it is `t
 | `example_index` | `int` | Zero-based index of the current example |
 | `example` | `dict` | Full example object (title, prefixes, base-output-filename, etc.) — `snippets` excluded |
 | `snippet_index` | `int` | Zero-based index of the current snippet within the example |
-| `snippet` | `dict` | Full snippet object (language, url, ref, json-path, prefixes, etc.) — `code` excluded (use `input_data`) |
+| `snippet` | `dict` | Full snippet object (language, url, ref, json-path, prefixes, etc.) — `code` excluded (use `input_data`). When `json-path` is set, `full-code` contains the full content of the referenced file before extraction. |
 
 **Output:**
 
