@@ -218,6 +218,9 @@ does not meet the requirement.
 The snippet can be adapted into a standalone script by reading from stdin and printing to stdout — `input_data` is just
 a string variable, and `output_data` is whatever string you assign.
 
+Python transforms can also call transforms from other building blocks using the
+[`get_transformer()` builtin](#get_transformer--gettransformer).
+
 ---
 
 ### node
@@ -268,6 +271,102 @@ A `transformMetadata` object is also available with the following properties:
 
 `npm` accepts any package name or specifier that `npm install` understands. If `node` is set to a semver range, the
 transform is silently skipped when the runtime does not meet the requirement.
+
+Node transforms can also call transforms from other building blocks using the
+[`getTransformer()` function](#get_transformer--gettransformer).
+
+---
+
+## `get_transformer` / `getTransformer`
+
+Python and Node transforms can call any transform defined in any building block — including transforms of a different
+type — using a built-in composition helper. This lets you build complex pipelines by reusing transforms across building
+blocks without duplicating logic.
+
+The callable returned by the helper accepts the content to transform plus optional parameters, runs the target transform
+in a sub-process, and returns the result.
+
+### Python: `get_transformer(bblock_id, transform_id)`
+
+`get_transformer` is injected as a built-in into every Python snippet. Call it to obtain a callable for a specific
+transform, then invoke that callable with the data you want to transform.
+
+```python
+# In a python transform
+import json
+
+# Get a callable for another building block's transform
+convert = get_transformer('ogc.example.other-bblock', 'my-jq-transform')
+
+data = json.loads(input_data)
+result_str = convert(json.dumps(data))
+output_data = result_str
+```
+
+**Callable signature:**
+
+```python
+callable(content, source_mime_type=None, extra_metadata=None)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `content` | `str` or `bytes` | The input data to transform |
+| `source_mime_type` | `str` \| `None` | Optional MIME type hint passed to the target transform |
+| `extra_metadata` | `dict` \| `None` | Optional dict merged into the target transform's metadata |
+
+The callable returns a `str` (or `bytes` for binary outputs), or `None` if the target transform produced no output.
+
+### Node: `getTransformer(bblockId, transformId)`
+
+`getTransformer` is injected into every Node snippet. The returned callable accepts the content and an options object.
+
+```javascript
+// In a node transform
+const convert = getTransformer('ogc.example.other-bblock', 'my-python-transform');
+
+const data = JSON.parse(inputData);
+const result = convert(JSON.stringify(data), { sourceMimeType: 'application/json' });
+outputData = result;
+```
+
+**Callable signature:**
+
+```javascript
+callable(content, opts?)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `content` | `string` or `Buffer` | The input data to transform |
+| `opts.sourceMimeType` | `string` | Optional MIME type hint passed to the target transform |
+| `opts.extraMetadata` | `object` | Optional object merged into the target transform's metadata |
+
+The callable returns a `string` (or `Buffer` for binary outputs), or `null` if the target transform produced no output.
+
+### Supported target types
+
+Both helpers can call transforms of the following types: `python`, `node`, `jq`, `xslt`, `json-ld-frame`.
+
+SPARQL, SHACL-AF, and `semantic-uplift` transforms are not supported as targets.
+
+### Cross-type chaining
+
+Any combination of supported types can call each other arbitrarily deep — for example, a Python transform can call a
+jq transform that was defined in another building block, or a Node transform can call a Python transform, which in turn
+calls an XSLT transform. The composition is fully symmetric across language boundaries.
+
+### Cycle detection
+
+If a transform is already executing in the current call chain, calling it again via `get_transformer` /
+`getTransformer` raises a `RuntimeError` (Python) or throws an `Error` (Node) immediately. Cycle detection works
+across process and language boundaries.
+
+### `_nested_transform` metadata flag
+
+The target transform's `metadata` will contain `_nested_transform: true` when invoked via `get_transformer` /
+`getTransformer`. This lets a transform behave differently when called as a sub-transform versus running as a
+top-level postprocessing step.
 
 ---
 
