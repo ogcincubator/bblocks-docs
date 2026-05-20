@@ -73,8 +73,6 @@ Applies a [jq](https://jqlang.org) expression to JSON input.
       .type = "ex:MyFeature"
 ```
 
----
-
 ### sparql-construct
 
 Runs a SPARQL CONSTRUCT query on RDF input, producing an RDF graph.
@@ -87,8 +85,6 @@ Runs a SPARQL CONSTRUCT query on RDF input, producing an RDF graph.
     type: sparql-construct
     ref: transforms/to-geosparql.sparql
 ```
-
----
 
 ### sparql-update
 
@@ -103,8 +99,6 @@ Runs a SPARQL UPDATE statement on an RDF graph in-place.
     ref: transforms/remap.sparql
 ```
 
----
-
 ### shacl-af-rule
 
 Applies [SHACL Advanced Features](https://www.w3.org/TR/shacl-af/) rules (SPARQL-based) to an RDF graph.
@@ -117,8 +111,6 @@ Applies [SHACL Advanced Features](https://www.w3.org/TR/shacl-af/) rules (SPARQL
     type: shacl-af-rule
     ref: transforms/infer-types.shacl.ttl
 ```
-
----
 
 ### xslt
 
@@ -133,8 +125,6 @@ Applies an XSLT stylesheet to XML input.
     ref: transforms/normalise.xslt
 ```
 
----
-
 ### json-ld-frame
 
 Applies a [JSON-LD frame](https://www.w3.org/TR/json-ld11-framing/) to JSON-LD or RDF input.
@@ -148,8 +138,6 @@ Applies a [JSON-LD frame](https://www.w3.org/TR/json-ld11-framing/) to JSON-LD o
     ref: transforms/frame.jsonld
 ```
 
----
-
 ### semantic-uplift
 
 Applies a semantic uplift mapping (as used by the OGC NA tools) to JSON input, producing RDF.
@@ -162,8 +150,6 @@ Applies a semantic uplift mapping (as used by the OGC NA tools) to JSON input, p
     type: semantic-uplift
     ref: transforms/uplift.yaml
 ```
-
----
 
 ### python
 
@@ -220,8 +206,6 @@ a string variable, and `output_data` is whatever string you assign.
 
 Python transforms can also call transforms from other building blocks using the
 [`get_transformer()` builtin](#get_transformer--gettransformer).
-
----
 
 ### node
 
@@ -428,6 +412,8 @@ the building block, example, and postprocessing run. In Python snippets it is `t
 (a `SimpleNamespace`); in Node snippets it is `transformMetadata.context` (a plain object); in plugins it is
 `metadata.ctx` (a `SimpleNamespace`). All fields use snake_case.
 
+Most transforms only need a handful of these fields; the full set is listed here for reference.
+
 **Building block:**
 
 | Field | Type | Description |
@@ -452,7 +438,10 @@ the building block, example, and postprocessing run. In Python snippets it is `t
 | `example_index` | `int` | Zero-based index of the current example |
 | `example` | `dict` | Full example object (title, prefixes, base-output-filename, etc.) — `snippets` excluded |
 | `snippet_index` | `int` | Zero-based index of the current snippet within the example |
-| `snippet` | `dict` | Full snippet object (language, url, ref, json-path, prefixes, etc.) — `code` excluded (use `input_data`). When `json-path` is set, `full-code` contains the full content of the referenced file before extraction. |
+| `snippet` | `dict` | Full snippet object (language, url, ref, json-path, prefixes, etc.) — `code` excluded (use `input_data`) |
+
+> **Note:** When `json-path` is set on a snippet, `snippet['full-code']` contains the complete content of the
+> referenced file before path extraction. This is useful when the transform needs context beyond the extracted value.
 
 **Output:**
 
@@ -478,15 +467,11 @@ Note: `bblock_metadata` reflects the state at transform time — fields populate
 
 ---
 
-## Unknown transform types
-
-Declaring a transform with a type not listed above is valid — it will be included in the building block
-register for other tools or systems that support it, and skipped during postprocessing unless a matching
-[transform plugin](#transform-plugins) is declared.
-
----
-
 ## Transform plugins
+
+Declaring a transform type not listed in [Supported transform types](#supported-transform-types) is valid — it will be
+included in the building block register for other tools or systems that support it, and skipped during postprocessing
+unless a matching plugin is declared here.
 
 You can add support for custom transform types by declaring **transform plugins** in a
 `transform-plugins.yml` file at the root of your building blocks repository:
