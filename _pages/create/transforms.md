@@ -204,6 +204,10 @@ does not meet the requirement.
 The snippet can be adapted into a standalone script by reading from stdin and printing to stdout — `input_data` is just
 a string variable, and `output_data` is whatever string you assign.
 
+**Binary data:** `input_data` may be a `bytes` object when the input comes from a binary-producing transform in a
+chain. Assign `bytes` to `output_data` to produce binary output; the postprocessor will detect this and open the
+output file in binary mode. `print()` calls are captured and do not interfere with the output.
+
 Python transforms can also call transforms from other building blocks using the
 [`get_transformer()` builtin](#get_transformer--gettransformer).
 
@@ -256,6 +260,10 @@ A `transformMetadata` object is also available with the following properties:
 `npm` accepts any package name or specifier that `npm install` understands. If `node` is set to a semver range, the
 transform is silently skipped when the runtime does not meet the requirement.
 
+**Binary data:** `inputData` may be a `Buffer` when the input comes from a binary-producing transform in a chain.
+Assign a `Buffer` to `outputData` to produce binary output; assigning a string produces text output. `console.log()`
+calls are captured and do not interfere with the output.
+
 Node transforms can also call transforms from other building blocks using the
 [`getTransformer()` function](#get_transformer--gettransformer).
 
@@ -277,13 +285,10 @@ transform, then invoke that callable with the data you want to transform.
 
 ```python
 # In a python transform
-import json
-
 # Get a callable for another building block's transform
 convert = get_transformer('ogc.example.other-bblock', 'my-jq-transform')
 
-data = json.loads(input_data)
-result_str = convert(json.dumps(data))
+result_str = convert(data)
 output_data = result_str
 ```
 
@@ -297,7 +302,7 @@ callable(content, source_mime_type=None, extra_metadata=None)
 |-----------|------|-------------|
 | `content` | `str` or `bytes` | The input data to transform |
 | `source_mime_type` | `str` \| `None` | Optional MIME type hint passed to the target transform |
-| `extra_metadata` | `dict` \| `None` | Optional dict merged into the target transform's metadata |
+| `extra_metadata` | `dict` \| `None` | Optional dict merged into the target transform's metadata (caller values take precedence over the target's declared metadata) |
 
 The callable returns a `str` (or `bytes` for binary outputs), or `None` if the target transform produced no output.
 
@@ -345,6 +350,26 @@ calls an XSLT transform. The composition is fully symmetric across language boun
 If a transform is already executing in the current call chain, calling it again via `get_transformer` /
 `getTransformer` raises a `RuntimeError` (Python) or throws an `Error` (Node) immediately. Cycle detection works
 across process and language boundaries.
+
+### Metadata scoping
+
+Each transform always receives **its own declared `metadata`** from `transforms.yaml` — the caller's metadata is
+not inherited. If you need to pass values from the calling transform into the target, use `extra_metadata`:
+
+```python
+# Python — forward the caller's metadata to the sub-transform
+convert = get_transformer('other.bblock', 'some-transform')
+result = convert(data, extra_metadata=transform_metadata.metadata)
+```
+
+```javascript
+// Node — same idea
+const convert = getTransformer('other.bblock', 'some-transform');
+const result = convert(data, { extraMetadata: transformMetadata.metadata });
+```
+
+`extra_metadata` / `extraMetadata` is merged on top of the target's own declared metadata, so the target's keys
+take lower priority than what the caller explicitly passes.
 
 ### `_nested_transform` metadata flag
 
@@ -529,7 +554,10 @@ The `metadata` argument passed to `transform()` is a plain namespace with the fo
 ### Return value and error handling
 
 Return a `str` or `bytes` to produce output. Return `None` to produce no output (not an error).
-Raise any exception to signal failure — the exception message becomes the transform's stderr output.
+Raise any exception to signal failure — the full traceback becomes the transform's stderr output.
+
+Any output written to `stdout` or `stderr` during `transform()` (e.g. `print()` calls) is captured and
+logged at `DEBUG` level. To see it, run the postprocessor with `--log-level DEBUG`.
 
 ### Transformer class attributes
 
