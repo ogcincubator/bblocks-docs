@@ -160,7 +160,7 @@ A `transform_metadata` namespace is also available with the following attributes
 |-----------|-------------|
 | `source_mime_type` | MIME type of the input snippet |
 | `target_mime_type` | MIME type of the declared output |
-| `metadata` | Extra metadata from the transform declaration (keys starting with `_` excluded) |
+| `metadata` | Extra metadata from the transform declaration (keys starting with `_` excluded). Supports both attribute access (`transform_metadata.metadata.mode`) and dict-style access (`transform_metadata.metadata['mode']`, `for k in transform_metadata.metadata`, etc.) |
 | `context` | [Transform context](#transform-context) namespace |
 
 ```yaml
@@ -547,7 +547,7 @@ The `metadata` argument passed to `transform()` is a plain namespace with the fo
 | `input_data` | `str` | The example snippet text |
 | `source_mime_type` | `str` | MIME type of the input snippet |
 | `target_mime_type` | `str` | MIME type of the declared output |
-| `metadata` | `dict` | Extra metadata from the transform declaration (keys starting with `_` excluded) |
+| `metadata` | namespace / dict | Extra metadata from the transform declaration (keys starting with `_` excluded). Supports both attribute access and dict-style access |
 | `sandbox_dir` | `None` | Always `None` in the plugin subprocess context |
 | `ctx` | `SimpleNamespace` | [Transform context](#transform-context) |
 
