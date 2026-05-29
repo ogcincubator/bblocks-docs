@@ -468,6 +468,19 @@ Most transforms only need a handful of these fields; the full set is listed here
 > **Note:** When `json-path` is set on a snippet, `snippet['full-code']` contains the complete content of the
 > referenced file before path extraction. This is useful when the transform needs context beyond the extracted value.
 
+> **Note:** `snippet['shacl-closure']` contains the merged list of SHACL closure entries from both the building
+> block's `shaclClosures` (`bblock.json`) and the snippet's own `shacl-closure` (`examples.yaml`), deduplicated.
+> Entries may be URLs or paths relative to the building block source directory. To resolve a relative path:
+>
+> ```python
+> import os
+> closures = context.snippet.get('shacl-closure') or []
+> resolved = [
+>     c if c.startswith('http') else os.path.join(context.working_dir, context.bblock_files_path, c)
+>     for c in closures
+> ]
+> ```
+
 **Output:**
 
 | Field | Type | Description |
