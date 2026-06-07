@@ -511,15 +511,18 @@ Declaring a transform type not listed in [Supported transform types](#supported-
 included in the building block register for other tools or systems that support it, and skipped during postprocessing
 unless a matching plugin is declared here.
 
-You can add support for custom transform types by declaring **transform plugins** in a
-`transform-plugins.yml` file at the root of your building blocks repository:
+You can add support for custom transform types by declaring **transform plugins** in `bblocks-config.yaml`:
 
 ```yaml
 plugins:
-  - pip: git+https://github.com/example/my-bblocks-plugin.git
-    modules:
-      - my_bblocks_plugin
+  transforms:
+    - pip: git+https://github.com/example/my-bblocks-plugin.git
+      modules:
+        - my_bblocks_plugin
 ```
+
+> **Note:** The legacy `transform-plugins.yml` file is still accepted but deprecated. Move its contents
+> to the `plugins.transforms` key in `bblocks-config.yaml`.
 
 Each plugin entry installs one or more pip packages and scans the listed Python modules for transformer
 classes. A transformer class is recognised by duck typing — it needs:
