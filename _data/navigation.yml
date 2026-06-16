@@ -4,14 +4,12 @@ docs:
     children:
       - title: What is a Building Block?
         url: /overview/whatis
+      - title: Types
+        url: /overview/types
       - title: Design (a.k.a. FAIR principles)
         url: /overview/principles
       - title: Registers
-        url: /overview/registers  
-      - title: Types (Technologies)
-        url: /overview/types 
-      - title: Types (Patterns)
-        url: /overview/types#patterns
+        url: /overview/registers
       - title: Profiles
         url: /overview/profiles 
       - title: Relationships
