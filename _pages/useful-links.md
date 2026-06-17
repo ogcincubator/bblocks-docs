@@ -17,6 +17,7 @@ _Last update: 2026-06-17_
 
 - [OGC Blocks template](https://github.com/opengeospatial/bblocks-template)
 - [OGC Blocks examples register](https://ogcincubator.github.io/bblocks-examples/)
+- [Claude Code skill](https://ogcincubator.github.io/ogc-llm-skills/) (see `bblocks-authoring`)
 
 # Registers
 
