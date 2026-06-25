@@ -15,7 +15,7 @@ The outputs can be generated locally by running the following:
 
 ```shell
 # Process building blocks
-docker run --pull=always --rm --workdir /workspace -v "$(pwd):/workspace" \
+docker run -it --pull=always --rm --workdir /workspace -v "$(pwd):/workspace" \
   ghcr.io/opengeospatial/bblocks-postprocess  --clean true --base-url http://localhost:9090/register/
 ```
 
