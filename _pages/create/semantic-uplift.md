@@ -35,11 +35,54 @@ The JSON LD context:
 
 ## Modularity support
 
-JSON-LD contexts need to be aware of the underlying JSON schema - and in many applications schemas are compplex with  nested sub-schemas. Examples of this are metadata schemas such as STAC, but even the basic GeoJSON Feature model is surprisingly hard to model in a consistent fashion.
+JSON-LD contexts need to be aware of the underlying JSON schema - and in many applications schemas are complex with nested sub-schemas. Examples of this are metadata schemas such as STAC, but even the basic GeoJSON Feature model is surprisingly hard to model in a consistent fashion.
 
-The Building Blocks design allows automatic combination of contexts based on the schema re-use patterns.  As schema complexity grows through re-use of standard components the benefits of the Building Blocks approach rapidly evolves from an efficiency into a critical enabler. 
+The Building Blocks design allows automatic combination of contexts based on the schema re-use patterns: a building
+block that has no `context.jsonld` (or `x-jsonld-context`) of its own can still resolve to a full, valid semantic
+context, assembled from whichever of its dependencies (`dependsOn` / `isProfileOf`, walked transitively) do define
+one. Dependencies without a context of their own are simply skipped over — they still contribute their JSON Schema,
+just not any semantic mappings.
 
-_Its probable that the lack of JSON-LD support for existing metadata is due to this challenge.  This capability is not  only faster and better - but making semantic interoperability practically achievable for the first time._
+The diagram below is a real "Context sources" graph, traced by the [viewer](https://ogcincubator.github.io/bblocks-viewer)
+for the [`Custom Result for Observation Feature`](https://ogcincubator.github.io/bblocks-viewer/#/bblock/ogc.bbr.examples.observation.vectorObservationFeature?register=https://ogcincubator.github.io/bblocks-examples/build/register.json)
+building block, which defines no JSON-LD context of its own:
+
+![Context sources graph for the Custom Result for Observation Feature building block, showing its assembled context traced back through Observation Result, JSON-FG Feature/Feature Collection - Lenient, GeoPose Basic-YPR, JSON Link, JSON-FG time member, Feature, Feature Collection and GeoJSON](../../assets/context-composition/context-composition-diagram.svg)
+
+Its dependency chain runs several levels deep — through an intermediate `Observation Result` block, then through
+customized `JSON-FG Feature`/`Feature Collection - Lenient` blocks, down to `GeoPose Basic-YPR`, `JSON Link`,
+`JSON-FG time member`, `Feature`, `Feature Collection` and `GeoJSON` — yet the block itself just declares
+`dependsOn`/schema references; every one of those ancestors' JSON-LD mappings is picked up and merged automatically.
+
+As schema complexity grows through re-use of standard components, this stops being a convenience and becomes a
+critical enabler: authors of a mid-level or leaf building block don't need to redeclare mappings already defined
+by the blocks they build on, and every consumer gets a single, coherent context regardless of how many blocks were
+combined to produce the schema.
+
+### How the context actually gets assembled
+
+The composition isn't a merge of pre-built `context.jsonld` files — it's driven off the schema itself, using
+[`ogc-na-tools`](https://github.com/opengeospatial/ogc-na-tools), as part of the register build. Every building
+block's schema is first annotated in place with its JSON-LD mappings (as `x-jsonld-*` properties, following any
+`context.jsonld` it defines), then a second pass walks the compiled schema tree — through every `$ref`,
+`allOf`/`anyOf`/`oneOf` — from the root down, collecting whatever mappings it finds along the way into one flat
+`@context`. That walk happens for every building block, whether or not it defines a context of its own: a block
+with no mappings just contributes none, but the ones its dependencies defined are still picked up wherever they
+sit in the tree.
+
+So the "assembly" is really schema traversal, which is why the graph the viewer draws for a block's dependencies
+doubles as the map of where its context's mappings came from. Curious readers can dig into the
+`ogc-na-tools` source for the details.
+
+### Why not just reuse a general-purpose vocabulary like schema.org?
+
+A general-purpose vocabulary has to cover every domain at once, so it ends up large, loosely defined, and only
+loosely typed against any particular schema — good for broad discovery, but weak for validation and precise
+tooling. A context assembled from Building Blocks is the opposite: each mapping is scoped to the exact schema it
+annotates, tested against real examples (via [semantic uplift](#additional-semantic-uplift-steps) and
+[SHACL validation](validation)), and versioned alongside the schema it describes. The resulting contexts are
+small and stable enough to be identified and cached per building block, rather than re-fetched wholesale — which
+matters as much for tooling and AI agents consuming these schemas as it does for the infrastructure serving them.
 
 ## Context design
 
