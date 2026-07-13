@@ -17,7 +17,8 @@ _Last update: 2026-06-17_
 
 - [OGC Blocks template](https://github.com/opengeospatial/bblocks-template)
 - [OGC Blocks examples register](https://ogcincubator.github.io/bblocks-examples/)
-- [Claude Code skill](https://ogcincubator.github.io/ogc-llm-skills/) (see `bblocks-authoring`)
+- [Claude skill](https://ogcincubator.github.io/ogc-llm-skills/) (see `bblocks-authoring`)
+- [jsonld-ui-utils](https://github.com/ogcincubator/jsonld-ui-utils) — library for rendering JSON-LD data as semantically-enriched HTML tables / Leaflet map popups
 
 # Registers
 

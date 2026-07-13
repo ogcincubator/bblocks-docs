@@ -24,3 +24,19 @@ The OGC Building Blocks **solve this** by allowing unit-testing of simple JSON-L
 (Note this is currently the only Open Source tooling known to support this, and was developed in consultation with JSON schema design leads.)
 
 For more information see the [Use Cases](/usecases/usecases).
+
+## Tooling for consuming and displaying Linked Data
+
+Producing well-formed JSON-LD is only half the story — someone still has to render it for a human.
+[`@opengeospatial/jsonld-ui-utils`](https://github.com/ogcincubator/jsonld-ui-utils)
+([npm](https://www.npmjs.com/package/@opengeospatial/jsonld-ui-utils)) is a JavaScript/TypeScript
+library that takes a JSON-LD feature and its context and renders it as a nested HTML properties
+table, resolving property names and values against RDF metadata (labels, descriptions) fetched
+from the vocabularies they point to. It also ships a Leaflet plugin that turns a GeoJSON
+`FeatureCollection` into a map layer whose popups are these semantically-enriched tables rather
+than raw property dumps.
+
+[bblocks-viewer](https://github.com/ogcincubator/bblocks-viewer) uses this library to render the
+"Examples" tab whenever an example is a GeoJSON feature or collection, but the library itself is
+standalone and reusable in any application that needs to display JSON-LD data with resolved
+semantics.
