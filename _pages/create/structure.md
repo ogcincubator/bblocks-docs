@@ -74,6 +74,8 @@ The following additional properties can be set inside `bblocks-config.yml`:
 
     This value is written to `register.json` and respected by the viewer both when deployed via GitHub Pages
     and when [run locally](/create/postprocessing#building-blocks-viewer) against the register directly.
+  * `view-plugins`: custom client-side visualizations for example snippets or transform outputs.
+    See [Viewer view plugins](/create/view-plugins).
 
 ## Ready to use components
 
