@@ -66,6 +66,11 @@ The following additional properties can be set inside `bblocks-config.yml`:
 * `abstract`: A short text to serve as an introduction to the register or building blocks collection. 
   Markdown can be used here.
 * `description`: A longer text with a description of the register or collection. Markdown can be used here.
+* `license`: `{ name?, url? }` object (at least one of the two is required) declaring the default license for
+  the register and for every building block in it. A building block can override this by declaring its own
+  `license` in its `bblock.json` (see [Building Block metadata](metadata#links-and-references)). If `url` is
+  omitted and a `LICENSE`, `LICENSE.md` or `LICENSE.txt` file exists at the repository root, its published
+  URL is used automatically.
 * `viewer`: Configuration for the [Building Blocks Viewer](/create/postprocessing#building-blocks-viewer).
   * `show-imported-depth`: Controls which imported building blocks are shown in the viewer.
     * `0` (default): only local building blocks.

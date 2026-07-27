@@ -45,6 +45,7 @@ Building block metadata provides context information about the item in the build
 | `tags` | Array of free-text strings for categorisation and search. |
 | `group` | A short identifier to visually group related Building Blocks in the register. |
 | `highlighted` | Boolean. Marks this Building Block as featured in the register's entry page. |
+| `license` | `{ name?, url? }` object (at least one of the two required). Overrides the register-wide license declared in [`bblocks-config.yaml`](postprocessing#register-configuration), if any. |
 
 ### Lifecycle and relationships
 
