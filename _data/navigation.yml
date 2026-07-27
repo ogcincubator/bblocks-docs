@@ -74,3 +74,5 @@ docs:
         url: /create/resources
       - title: Extension points
         url: /create/extension-points
+      - title: Security
+        url: /create/security
