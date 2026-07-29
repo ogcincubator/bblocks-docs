@@ -88,8 +88,8 @@ class MyPlugin {
   // snippet language, or a single-element array for a transform output. Each candidate is
   // { type, content, url, label }; a plugin picks whichever one(s) it actually wants.
   //
-  // context: { bblock, viewerConfig } — host information beyond the candidates themselves.
-  // Always supplied; using it is what's optional.
+  // context: { bblock, viewerConfig, depResolver } — host information beyond the candidates
+  // themselves. Always supplied; using it is what's optional.
   constructor(candidates, context = {}) {
     this.candidates = candidates;
   }
@@ -123,6 +123,16 @@ Bundle any third-party dependency your plugin needs into its own module — a pl
 self-contained embeddable widget, not code that shares the host viewer's runtime. Import heavy
 dependencies lazily inside `render()` so they're only downloaded once the plugin actually renders,
 not just because it was checked for a match.
+
+If your plugin needs a genuinely heavy dependency that another plugin the same host might also
+load also needs (e.g. two 3D-rendering plugins both built on `three`), `context.depResolver` is
+optional infrastructure for sharing one runtime instance of it instead of each fetching its own
+copy — but it only works if both plugins load that dependency from a CDN rather than bundling it,
+and it only dedupes the exact name/version each plugin explicitly registers: it does not discover
+or dedupe transitive dependencies pulled in internally by a package, nor a dependency two unrelated
+packages happen to share without either plugin author registering it under the same name. See the
+starter template's README ("Sharing a dependency via `context.depResolver`") for the full contract
+and a worked example.
 
 If your plugin needs its own CSS, inject it at runtime via a `<style>` tag rather than relying on a
 `<link>` in the host page — see the starter template's README for the exact pattern (a static, not
