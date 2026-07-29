@@ -144,10 +144,15 @@ reproduced here.
 
 ### Trying it out
 
-Build the plugin (`npm run build`), serve `dist/` from any static host with permissive CORS
-(GitHub Pages works out of the box), and point a register's `bblocks-config.yaml` at it as shown
-above. For local testing, the simplest setup is same-origin: serve the plugin file from the same
-static server as the register/build directory you're previewing in the
+Build the plugin (`npm run build`) and serve `dist/` from any static host with permissive CORS, then
+point a register's `bblocks-config.yaml` at it as shown above. If you started from
+[bblocks-view-plugin-starter](https://github.com/ogcincubator/bblocks-view-plugin-starter), hosting
+is already wired up for you — it ships a GitHub Actions workflow that builds and publishes `dist/`
+to jsDelivr's GitHub CDN (`cdn.jsdelivr.net/gh/<org>/<repo>@dist/index.js`) on every push to
+`master`, with no GitHub Pages setup or separate hosting account needed. That publishes on every
+push by default; see the starter's README ("Hosting `dist/` via jsDelivr") if you want to gate it
+behind tags/releases instead. For local testing, the simplest setup is same-origin: serve the
+plugin file from the same static server as the register/build directory you're previewing in the
 [local viewer](/create/postprocessing#building-blocks-viewer).
 
 ### Trust model
