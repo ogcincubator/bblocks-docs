@@ -6,7 +6,7 @@ Building Blocks can be defined to reuse existing JSON schemas in a more sophisti
 
 A re-used schema can be:
 
-1. [profiled (by extension or constraints)](#profiling-json-schemas)
+1. [Profiled (by extension or constraints)](#profiling-json-schemas)
 2. Mapped to a [semantic (RDF)](rdf-only) model allowing richer specification of constraints.
 3. [Tested](validation) with examples and test cases.
 
@@ -22,41 +22,57 @@ This is simply a matter of referencing the reused schema in the building block s
 
 ## How to reuse a building block with its added components...
 
-this is done in a two-step process:
+This is done in a two-step process:
 
-1. in the `bblocks-config.yaml` file tell the processing where to find building block registers:
-    
+1. In the `bblocks-config.yaml` file, tell the processor which building block registers to import:
+
     ```yaml
-    schema-mapping:
-      default: https://opengeospatial.github.io/bblocks/annotated-schemas/
-    
     imports:
       - default
       - https://opengeospatial.github.io/ogcapi-sosa/build/register.json
     ```
-    
-    The default is the OGC master register of building blocks.
 
-2. use the `bblocks:://{id}` syntax as href in schema $ref elements. 
+    `default` refers to the main OGC master register of building blocks. See [Setting up imports](imports)
+    for the full syntax, including URL resolution rules and local URL mappings for testing.
 
-    This means your building block will inherit all json-ld contexts and SHACL shapes from the referenced building block automatically and apply during [testing](../create/validation).
+2. Use the `bblocks://{id}` syntax as the value of `$ref` in your schema.
 
+    This means your building block will inherit all JSON-LD contexts and SHACL shapes from the referenced
+    building block automatically and apply during [testing](../create/validation).
 
-# Profiling JSON Schemas
+## Profiling JSON Schemas
 
 Profiling JSON schemas is a complex subject. This document is a placeholder for a description of best practices and support tooling.
 
-## Why is this challenging?
+Two mechanisms are already available for profiling a building block's schema:
+
+* The `extends` property in `bblock.json` joins this building block's schema with a base building block's
+  schema using `allOf`, optionally inserting it at a specific property path.
+* [Extension points](extension-points) (experimental) let you specialize a base building block by
+  constraining specific building blocks it references — including ones referenced transitively through its
+  imports — to a more specific building block, without hand-editing the base schema.
+
+The rest of this section discusses the broader profiling problem and remaining gaps not covered by those
+mechanisms.
+
+### Why is this challenging?
 
 The JSON Schema specification and tooling landscape is complex.  Versions of the OpenAPI Specification (OAS) use different versions of JSON-Schema and tool support varies.
 
 In particular, reuse mechanisms such as $dynamicRef may not be available.
 
-## Version-agnostic Building Blocks
+### Version-agnostic Building Blocks
 
-The Building Block post-processing tooling automatically generates OAS 3.0 and OAS 3.1 compatible schemas. It is recommended to develop new building blocks using improved modularity and reuse support in modern schema versions, and allow the Building Block to create a "down-compiled version".
+The Building Block post-processing tooling can generate an OAS 3.0-compatible schema alongside the OAS 3.1 one. It is recommended to develop new building blocks using improved modularity and reuse support in modern schema versions, and allow the Building Block to create a "down-compiled version".
 
-## OAS 3.0 Compatibility
+This down-compiling is disabled by default and must be explicitly enabled by setting
+`schema-oas30-downcompile: true` in `bblocks-config.yaml`:
+
+```yaml
+schema-oas30-downcompile: true
+```
+
+### OAS 3.0 Compatibility
 
 OGC APIs are currently bound to OAS v3.0 which limits JSON schema patterns that can be supported.
 
@@ -96,7 +112,7 @@ e.g. to make the relatively simple constraints that a "SurveyObservationCollecti
   }
 ```
 
-## Future options
+### Future options
 
 A number of strategies are being considered to simplify this. At this stage alternative approaches:
 - define a new constraint language that can be directly compiled from simple statements into the target schema constraint
