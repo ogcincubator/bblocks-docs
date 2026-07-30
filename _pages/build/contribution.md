@@ -11,10 +11,22 @@ apply your own changes to your copy of the register and, when ready, create a
 [Pull Request (PR)](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)
 so that they can be included in the upstream register.
 
-Creating a fork allows you to work on the `master`/`main` branch, which triggers the Building Blocks [postprocessing
-workflows](../create/postprocessing), so you can preview your version of the register on its own GitHub pages. However,
-by default GitHub disables workflows on forked repositories, so you need to manually enable them on the "Actions" tab
-of your forked repository.
+## Typical workflow
+
+1. [Fork the repository](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo)
+   on GitHub, then enable Actions on it (see below) so postprocessing runs on your fork.
+2. Clone your fork locally and
+   [add the upstream repository as a remote](https://docs.github.com/en/get-started/git-basics/about-remote-repositories#creating-remote-repositories),
+   conventionally named `fork-parent` — this is the default name expected by the `create-clean-pr.sh` script
+   described under [Merge conflicts](#merge-conflicts) below, though it can be configured to something else.
+3. Make your changes and commit/push them to your fork's `master`/`main` branch as usual. Each push triggers the
+   Building Blocks [postprocessing workflows](../create/postprocessing), so you can preview your version of the
+   register on its own GitHub Pages site.
+4. When ready to submit your changes upstream, run `create-clean-pr.sh` to produce a PR-ready branch free of
+   `build/` artifacts, and open the Pull Request using the URL it prints (see [Merge conflicts](#merge-conflicts)).
+
+By default GitHub disables Actions workflows on forked repositories, so before step 3 above will do anything, you
+need to manually enable them on the "Actions" tab of your forked repository.
 
 ![Screenshot showing how to enable workflows in GitHub forks](github-fork-workflows-enable.png)
 
@@ -27,7 +39,12 @@ when the Pull Request is created, making the process more difficult.
 
 To work around this, the following bash script can be used to create a "clean" branch excluding all changes in the 
 `build/` directory, which can then be used to create the Pull Request from (instead of the `master`/`main` one):
-[create-clean-pr.sh](https://gist.githubusercontent.com/avillar/acb3e22d36ddf1ddbf8ff5c1aa64616f/raw/create-clean-pr.sh)
+[create-clean-pr.sh](https://github.com/opengeospatial/bblocks-postprocess/raw/refs/heads/master/scripts/create-clean-pr.sh)
+
+<div class="notice notice--info" markdown="1">
+This is a bash script, so on Windows it needs to be run from Git Bash or WSL — see the
+[Windows setup notes](../build/local#windows-setup) on the Local Build page.
+</div>
 
 The script is run locally on the directory of the forked register, and it requires that the upstream repository
 (i.e., the original Building Blocks register) is
@@ -40,6 +57,16 @@ push the branch to your fork of the register, and provide you with a URL to crea
 It relies on the [`git-filter-repo`](https://github.com/newren/git-filter-repo) Python script, so you must have a working
 Python environment for it to work. If `git-filter-repo` is already installed on your system, the script will use it,
 and otherwise will download a copy to a temporary directory (which will be deleted once it is done).
+
+Since the script rewrites history, it requires a clean working tree — commit or stash any pending changes on your
+`master`/`main` branch before running it.
+
+### Updating an existing Pull Request
+
+Each run of `create-clean-pr.sh` creates a brand new temporary branch (and a new PR URL); it does not update a
+previously created one. If you keep committing to your fork's `master`/`main` branch after opening a Pull Request,
+re-run the script and either point the existing Pull Request at the newly created branch, or close it and open a
+new one from the printed URL. The old temporary branch can then be deleted.
 
 ## Fork-specific configuration overrides
 
