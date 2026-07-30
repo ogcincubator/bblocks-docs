@@ -1,7 +1,7 @@
-# OGC Location Building Blocks documentation
+# OGC Building Blocks documentation
 
 This repository contains the sources for the
-[OGC Location Building Blocks documentation](https://ogcincubator.github.io/bblocks-docs).
+[OGC Building Blocks documentation](https://ogcincubator.github.io/bblocks-docs).
 
 ## For developers
 
