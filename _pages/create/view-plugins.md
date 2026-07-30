@@ -80,8 +80,10 @@ class MyPlugin {
   // before the class is instantiated. Supports wildcards ('text/*', '*/*'). Required.
   static supportedTypes = ['application/geo+json'];
 
-  // Tab label and icon (MDI name, e.g. 'mdi-map') — optional, both fall back to a generic default.
+  // Tab label — required, also used to generate the tab's shareable link.
   static viewName = 'Map';
+
+  // Icon (MDI name, e.g. 'mdi-map') — optional, falls back to a generic default.
   static icon = 'mdi-map';
 
   // candidates: one entry per available representation of the same content — one per example
@@ -154,6 +156,11 @@ push by default; see the starter's README ("Hosting `dist/` via jsDelivr") if yo
 behind tags/releases instead. For local testing, the simplest setup is same-origin: serve the
 plugin file from the same static server as the register/build directory you're previewing in the
 [local viewer](/create/postprocessing#building-blocks-viewer).
+
+Keep the browser devtools console open while developing — a synchronous throw from `render()` gets
+a visible error banner in the tab itself, but anything from your plugin's own async code (an
+unawaited rejected promise, a `requestAnimationFrame` loop, an event handler) is invisible in the
+UI and only ever surfaces there.
 
 ### Trust model
 
