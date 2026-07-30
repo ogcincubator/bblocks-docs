@@ -22,6 +22,8 @@ docs:
         url: /usecases/stac_extension
       - title: Specifying functions
         url: /usecases/functions
+      - title: Profiling an API
+        url: /usecases/api-profiling
   - title: Quick Start
     children:
       - title: Local Build
