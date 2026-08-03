@@ -6,7 +6,7 @@ This document uses the ISO RM-ODP architectural viewpoints to separate concerns 
 
 ### Emerging Architectural Context
 
-Note - it is possible some coherent model will emerge from some group that addresses all these concerns.
+_Note - it is possible some coherent model will emerge from a general IT industry group that addresses all these concerns. Nothing has been identified to date - but please [post an issue here](https://github.com/ogcincubator/bblocks-docs/issues) if one emerges!_
 
 It is increasingly obvious that AI agents will emerge as the primary tools for discovery and utilisation of interoperability resources.
 
