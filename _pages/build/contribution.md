@@ -32,7 +32,7 @@ need to manually enable them on the "Actions" tab of your forked repository.
 
 ![Screenshot showing how to enable workflows in GitHub forks](github-fork-workflows-enable.png)
 
-## Merge conflicts
+## Avoiding "build" resource merge conflicts
 
 The main downside of working with forks is that the Building Blocks postprocessing workflow generates artifacts
 inside the `build/` directory of the repository, which can result in 
