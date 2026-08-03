@@ -100,6 +100,7 @@ A local government must report progress against SDG 15.3.1, "proportion of land 
 
 An agent tasked with computing the indicator for the LGA would need to:
 
+1. **Identify and access the required computational models** - this may be defined by the task, or may require discovery. Discovery could use different resources such as policy and best practice guidance, metadata for similar products with detailed provenance, catalogs of workflows, scientific papers. The computational model will determine the type of data required.
 1. **Discover global baseline data via GEO catalogs.** Query the GEOSS Portal / GEO Knowledge Hub for global land cover (e.g. Copernicus Global Land Cover) and productivity time series that establish the baseline period required by the UNCCD methodology.
 2. **Use OGC resources to learn access and structure.** Resolve the dataset's OGC API - Records entry to find its OGC API - Coverages or OGC API - EDR endpoint, and consult the relevant OGC SOSA/SSN Building Block to interpret in-situ soil observation payloads as `sosa:Observation` instances with correctly typed `sosa:hasResult` and `sosa:observedProperty`.
 3. **Find domain-specific national data via TERN.** Query TERN's (Terrestrial Ecosystem Research Network) catalog for plot-based soil organic carbon and vegetation cover observations within the LGA — data too fine-grained to exist in any global catalog.
