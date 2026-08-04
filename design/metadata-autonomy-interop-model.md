@@ -1,3 +1,5 @@
+**This document is not fit for purpose - it is an experiment getting an LLM to synthesise the various viewpoints described in the documents in this directory.  do not cite, but feel free to offer a better version!**
+
 # Federated Interoperability Across Governance Tiers
 
 A summary model synthesising [[architecture]], [[metadata-tiers]] and [[agent-federation]], focused on two architectural questions: **what does federation actually require structurally when no tier can be forced to adopt another's systems**, and **which specific metadata elements need a common standard at the boundary between tiers, and why**.
