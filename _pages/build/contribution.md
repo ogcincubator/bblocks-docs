@@ -39,9 +39,14 @@ inside the `build/` directory of the repository, which can result in
 [merge conflicts](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-on-github)
 when the Pull Request is created, making the process more difficult.
 
-To work around this, the following bash script can be used to create a "clean" branch excluding all changes in the 
-`build/` directory, which can then be used to create the Pull Request from (instead of the `master`/`main` one):
-[create-clean-pr.sh](https://github.com/opengeospatial/bblocks-postprocess/raw/refs/heads/master/scripts/create-clean-pr.sh)
+To work around this, every register scaffolded from the
+[Building Blocks template](https://github.com/opengeospatial/bblocks-template) comes with a `create-clean-pr.sh`
+script at its root (alongside `build.sh`/`view.sh`) that creates a "clean" branch excluding all changes in the
+`build/` directory, which can then be used to create the Pull Request from (instead of the `master`/`main` one).
+If your register predates this script or you've deleted it, you can fetch the current version directly:
+[create-clean-pr.sh](https://github.com/opengeospatial/bblocks-template/raw/refs/heads/master/create-clean-pr.sh)
+— though note that postprocessing will re-add it automatically on the next run unless it detects it was
+deliberately removed from your repo's own git history.
 
 <div class="notice notice--info" markdown="1">
 This is a bash script, so on Windows it needs to be run from Git Bash or WSL — see the
