@@ -93,3 +93,20 @@ imports:
 
 The `create-clean-pr.sh` script automatically excludes `bblocks-config-override.yml/yaml` from the clean PR branch,
 so these fork-specific settings will never appear in Pull Requests to the upstream register.
+
+<div class="notice notice--warning" markdown="1">
+**Pitfall: forks and the SPARQL triplestore.** If the upstream register configures a `sparql` endpoint in
+`bblocks-config.yaml` (to publish semantic uplift output to a triplestore), postprocessing on your fork will try to
+push to that same endpoint on every run — and fail, since your fork isn't authorized to write to it. This affects
+both the postprocessor's own push step and the separate "upload to triplestore" workflow job.
+
+Disable it on your fork by setting `sparql` to `false` or `null` in `bblocks-config-override.yml`:
+
+```yaml
+# bblocks-config-override.yml
+sparql: false
+```
+
+Since this file is excluded from clean PR branches (see above), the upstream `bblocks-config.yaml` — and its real
+SPARQL configuration — is left untouched.
+</div>
