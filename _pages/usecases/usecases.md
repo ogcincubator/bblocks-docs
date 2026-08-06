@@ -61,6 +61,11 @@ BuildingBlocks allow profiles to be described in a way that inherits any rules f
 
 The use of [semantic uplift](/create/semantic-uplift) is especially valuable to allow machine readable semantic rules to be created by experts and re-used by specialised profiles, and specialised profiles to unambigously create a validation capability. 
 
+A profile can also go a step further and re-map a term it inherits, rather than just add constraints on top of it -
+for example, narrowing a base standard's generic `skos:note` down to `skos:definition` for a specific field. See
+[overriding an inherited binding](/create/semantic-uplift#overriding-an-inherited-binding) for how that works and
+what to watch out for.
+
 
 ## Designing reusable infrastructure
 

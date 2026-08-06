@@ -74,6 +74,46 @@ So the "assembly" is really schema traversal, which is why the graph the viewer 
 doubles as the map of where its context's mappings came from. Curious readers can dig into the
 `ogc-na-tools` source for the details.
 
+### Overriding an inherited binding
+
+A block can redeclare a term its schema inherits from a block it references, and have its own mapping win over the
+inherited one. Say a base building block's `context.jsonld` maps `note` to a generic SKOS predicate:
+
+```json
+{ "@context": { "note": "http://www.w3.org/2004/02/skos/core#note" } }
+```
+
+A block whose schema composes the base one via `allOf`/`$ref` (which is what `extends` in `bblock.json` sets up
+for you) can narrow that mapping for its own copy of `note` just by giving its *own* `context.jsonld` a mapping
+for the same property name:
+
+```json
+{ "@context": { "note": "http://www.w3.org/2004/02/skos/core#definition" } }
+```
+
+This works because annotation and assembly are two separate passes. Each block's schema is annotated from its own
+context only, in isolation — the base block ends up with `note` already annotated as `skos:note`, and the
+referencing block ends up with its own `note` already annotated as `skos:definition`, independently of one
+another. Assembly is what brings the two together: it walks the referencing block's compiled schema — its own
+properties plus, through `allOf`/`$ref`, the base schema's — and for a property mapped on both sides, the mapping
+found in the *later* branch wins. Since `extends` (and any other `bblocks://` reference) always places the base
+schema's `$ref` before the referencing block's own properties, the referencing block's mapping is what survives.
+
+Because the override is resolved by branch order rather than by anything marking it as intentional, redeclaring a
+term is enough to override it — there's no separate opt-in, and no warning if you didn't mean to. Reusing a
+property name from a base schema in your own `context.jsonld` for an unrelated reason (or copy-pasting a mapping
+from a sibling block "just in case") will silently override the inherited binding the same way a deliberate
+specialisation would. If a property's meaning looks wrong in the assembled context, check whether every schema in
+the `allOf`/`$ref` chain that mentions that property name is mapping it on purpose.
+
+The override applies per JSON-LD keyword, not to the whole binding at once: if the base context also gives `note`
+an `@type` and the child's context doesn't redeclare one, the base's `@type` is still inherited alongside the
+child's overridden `@id`. Only the keywords the child's context actually redeclares are replaced.
+
+This is a deliberate, reliable mechanism — useful for [profiling](../overview/profiles) a parent building block to
+specialise an inherited term without forking its schema. It's unrelated to [extension points](extension-points),
+which substitute one *referenced block* for another rather than override a *term mapping*.
+
 ### Why not just reuse a general-purpose vocabulary like schema.org?
 
 A general-purpose vocabulary has to cover every domain at once, so it ends up large, loosely defined, and only
