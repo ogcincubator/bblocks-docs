@@ -97,9 +97,12 @@ several things checkable without reading its source repository at all:
 - **the license** applying to the register and to each block, via the `license` object in `bblocks-config.yaml` or
   a block's own `bblock.json` (see [Building Block metadata](metadata#links-and-references)).
 
-The [OGC Blocks meta-register catalog](http://defs-dev.opengis.net/bblocks-meta-register) — and its MCP server, for
-tools that support it — indexes this across every register it knows about, so you can look up a register's declared
-plugins, imports, and license without cloning it.
+The [OGC Blocks meta-register catalog](https://defs-dev.opengis.net/bblocks-meta-register) indexes this across
+every register it knows about, so you can look up a register's declared plugins, imports, and license without
+cloning it — via its [REST API](https://defs-dev.opengis.net/bblocks-meta-register-backend/) or, for tools that
+support it, its [MCP server](https://defs-dev.opengis.net/bblocks-meta-register-backend/mcp). It's still a
+development project — the URL above is a dev deployment and is expected to change once a production register
+exists, so stay tuned.
 
 What none of this tells you: whether any of that content was actually *reviewed*, by whom, or when, and whether an
 import's target has changed since you last checked it built the same way. That's still on you to track — a

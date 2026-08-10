@@ -15,6 +15,11 @@ _Last update: 2026-06-17_
 
 # Other developer resources
 
+- [OGC Blocks meta-register](https://defs-dev.opengis.net/bblocks-meta-register) — cross-register search/browse
+  catalog covering every register the ecosystem knows about, with a
+  [REST API](https://defs-dev.opengis.net/bblocks-meta-register-backend/) and
+  [MCP server](https://defs-dev.opengis.net/bblocks-meta-register-backend/mcp) for tooling/agents. **Still a
+  development project** — this is a dev deployment; expect the URL to change once a production register exists.
 - [OGC Blocks template](https://github.com/opengeospatial/bblocks-template)
 - [OGC Blocks examples register](https://ogcincubator.github.io/bblocks-examples/)
 - [Claude skill](https://ogcincubator.github.io/ogc-llm-skills/) (see `bblocks-authoring`)

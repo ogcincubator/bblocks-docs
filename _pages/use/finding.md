@@ -11,7 +11,20 @@ The OGC Building Block Framework provides three improved approaches for discover
 1. [Registers](../overview/registers)
 1. [RAINBOW (OGC Knowledge Graph)]() 
 1. Transparent Dependencies 
+1. [The meta-register catalog](#the-meta-register-catalog-cross-register-search)
 
+## The meta-register catalog (cross-register search)
+
+The [OGC Blocks meta-register](https://defs-dev.opengis.net/bblocks-meta-register) is the tool for finding
+building blocks across the *whole* ecosystem, not just one register at a time: it crawls every register it knows
+about and indexes it into a single searchable, browsable catalog — organization → register → block — with
+keyword and semantic search, and reverse-dependency lookups (which registers/blocks depend on a given one) that no
+single register's own viewer can show. For tooling and AI agents, the same catalog is available programmatically
+via a [REST API](https://defs-dev.opengis.net/bblocks-meta-register-backend/) and an
+[MCP server](https://defs-dev.opengis.net/bblocks-meta-register-backend/mcp).
+
+**This is still a development project.** The deployment above is a dev instance, and its URL is expected to change
+once a production ("definitive") register is available — stay tuned.
 
 # Well-known Building Blocks registers
 
