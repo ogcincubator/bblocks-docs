@@ -20,7 +20,8 @@ building blocks across the *whole* ecosystem, not just one register at a time: i
 about and indexes it into a single searchable, browsable catalog — organization → register → block — with
 keyword and semantic search, and reverse-dependency lookups (which registers/blocks depend on a given one) that no
 single register's own viewer can show. For tooling and AI agents, the same catalog is available programmatically
-via a [REST API](https://defs-dev.opengis.net/bblocks-meta-register-backend/) and an
+via a REST API ([interactive docs](https://defs-dev.opengis.net/bblocks-meta-register-backend/docs),
+[OpenAPI description](https://defs-dev.opengis.net/bblocks-meta-register-backend/openapi.json)) and an
 [MCP server](https://defs-dev.opengis.net/bblocks-meta-register-backend/mcp).
 
 **This is still a development project.** The deployment above is a dev instance, and its URL is expected to change

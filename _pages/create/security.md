@@ -99,7 +99,7 @@ several things checkable without reading its source repository at all:
 
 The [OGC Blocks meta-register catalog](https://defs-dev.opengis.net/bblocks-meta-register) indexes this across
 every register it knows about, so you can look up a register's declared plugins, imports, and license without
-cloning it — via its [REST API](https://defs-dev.opengis.net/bblocks-meta-register-backend/) or, for tools that
+cloning it — via its [REST API](https://defs-dev.opengis.net/bblocks-meta-register-backend/docs) or, for tools that
 support it, its [MCP server](https://defs-dev.opengis.net/bblocks-meta-register-backend/mcp). It's still a
 development project — the URL above is a dev deployment and is expected to change once a production register
 exists, so stay tuned.
