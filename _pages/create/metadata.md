@@ -64,7 +64,6 @@ Building block metadata provides context information about the item in the build
 | `schema` | URL for the JSON Schema of this Building Block (auto-derived when a `schema.yaml/json` file is present). |
 | `openAPIDocument` | URL or path to an OpenAPI document backing this Building Block. |
 | `ldContext` | URL to the JSON-LD `@context` document. Auto-derived when `context.jsonld` is present. See [Semantic uplift](semantic-uplift). |
-| `extends` | Declares schema inheritance. See [Extension points](extension-points). |
 | `extensionPoints` | Declares specialisations of referenced Building Blocks. See [Extension points](extension-points). |
 
 ### Validation

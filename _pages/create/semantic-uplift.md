@@ -83,9 +83,8 @@ inherited one. Say a base building block's `context.jsonld` maps `note` to a gen
 { "@context": { "note": "http://www.w3.org/2004/02/skos/core#note" } }
 ```
 
-A block whose schema composes the base one via `allOf`/`$ref` (which is what `extends` in `bblock.json` sets up
-for you) can narrow that mapping for its own copy of `note` just by giving its *own* `context.jsonld` a mapping
-for the same property name:
+A block whose schema composes the base one via `allOf`/`$ref` can narrow that mapping for its own copy of `note`
+just by giving its *own* `context.jsonld` a mapping for the same property name:
 
 ```json
 { "@context": { "note": "http://www.w3.org/2004/02/skos/core#definition" } }
@@ -96,8 +95,8 @@ context only, in isolation — the base block ends up with `note` already annota
 referencing block ends up with its own `note` already annotated as `skos:definition`, independently of one
 another. Assembly is what brings the two together: it walks the referencing block's compiled schema — its own
 properties plus, through `allOf`/`$ref`, the base schema's — and for a property mapped on both sides, the mapping
-found in the *later* branch wins. Since `extends` (and any other `bblocks://` reference) always places the base
-schema's `$ref` before the referencing block's own properties, the referencing block's mapping is what survives.
+found in the *later* branch wins. Since any `bblocks://` reference always places the base schema's `$ref` before
+the referencing block's own properties, the referencing block's mapping is what survives.
 
 Because the override is resolved by branch order rather than by anything marking it as intentional, redeclaring a
 term is enough to override it — there's no separate opt-in, and no warning if you didn't mean to. Reusing a

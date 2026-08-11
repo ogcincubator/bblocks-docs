@@ -44,15 +44,12 @@ This is done in a two-step process:
 
 Profiling JSON schemas is a complex subject. This document is a placeholder for a description of best practices and support tooling.
 
-Two mechanisms are already available for profiling a building block's schema:
+The basic, standard mechanism is to wrap a `bblocks://` `$ref` to the base building block in an `allOf`
+alongside your own constraints. [Extension points](extension-points) (experimental) cover a more specific
+case: specializing a base building block by constraining specific building blocks it references —
+including ones referenced transitively through its imports — without hand-editing the base schema.
 
-* The `extends` property in `bblock.json` joins this building block's schema with a base building block's
-  schema using `allOf`, optionally inserting it at a specific property path.
-* [Extension points](extension-points) (experimental) let you specialize a base building block by
-  constraining specific building blocks it references — including ones referenced transitively through its
-  imports — to a more specific building block, without hand-editing the base schema.
-
-The rest of this section discusses the broader profiling problem and remaining gaps not covered by those
+The rest of this section discusses the broader profiling problem and remaining gaps not covered by these
 mechanisms.
 
 ### Why is this challenging?
