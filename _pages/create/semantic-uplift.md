@@ -114,6 +114,13 @@ This is a deliberate, reliable mechanism — useful for [profiling](../overview/
 specialise an inherited term without forking its schema. It's unrelated to [extension points](extension-points),
 which substitute one *referenced block* for another rather than override a *term mapping*.
 
+A working, minimal example lives in the
+[`bblocks-examples`](https://github.com/ogcincubator/bblocks-examples/tree/master/_sources/semantic-uplift/override-binding)
+register: [`Override Binding - Base`](https://ogcincubator.github.io/bblocks-viewer/#/bblock/ogc.bbr.examples.semantic-uplift.override-binding.base?register=https://ogcincubator.github.io/bblocks-examples/build/register.json)
+binds `note`/`label` to `skos:note`/`skos:prefLabel`, and
+[`Override Binding - Child (Profile)`](https://ogcincubator.github.io/bblocks-viewer/#/bblock/ogc.bbr.examples.semantic-uplift.override-binding.child?register=https://ogcincubator.github.io/bblocks-examples/build/register.json)
+profiles it, redeclaring `note` (partial override — only `@id`) and `label` (full override — `@id` and `@type`).
+
 ### Why not just reuse a general-purpose vocabulary like schema.org?
 
 A general-purpose vocabulary has to cover every domain at once, so it ends up large, loosely defined, and only
