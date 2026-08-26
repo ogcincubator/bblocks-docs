@@ -79,7 +79,7 @@ Building block metadata provides context information about the item in the build
 
 | Property | Description |
 |---|---|
-| `ontology` | Path or URL to an RDF document containing the ontology for this Building Block. `ontology.ttl` or `ontology.owl` are auto-detected. See [RDF-only Building Blocks](rdf-only#ontology). |
+| `ontology` | Path or URL to an RDF document containing the ontology for this Building Block. `ontology.ttl` or `ontology.owl` are auto-detected. Feeds this Building Block's SHACL closure graph (and is inherited by dependents), see [Closure graph inheritance](validation#closure-graph-inheritance). See [RDF-only Building Blocks](rdf-only#ontology). |
 | `concept` | Array of URIs for the RDF concept(s) this Building Block represents (`skos:closeMatch`). See [RDF-only Building Blocks](rdf-only#semantic-annotations). |
 | `rdfType` | Array of URIs for the RDF class(es) that instances of this Building Block conform to (`rdfs:subClassOf`). See [RDF-only Building Blocks](rdf-only#semantic-annotations). |
 
@@ -87,4 +87,4 @@ Building block metadata provides context information about the item in the build
 
 | Property | Description |
 |---|---|
-| `resources` | Array of external artifacts (data files, specifications, vocabularies…) associated with this Building Block. See [External resources](resources). |
+| `resources` | Array of external artifacts (data files, specifications, vocabularies…) associated with this Building Block. `role: data` entries in an RDF format also feed the SHACL closure graph (and are inherited by dependents), see [Closure graph inheritance](validation#closure-graph-inheritance). See [External resources](resources). |

@@ -37,6 +37,11 @@ The `role` field accepts any URI, but the following short names are also recogni
 
 If a `data.ttl` file is present in the building block directory and no `resources` entry with `role: data` pointing to it already exists, it is automatically added as a `data` resource with `format: text/turtle`.
 
+A `role: data` resource whose `format` is an RDF serialization (Turtle, RDF/XML, JSON-LD, N-Triples, N3, TriG)
+also feeds the building block's SHACL closure graph, and is inherited by any building block that
+`dependsOn`/`isProfileOf` it — see [Closure graph inheritance](validation#closure-graph-inheritance). A
+non-RDF `data` resource (CSV, NetCDF, etc.) is unaffected and stays a published artifact only.
+
 ## Example
 
 ```json

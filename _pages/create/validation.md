@@ -101,6 +101,22 @@ SHACL shapes can be defined in a `shapes.shacl` file or via the `shaclShapes` pr
 
 This is particularly useful for relatively small, static vocabularies (e.g. "codelists") that form part of the specification realised by the building block
 
+### Closure graph inheritance
+
+A building block's closure graph used for SHACL validation is not just its own `shaclClosures`. It is assembled
+from the whole `dependsOn`/`isProfileOf` chain (the same chain `shaclShapes` are inherited across), and includes,
+for every building block in that chain (including itself):
+
+* its declared `shaclClosures`;
+* its `ontology`, if it has one (see [Metadata](metadata) and [RDF-only Building Blocks](rdf-only));
+* any `resources` entry with `role: data` whose `format` is an RDF serialization (Turtle, RDF/XML, JSON-LD,
+  N-Triples, N3, TriG) — see [External resources](resources). A `role: data` resource in a non-RDF format
+  (e.g. CSV, NetCDF) is not affected; it is not parseable RDF and stays a published artifact only.
+
+So a building block that depends on (or profiles) another one declaring an ontology or an RDF `role: data`
+resource automatically has access to that data when its own SHACL shapes are validated, without needing to
+redeclare it as `shaclClosures`.
+
 ## Tools
 
 In addition to built-in testing capabilities the following online tools can be helpful in developing and debugging different layers of the design:
