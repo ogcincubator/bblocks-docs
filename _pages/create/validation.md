@@ -117,6 +117,23 @@ So a building block that depends on (or profiles) another one declaring an ontol
 resource automatically has access to that data when its own SHACL shapes are validated, without needing to
 redeclare it as `shaclClosures`.
 
+### Per-snippet closures
+
+An individual example snippet can add its own closure data on top of the building block's closure graph
+via the `shacl-closure` property in `examples.yaml`:
+
+```yaml
+examples:
+  - snippets:
+      - language: json
+        code: '{ "a": 1 }'
+        shacl-closure:
+          - extra-vocab.ttl
+```
+
+This is useful for RDF data that only one particular example needs, rather than the whole building block.
+See [Creating examples](examples#shacl-closures-for-examples) for details.
+
 ## Tools
 
 In addition to built-in testing capabilities the following online tools can be helpful in developing and debugging different layers of the design:

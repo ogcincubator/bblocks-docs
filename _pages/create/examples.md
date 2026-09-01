@@ -68,3 +68,28 @@ examples:
         code: |
           ex:a rdfs:label "A" .
 ```
+
+## SHACL closures for examples
+
+A snippet can declare its own `shacl-closure`: a list of Turtle documents (file names, relative to
+`examples.yaml`, or URLs) with background RDF data needed for that snippet's SHACL validation to pass —
+e.g. a small codelist or class hierarchy that only this example depends on. It is merged with the building
+block's own `shaclClosures` (see [SHACL Validation](validation#shacl-validation)), so you only need it for
+data that isn't already part of the block's general closure graph.
+
+```yaml
+examples:
+  - snippets:
+      - language: json
+        code: '{ "type": "Bird" }'
+        shacl-closure:
+          - extra-taxonomy.ttl
+```
+
+`shacl-closure` belongs to the **snippet**, not the example, since each snippet is validated independently.
+For a JSON snippet, put it on the JSON snippet itself — the SHACL closure is applied when the JSON is
+semantically uplifted and validated. If `doc-uplift-formats` causes a JSON-LD or Turtle twin to be
+auto-generated for the documentation, that generated snippet is a display-only copy of the already-validated
+JSON snippet and isn't independently re-validated, so there's no need to repeat `shacl-closure` on it. Only
+add `shacl-closure` to a separately authored JSON-LD/Turtle snippet if you write one by hand instead of
+relying on the auto-generated one.
