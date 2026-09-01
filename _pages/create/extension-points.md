@@ -34,8 +34,10 @@ every reference to `Feature` in the base — including references buried inside 
 is constrained to also satisfy `MyFeature`. Consumers can validate against that single compiled schema
 without needing to understand the extension relationship at all.
 
-Extension points also preserve semantic mappings in building blocks and (unless explicitly disabled) inherit
-SHACL validation shapes from both the base building block and the targets for the extensions.
+Extension points also preserve semantic mappings in building blocks and inherit SHACL validation shapes from
+both the base building block and the targets for the extensions — the base and every extension source/target
+are automatically added as dependencies of the extension, and SHACL shape inheritance follows dependencies.
+There is currently no way to opt out of this inheritance.
 
 ![Sample extension diagram](../../assets/extensions/sample-extension-diagram.png)
 
@@ -89,3 +91,10 @@ Extension points are declared in the **`bblock.json`** file using the following 
 The example above ensures that wherever `prov-entity` appears in the base or its imports, 
 it will be constrained to also satisfy `featureExt`. The generated JSON-LD context for the extension
 will also include any mappings coming from `featureExt`.
+
+<div class="notice notice--warning" markdown="1">
+#### Extension points cannot target schema fragments
+`baseBuildingBlock` and every key/value in `extensions` must be a full building block identifier — none of
+them may contain a `#` fragment. Declaring an extension point against a `$defs` entry or other fragment of a
+building block's schema is not supported and will fail postprocessing.
+</div>
