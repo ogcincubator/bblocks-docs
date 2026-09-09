@@ -48,3 +48,47 @@ docker run --rm --pull=always -v "$(pwd):/register" -p 9090:9090 ghcr.io/ogcincu
   [`viewer.show-imported-depth`](/create/structure#additional-register-metadata-properties) in `bblocks-config.yaml`.
 * A register can add custom visualizations for examples/transform outputs via
   [view plugins](/create/view-plugins).
+
+### Using the development build
+
+The postprocessor's `develop` branch and Docker image carry work that hasn't shipped in a stable
+`v1.*.*` release yet. Register maintainers who want to try an upcoming feature — or who are asked
+to help test one before it's released — can opt into it explicitly, per run or per workflow.
+
+<div class="notice notice--warning" markdown="1">
+`develop` is the absolute bleeding edge: unlike the release-tagged image (the untagged/`latest`/`v1`
+image used by default), `@develop`/`:develop` is a moving pointer, not a fixed version — it can pick
+up new, experimental, potentially breaking behavior on every run, with no compatibility guarantee
+and no notice. Use it to test something specific, then switch back — don't leave a real register
+pinned to it.
+</div>
+
+**Locally**, every register scaffolded from the template already has a `build-devel.sh` script
+alongside `build.sh`/`view.sh` — run it instead of `build.sh` to build against the `develop` image:
+
+```shell
+./build-devel.sh
+```
+
+Any extra arguments are passed straight through to the postprocessor, so it composes with the usual
+[flags](/create/postprocessing#output-testing) for finer-grained iteration, e.g.:
+
+```shell
+./build-devel.sh --filter ogc.my.namespace.myblock --steps annotate,jsonld,tests
+```
+
+**In CI**, point your `.github/workflows/process-bblocks.yml` caller at `@develop` instead of `@master`:
+
+```yaml
+jobs:
+  validate-and-process:
+    uses: opengeospatial/bblocks-postprocess/.github/workflows/validate-and-process.yml@develop
+    secrets:
+      sparql_username: ${{ secrets.sparql_username }}
+      sparql_password: ${{ secrets.sparql_password }}
+```
+
+No other change is needed — on `develop`, `validate-and-process.yml` resolves against develop's own
+postprocessing action and Docker image automatically. The same applies to a PR-check caller workflow
+(`.github/workflows/pr-check.yml`, if your register has one): pin it at `@develop` the same way to
+test upcoming PR-validation behavior too.
