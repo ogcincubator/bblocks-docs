@@ -6,3 +6,8 @@ vendor
 .idea
 Gemfile.lock
 all-bblocks-docs.md
+.claude
+.bundle
+.directory
+assets/search/*.sqlite
+_data/search_index.yml

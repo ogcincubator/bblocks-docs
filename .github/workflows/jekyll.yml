@@ -26,13 +26,26 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.2' # Not needed with a .ruby-version file
           bundler-cache: true # runs 'bundle install' and caches installed gems automatically
           cache-version: 1 # Increment this number if you need to re-download cached gems
+      - name: Setup Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.x'
+      - name: Install search indexer dependencies
+        run: pip install pyyaml beautifulsoup4
+      - name: Build search index
+        # Populates assets/search/search-index.<hash>.sqlite and
+        # _data/search_index.yml, consumed by assets/js/search.js -- see
+        # tools/build_search_index.py and .claude/search-plan.md. Must run
+        # before "Build with Jekyll" since the site references
+        # site.data.search_index.filename.
+        run: python3 tools/build_search_index.py
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
@@ -44,7 +57,7 @@ jobs:
           PAGES_REPO_NWO: ${{ github.repository }}
       - name: Upload artifact
         # Automatically uploads an artifact from the './_site' directory by default
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v5
 
   # Deployment job
   deploy:
@@ -56,4 +69,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5

@@ -71,6 +71,8 @@ defaults:
       layout: single
       sidebar:
         nav: docs
+      toc: true
+      toc_sticky: true
 
 after_footer_scripts:
   - https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js

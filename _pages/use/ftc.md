@@ -1,6 +1,7 @@
 ---
 title: Feature Type Catalogs
 permalink: /use/ftc
+toc: false
 ---
 
 Building Blocks solve a key limitation of traditional specifications using mixtures of documentation styles and locations - by normalising the documentation for a wide range of specification types it allows for increased **Access** in practice - since all the reusable components can be reliably found via the underlying Linked Data and Register models.

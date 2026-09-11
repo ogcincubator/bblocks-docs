@@ -1,0 +1,59 @@
+{% capture logo_path %}{{ site.logo }}{% endcapture %}
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        {% unless logo_path == empty %}
+          <a class="site-logo" href="{{ '/' | relative_url }}"><img src="{{ logo_path | relative_url }}" alt="{{ site.masthead_title | default: site.title }}"></a>
+        {% endunless %}
+        <a class="site-title" href="{{ '/' | relative_url }}">
+          {{ site.masthead_title | default: site.title }}
+          {% if site.subtitle %}<span class="site-subtitle">{{ site.subtitle }}</span>{% endif %}
+        </a>
+        <ul class="visible-links">
+          {%- for link in site.data.navigation.main -%}
+            <li class="masthead__menu-item">
+              <a href="{{ link.url | relative_url }}"{% if link.description %} title="{{ link.description }}"{% endif %}>{{ link.title }}</a>
+            </li>
+          {%- endfor -%}
+        </ul>
+        {%- comment -%}
+          Custom docs search (FTS5 index built by tools/build_search_index.py,
+          queried client-side via the official SQLite Wasm build,
+          @sqlite.org/sqlite-wasm -- not sql.js, which doesn't include FTS5
+          in its published build; see assets/js/search.js and
+          .claude/search-plan.md). Not the theme's built-in
+          site.search option -- that stays off. Reuses the theme's own
+          search__toggle / is--visible interaction convention (see
+          _sass/minimal-mistakes/_search.scss) for the icon-collapses-on-
+          mobile behavior, scoped under our own docs-search__ classes since
+          this is a persistent inline box on desktop rather than the theme's
+          overlay-only pattern.
+        {%- endcomment -%}
+        <div id="docs-search" class="docs-search"
+             data-db-url="{{ '/assets/search/' | append: site.data.search_index.filename | relative_url }}"
+             data-baseurl="{{ site.baseurl }}">
+          <button class="docs-search__toggle search__toggle" type="button" aria-expanded="false" aria-controls="docs-search-panel">
+            <span class="visually-hidden">Toggle search</span>
+            <i class="fas fa-search" aria-hidden="true"></i>
+          </button>
+          <div id="docs-search-panel" class="docs-search__panel">
+            <form class="docs-search__form" role="search" onsubmit="return false;">
+              <label class="sr-only" for="docs-search-input">Search the docs</label>
+              <input type="search" id="docs-search-input" class="docs-search__input" autocomplete="off" spellcheck="false" placeholder="Type to search…">
+            </form>
+            <div id="docs-search-results" class="docs-search__results" hidden></div>
+          </div>
+        </div>
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">{{ site.data.ui-text[site.locale].menu_label | default: "Toggle menu" }}</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+<script src="{{ '/assets/js/search.js' | relative_url }}" defer></script>

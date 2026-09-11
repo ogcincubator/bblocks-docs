@@ -10,3 +10,161 @@
 .page__content {
   font-size: 15px;
 }
+
+/* ==========================================================================
+   DOCS SEARCH
+   ========================================================================== */
+
+.docs-search {
+  position: relative;
+  margin-left: 1em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+
+  // Icon toggle: only meaningful (and visible) below $small -- on desktop
+  // the input is always shown inline, same interaction language as the
+  // theme's own .search__toggle (_sass/minimal-mistakes/_search.scss) but
+  // scoped to this component.
+  &__toggle {
+    display: none;
+    padding: 0;
+    margin: 0;
+
+    @include breakpoint(max-width $small) {
+      display: block;
+    }
+  }
+
+  &__panel {
+    @include breakpoint(max-width $small) {
+      display: none;
+      position: absolute;
+      top: 100%;
+      right: 0;
+      z-index: 20;
+
+      &.is--visible {
+        display: block;
+      }
+    }
+  }
+
+  &__form {
+    // Override the theme's base `form { ... }` rule
+    // (_sass/minimal-mistakes/_forms.scss), which otherwise gives every
+    // <form> on the site a background color and padding -- fine for a real
+    // form, wrong for a search box sitting inline in the masthead.
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+  }
+
+  &__input {
+    width: 14em;
+    margin: 0;
+    padding: 0.4em 0.75em;
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
+    font-size: $type-size-6;
+    background-color: transparent;
+    color: $text-color;
+
+    @include breakpoint(max-width $small) {
+      width: 80vw;
+      max-width: 20em;
+    }
+
+    &:focus {
+      outline: none;
+      border-color: $primary-color;
+    }
+  }
+
+  &__results {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    z-index: 20;
+    width: 24em;
+    max-width: 90vw;
+    max-height: 70vh;
+    margin-top: 0.5em;
+    overflow-y: auto;
+    background-color: $background-color;
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+
+    @include breakpoint(max-width $small) {
+      width: 80vw;
+      max-width: 20em;
+    }
+  }
+
+  &__empty {
+    margin: 0;
+    padding: 0.75em 1em;
+    font-size: $type-size-6;
+    color: $muted-text-color;
+  }
+
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__item {
+    border-top: 1px solid $border-color;
+
+    &:first-child {
+      border-top: 0;
+    }
+
+    a {
+      display: block;
+      padding: 0.6em 1em;
+      text-decoration: none;
+      color: $text-color;
+
+      &:hover,
+      &.is--active {
+        background-color: mix(#fff, $primary-color, 90%);
+      }
+    }
+  }
+
+  &__item-title {
+    display: block;
+    font-weight: bold;
+    font-size: $type-size-6;
+  }
+
+  &__item-section {
+    font-weight: normal;
+    color: $muted-text-color;
+  }
+
+  &__item-snippet {
+    display: block;
+    margin-top: 0.2em;
+    font-size: $type-size-7;
+    color: $muted-text-color;
+
+    // Title-tier results (see assets/js/search.js) have no body text to
+    // snippet from -- collapse the empty span instead of leaving a bare
+    // margin-top gap under the title.
+    &:empty {
+      display: none;
+    }
+
+    mark {
+      background-color: mix(#fff, $primary-color, 60%);
+      color: $text-color;
+    }
+  }
+}

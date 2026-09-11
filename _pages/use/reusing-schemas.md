@@ -1,6 +1,7 @@
 ---
 title: Reusing schemas
 permalink: /use/reusing-schemas
+toc: false
 ---
 
 Building Blocks can be reused in several ways:
