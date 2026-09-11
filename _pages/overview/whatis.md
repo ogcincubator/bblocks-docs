@@ -2,6 +2,7 @@
 title: What is a Building Block?
 permalink: /overview/whatis
 toc: false
+classes: wide
 ---
 An Building Block is a way of packaging a component of a **specification** that can be re-used in other specifications.
 

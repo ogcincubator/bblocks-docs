@@ -2,6 +2,7 @@
 title: Building Block Registers
 permalink: /overview/registers
 toc: false
+classes: wide
 ---
 
 OGC BuildingBlocks are published as registers (collections), with each repository defining a sub-register that can be aggregated.

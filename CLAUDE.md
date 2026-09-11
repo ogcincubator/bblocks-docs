@@ -52,6 +52,11 @@ There is no test suite or linter configured for this repo.
 - Every page under `_pages/` needs Jekyll frontmatter with at least `title`; `permalink` is used for pages
   referenced by a stable/short URL (e.g. `_pages/create/index.md` has `permalink: /create`). Internal links
   between docs pages use relative paths (e.g. `../build/local`, `imports`, `#anchor`).
+- `toc`/`toc_sticky` default to `true` (set in `_config.yml`'s `defaults`), giving every page a right-hand table
+  of contents — added to accommodate the docs search box in the masthead. Short pages with few/no headings (the
+  homepage, `overview/qr`, `overview/registers`, `overview/whatis`, `use/ftc`, `use/reusing-schemas`) override
+  with `toc: false`. The theme still reserves the TOC's width even when `toc: false`, so always pair it with
+  `classes: wide` to actually reclaim that space and make the page full-width.
 - `_config.yml`: Jekyll config. Uses the **remote theme** `mmistakes/minimal-mistakes@4.24.0` (Minimal Mistakes),
   with `sidebar.nav: docs` applied globally via `defaults`, so every page automatically gets the `docs` nav
   from `_data/navigation.yml` in its sidebar.

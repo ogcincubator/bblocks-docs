@@ -1,6 +1,8 @@
 ---
 title: OGC Specification Building Blocks
 permalink: /
+toc: false
+classes: wide
 ---
 
 <img src="assets/bblocks-qr.png" alt="QR Code" style="float:right; width: 200px; max-width: 33%"/>
