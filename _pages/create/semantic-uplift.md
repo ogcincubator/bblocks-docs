@@ -109,6 +109,15 @@ The override applies per JSON-LD keyword, not to the whole binding at once: if t
 an `@type` and the child's context doesn't redeclare one, the base's `@type` is still inherited alongside the
 child's overridden `@id`. Only the keywords the child's context actually redeclares are replaced.
 
+The override has to be expressed at the same structural position as the inherited term, because assembly matches
+branches by where they sit in the schema tree, not just by property name in the abstract. The `note` example above
+works because `note` is a top-level property in both the base and the child. If the inherited term instead sits
+nested inside an object — say, `href` inside an `assets` object pulled in transitively through `allOf`/`$ref` —
+redeclaring `href` alone in your own `context.jsonld` does nothing: there is no `href` property node anywhere in
+your own schema for the assembly walk to find, so it never sees your mapping. To override a nested term you have
+to restate the enclosing structure itself in your own `allOf` branch — an `assets` object with its own `href`
+property and its own `x-jsonld-id` — not just add an entry to your context file.
+
 This is a deliberate, reliable mechanism — useful for [profiling](../overview/profiles) a parent building block to
 specialise an inherited term without forking its schema. It's unrelated to [extension points](extension-points),
 which substitute one *referenced block* for another rather than override a *term mapping*.
