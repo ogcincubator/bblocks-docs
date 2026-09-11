@@ -1,5 +1,5 @@
 ---
-title: Quick Start - local build
+title: Quick Start - Tutorials
 permalink: /build/tutorial
 ---
 
