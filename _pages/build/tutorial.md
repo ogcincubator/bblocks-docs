@@ -1,5 +1,5 @@
 ---
-title: Quick Start - Tutorials
+title: Tutorial
 permalink: /build/tutorial
 ---
 
