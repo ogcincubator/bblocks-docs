@@ -24,6 +24,8 @@ docs:
         url: /usecases/functions
       - title: Profiling an API
         url: /usecases/api-profiling
+      - title: AI Readiness
+        url: /usecases/ai-readiness
   - title: Quick Start
     children:
       - title: Local Build
