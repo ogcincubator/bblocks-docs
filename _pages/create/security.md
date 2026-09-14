@@ -15,9 +15,9 @@ should state:
 
 - **where to report a suspected security issue** — a monitored email address or a private reporting channel (e.g.
   [GitHub private vulnerability reporting](https://docs.github.com/en/code-security/security-advisories/guidance-on-reporting-and-writing/privately-reporting-a-security-vulnerability)), not a public issue tracker;
-- **what's in scope** — this repository's own sources (`transforms.yaml`, `plugins.transforms`/`plugins.validators`
-  declarations, CI/CD workflows, `bblocks-config.yaml`); most maintainers cannot vouch for imported registers, so
-  say so explicitly rather than leaving it implied;
+- **what's in scope** — this repository's own sources (`transforms.yaml`, `plugins.transforms`/`plugins.validators`/
+  `plugins.build` declarations, CI/CD workflows, `bblocks-config.yaml`); most maintainers cannot vouch for imported
+  registers, so say so explicitly rather than leaving it implied;
 - **what a report should include** — the affected block identifier, the specific transform/plugin/import
   declaration if relevant, and whether the issue could propagate to registers that import this one.
 
@@ -36,6 +36,11 @@ A register with no code of its own can still execute code when it's built, from 
 - **transform and validator plugins**, declared under `plugins.transforms` / `plugins.validators` in
   `bblocks-config.yaml` and installed via `pip`, which accepts any specifier `pip install` understands — including
   `git+https://...` URLs, i.e. code from anywhere the declaration points to;
+- **build (lifecycle-hook) plugins**, declared under `plugins.build`, installed the same `pip`-based way as
+  transform/validator plugins. Unlike those, which only run against matching example snippets, a build plugin can
+  hook into the run itself — before/after each building block, after `register.json` is written, after semantic
+  uplift, at the very end of the run, or on error — so it can observe or act on the whole register, not just one
+  block's examples;
 - **cross-block `get_transformer` / `getTransformer` calls**, which can invoke a transform defined in a *different*
   block — including one reached through an import.
 
@@ -90,8 +95,8 @@ not just when you add them.
 You don't have to take a register's word for what it does. Its published `register.json` and related output make
 several things checkable without reading its source repository at all:
 
-- **which transform and validator plugins it declares**, including the exact `pip` specifier each was installed
-  from;
+- **which transform, validator, and build plugins it declares**, including the exact `pip` specifier each was
+  installed from;
 - **the code each block's declared transforms would run**, published alongside the blocks themselves;
 - **its import edges**, and by resolving those recursively, its full transitive closure;
 - **the license** applying to the register and to each block, via the `license` object in `bblocks-config.yaml` or

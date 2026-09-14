@@ -19,8 +19,26 @@ An extension point consists of:
 <div class="notice notice--warning" markdown="1">
 #### OpenAPI building blocks
 For building blocks backed by an OpenAPI document rather than a standalone JSON Schema, extension points
-are **declarative only** — they are recorded in the register for clients to interpret, but no compiled
-schema document is produced.
+produce a real, merged OpenAPI document — same as the JSON Schema case, but working against the shape of
+an OpenAPI document instead of a bare schema:
+- `paths` and `webhooks` from your own `openapi.yaml` are added to the base document; set an entry to
+  `false` instead of an object to remove one inherited from the base.
+- `info`, `servers`, `security`, `tags` and `externalDocs`, if declared in your `openapi.yaml`, replace the
+  base's values outright (whole-value overrides, not merges).
+- Every schema reference in the base document (in `paths`, `webhooks`, or `components`) that transitively
+  points at one of your `extensions` mappings' `fromBuildingBlock` is substituted the same way as in the
+  JSON Schema case — including references nested inside a Parameter, Response, RequestBody, Header,
+  Example or Link object, not just bare Schema Object slots.
+- A base document written for OpenAPI 3.0 is automatically upconverted to 3.1 first, since substitution
+  depends on 2020-12 JSON Schema alignment.
+</div>
+
+<div class="notice notice--info" markdown="1">
+#### Upgrading from bblocks-postprocess before v1.1.0
+Before v1.1.0, OpenAPI extension points were declarative only — recorded in the register, but no document
+was actually produced. If you declared `extensionPoints` against an OpenAPI building block before
+upgrading, its OpenAPI document is now compiled for the first time; review it once after upgrading. *(This
+notice will be removed once this is no longer a recent change.)*
 </div>
 
 

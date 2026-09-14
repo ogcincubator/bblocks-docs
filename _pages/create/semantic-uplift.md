@@ -181,6 +181,30 @@ The following types are supported and will be automatically processed when uplif
   * `sparql-update`: A [SPARQL UPDATE](https://www.w3.org/TR/2013/REC-sparql11-update-20130321/) query that will
     be applied on the graph. The full resulting graph will be returned.
 
+### Inheriting post-uplift steps across dependent building blocks
+
+A post-processing step (`shacl`, `sparql-construct`, `sparql-update` — not `jq`, which operates on this block's
+own JSON document shape) can be marked `inheritable: true`. A wrapping or profiling building block (one that
+depends on or profiles it, directly or transitively via `dependsOn`/`isProfileOf`) can then opt in to running
+that step automatically as part of its own semantic uplift, via its own `inheritedPostSteps` property:
+
+```yaml
+# In the dependency's semantic-uplift.yaml
+additionalSteps:
+  - type: shacl
+    ref: semantic-uplift/entail.ttl
+    inheritable: true
+```
+
+```yaml
+# In the dependent building block's own semantic-uplift.yaml
+inheritedPostSteps: true   # or a list of specific bblock identifiers to inherit from, e.g. [ogc.example.base]
+```
+
+`inheritedPostSteps` defaults to `false` — nothing is inherited unless a building block opts in, even if one of
+its dependencies marks steps `inheritable`. Inherited steps run in dependency order, before the dependent block's
+own local `additionalSteps`.
+
 ### Semantic uplift in run-time
 
 If extra steps are required to map a schema to a model, then it becomes an implementation challenge to implement these steps. It is a work in progress to consider the reusability (FAIR) of transformations, and how these may be related to known profiles and allow software to automatically apply a small number of well-tested standard transformations.
