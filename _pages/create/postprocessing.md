@@ -92,3 +92,12 @@ No other change is needed — on `develop`, `validate-and-process.yml` resolves 
 postprocessing action and Docker image automatically. The same applies to a PR-check caller workflow
 (`.github/workflows/pr-check.yml`, if your register has one): pin it at `@develop` the same way to
 test upcoming PR-validation behavior too.
+
+To pin an *exact* image instead of following `develop`'s moving tip — e.g. to reproduce a bug report
+against the precise image it was seen on, including a specific past `v1.*.*` release — pass `image_tag`
+to `validate-and-process.yml` (or `full`/`postprocess` directly) without changing which ref you're using:
+
+```yaml
+    with:
+      image_tag: v1.0.20   # any tag actually pushed to ghcr.io/opengeospatial/bblocks-postprocess
+```
