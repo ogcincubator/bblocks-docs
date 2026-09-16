@@ -5,7 +5,7 @@ permalink: /useful-links
 
 This page collects links to documentation, tutorials, tooling and registers related to OGC Blocks, for easy sharing.
 
-_Last update: 2026-06-17_
+_Last update: 2026-09-16_
 
 # Documentation and tutorials
 
@@ -23,7 +23,7 @@ _Last update: 2026-06-17_
   development project** — this is a dev deployment; expect the URL to change once a production register exists.
 - [OGC Blocks template](https://github.com/opengeospatial/bblocks-template)
 - [OGC Blocks examples register](https://ogcincubator.github.io/bblocks-examples/)
-- [Claude skill](https://ogcincubator.github.io/ogc-llm-skills/) (see `bblocks-authoring`)
+- [Claude skills](https://ogcincubator.github.io/ogc-llm-skills/) (see `bblocks-authoring`, `bblocks-consuming`, `bblocks-schema-ontology`)
 - [jsonld-ui-utils](https://github.com/ogcincubator/jsonld-ui-utils) — library for rendering JSON-LD data as semantically-enriched HTML tables / Leaflet map popups
 
 # Registers

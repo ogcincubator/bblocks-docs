@@ -19,6 +19,14 @@ This is the documentation for the OGC Building Blocks framework, a **specificati
 
 To provide suggestions for improvement on this documentation or ask questions please lodge issues [here](https://github.com/ogcincubator/bblocks-docs/issues) or submit pull requests.
 
+<div class="notice notice--info" markdown="1" style="font-size: 1.15em !important;">
+#### Using an AI agent? Try our skills
+
+We publish [Claude Agent Skills](https://ogcincubator.github.io/ogc-llm-skills/) that teach an LLM how to
+work with OGC Building Blocks directly, so you don't need to paste this documentation into every
+conversation: `bblocks/authoring` (creating a register), `bblocks/consuming` (integrating with a published
+one), and `bblocks/schema-ontology` (adding semantics to an existing schema).
+</div>
 
 ## Overwhelmed?
 
