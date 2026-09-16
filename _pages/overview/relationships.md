@@ -10,9 +10,13 @@ Several types of relationships can be declared when defining Building Blocks.
 This relationship implies that a building block depends on another, in a generic manner.
 
 This is the default type of relationship that exists, for example, when the schema of a building
-block is referenced from another. 
+block is referenced from another.
 
-This type of dependency is declared using `dependsOn` in `bblock.json`.
+This type of dependency is declared using `dependsOn` in `bblock.json`. You don't need to declare it
+by hand for a block already referenced via a `bblocks://` `$ref` in the schema — the postprocessor
+detects that reference and adds it to `dependsOn` automatically. Declare `dependsOn` explicitly only
+for dependencies the schema itself doesn't reveal (e.g. a transform-time or narrative-only
+prerequisite).
 
 ## <a name="type-profileOf"></a>Profiling (`profileOf`)
 

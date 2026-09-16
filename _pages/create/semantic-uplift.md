@@ -39,9 +39,12 @@ JSON-LD contexts need to be aware of the underlying JSON schema - and in many ap
 
 The Building Blocks design allows automatic combination of contexts based on the schema re-use patterns: a building
 block that has no `context.jsonld` (or `x-jsonld-context`) of its own can still resolve to a full, valid semantic
-context, assembled from whichever of its dependencies (`dependsOn` / `isProfileOf`, walked transitively) do define
-one. Dependencies without a context of their own are simply skipped over — they still contribute their JSON Schema,
-just not any semantic mappings.
+context, assembled from whichever of the blocks its schema re-uses (via `$ref`, `allOf`, `anyOf`, `oneOf`) do define
+one. Referenced blocks without a context of their own are simply skipped over — they still contribute their JSON
+Schema, just not any semantic mappings.
+
+A schema `$ref` to another block is also added automatically to that block's `dependsOn`, which separately drives
+SHACL shape inheritance — see [Building Block relationships](../overview/relationships).
 
 The diagram below is a real "Context sources" graph, traced by the [viewer](https://ogcincubator.github.io/bblocks-viewer)
 for the [`Custom Result for Observation Feature`](https://ogcincubator.github.io/bblocks-viewer/#/bblock/ogc.bbr.examples.observation.vectorObservationFeature?register=https://ogcincubator.github.io/bblocks-examples/build/register.json)
@@ -51,8 +54,9 @@ building block, which defines no JSON-LD context of its own:
 
 Its dependency chain runs several levels deep — through an intermediate `Observation Result` block, then through
 customized `JSON-FG Feature`/`Feature Collection - Lenient` blocks, down to `GeoPose Basic-YPR`, `JSON Link`,
-`JSON-FG time member`, `Feature`, `Feature Collection` and `GeoJSON` — yet the block itself just declares
-`dependsOn`/schema references; every one of those ancestors' JSON-LD mappings is picked up and merged automatically.
+`JSON-FG time member`, `Feature`, `Feature Collection` and `GeoJSON` — yet the block itself just composes those
+blocks' schemas; every one of those ancestors' JSON-LD mappings is picked up and merged automatically by following
+that same schema composition.
 
 As schema complexity grows through re-use of standard components, this stops being a convenience and becomes a
 critical enabler: authors of a mid-level or leaf building block don't need to redeclare mappings already defined
