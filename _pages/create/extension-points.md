@@ -21,8 +21,10 @@ An extension point consists of:
 For building blocks backed by an OpenAPI document rather than a standalone JSON Schema, extension points
 produce a real, merged OpenAPI document — same as the JSON Schema case, but working against the shape of
 an OpenAPI document instead of a bare schema:
-- `paths` and `webhooks` from your own `openapi.yaml` are added to the base document; set an entry to
-  `false` instead of an object to remove one inherited from the base.
+- `paths`, `webhooks` and `components.*` entries from your own `openapi.yaml` are added to the base
+  document. Redeclaring a key that already exists in the base overrides it in place (a warning is
+  logged, since this is also plausibly an accidental collision). Set an entry to `false` instead of an
+  object to remove one inherited from the base — removing an entry that doesn't exist is still an error.
 - `info`, `servers`, `security`, `tags` and `externalDocs`, if declared in your `openapi.yaml`, replace the
   base's values outright (whole-value overrides, not merges).
 - Every schema reference in the base document (in `paths`, `webhooks`, or `components`) that transitively
