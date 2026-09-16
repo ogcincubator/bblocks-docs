@@ -38,9 +38,9 @@ A register with no code of its own can still execute code when it's built, from 
   `git+https://...` URLs, i.e. code from anywhere the declaration points to;
 - **build (lifecycle-hook) plugins**, declared under `plugins.build`, installed the same `pip`-based way as
   transform/validator plugins. Unlike those, which only run against matching example snippets, a build plugin can
-  hook into the run itself — before/after each building block, after `register.json` is written, after semantic
-  uplift, at the very end of the run, or on error — so it can observe or act on the whole register, not just one
-  block's examples;
+  hook into the run itself — before/after each building block, once the register is assembled but before
+  `register.json` is written, after semantic uplift, at the very end of the run, or on error — and can rewrite the
+  assembled register before it's published (see [Build plugins](build-plugins));
 - **cross-block `get_transformer` / `getTransformer` calls**, which can invoke a transform defined in a *different*
   block — including one reached through an import.
 

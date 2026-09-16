@@ -72,6 +72,8 @@ docs:
         url: /create/validation
       - title: Transforms
         url: /create/transforms
+      - title: Build plugins
+        url: /create/build-plugins
       - title: RDF-only Building Blocks
         url: /create/rdf-only
       - title: External resources
