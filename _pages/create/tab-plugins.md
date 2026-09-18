@@ -63,8 +63,12 @@ class MyTabPlugin {
   static tabId = 'my-tab';
   // v-tab display text — required, no placeholder fallback if omitted (the plugin is skipped).
   static tabLabel = 'My Tab';
-  // Icon (MDI name) — optional, falls back to a generic default.
+  // Icon — optional, falls back to a generic default. Either an MDI icon name (the default/
+  // simplest form, e.g. 'mdi-puzzle-outline'), or { url: '...' } pointing at a square PNG/JPG/SVG
+  // image for a custom (non-MDI) icon. Use an absolute URL — a relative one resolves against the
+  // viewer's own page origin, not the plugin's.
   static icon = 'mdi-puzzle-outline';
+  // static icon = { url: 'https://example.org/icons/my-tab.svg' };
   // Ordering among other matched tab plugins for the same bblock — optional, default 0.
   static weight = 0;
   // Whether the instance + rendered DOM persist across same-bblock tab switches (default true) or

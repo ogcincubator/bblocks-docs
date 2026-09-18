@@ -87,8 +87,12 @@ class MyPlugin {
   // Tab label — required, also used to generate the tab's shareable link.
   static viewName = 'Map';
 
-  // Icon (MDI name, e.g. 'mdi-map') — optional, falls back to a generic default.
+  // Icon — optional, falls back to a generic default. Either an MDI icon name (the default/
+  // simplest form, e.g. 'mdi-map'), or { url: '...' } pointing at a square PNG/JPG/SVG image for
+  // a custom (non-MDI) icon. Use an absolute URL — a relative one resolves against the viewer's
+  // own page origin, not the plugin's.
   static icon = 'mdi-map';
+  // static icon = { url: 'https://example.org/icons/my-plugin.svg' };
 
   // candidates: one entry per available representation of the same content — one per example
   // snippet language, or a single-element array for a transform output. Each candidate is
