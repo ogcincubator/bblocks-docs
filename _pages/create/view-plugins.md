@@ -13,6 +13,10 @@ A view plugin is a small client-side ES module the viewer loads at runtime (via 
 matches, the viewer adds an extra tab that renders the plugin's own view alongside the built-in
 code/schema tabs.
 
+If what you want is a whole new top-level tab on the bblock's detail page instead — driven by the
+full bblock rather than one example/transform-output candidate — see
+[Viewer tab plugins](/create/tab-plugins), a separate, parallel mechanism.
+
 ## Adding a view plugin to a register
 
 Declare one or more plugins under `viewer.view-plugins` in `bblocks-config.yaml`:

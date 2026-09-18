@@ -137,6 +137,12 @@ A fuller, real-world example implementing every event is
 (`SampleBuildHooks`), which stamps a processing timestamp onto the register and every block via
 `after_register`.
 
+A build plugin that stamps a new field/document onto a bblock pairs naturally with a
+[tab plugin](/create/tab-plugins) on the viewer side: the build plugin emits the data into
+`json-full`, the tab plugin renders it as its own tab. The two are independent mechanisms, though —
+a tab plugin can just as validly key off existing bblock/register metadata with no build plugin
+involved at all.
+
 ---
 
 ## Plugin metadata in the register

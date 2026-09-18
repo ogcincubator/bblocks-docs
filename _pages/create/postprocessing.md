@@ -47,7 +47,8 @@ docker run --rm --pull=always -v "$(pwd):/register" -p 9090:9090 ghcr.io/ogcincu
 * By default the viewer shows only local building blocks. To also show imported ones, set
   [`viewer.show-imported-depth`](/create/structure#additional-register-metadata-properties) in `bblocks-config.yaml`.
 * A register can add custom visualizations for examples/transform outputs via
-  [view plugins](/create/view-plugins).
+  [view plugins](/create/view-plugins), or a whole new top-level bblock detail tab via
+  [tab plugins](/create/tab-plugins).
 
 ### Using the development build
 

@@ -58,6 +58,8 @@ docs:
         url: /create/postprocessing
       - title: Viewer view plugins
         url: /create/view-plugins
+      - title: Viewer tab plugins
+        url: /create/tab-plugins
       - title: Building Block metadata
         url: /create/metadata
       - title: Adding documentation

@@ -82,6 +82,8 @@ The following additional properties can be set inside `bblocks-config.yml`:
     and when [run locally](/create/postprocessing#building-blocks-viewer) against the register directly.
   * `view-plugins`: custom client-side visualizations for example snippets or transform outputs.
     See [Viewer view plugins](/create/view-plugins).
+  * `tab-plugins`: custom client-side tabs on a bblock's detail page, driven by the whole bblock
+    rather than a single example/transform output. See [Viewer tab plugins](/create/tab-plugins).
 
 ## Ready to use components
 
