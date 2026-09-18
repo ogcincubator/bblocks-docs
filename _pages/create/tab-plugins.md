@@ -126,6 +126,10 @@ CORS, and point `bblocks-config.yaml` at it as shown above. See
 (jsDelivr hosting via the starter template, local testing tips, and why the devtools console
 matters for anything an async error in your own plugin code wouldn't otherwise surface).
 
+See a tab plugin working live on the
+[tab-plugin-demo bblock](https://ogcincubator.github.io/bblocks-examples/bblock/ogc.bbr.examples.plugins.tab-plugin-demo)
+in the `bblocks-examples` register.
+
 ### Trust model
 
 Same as view plugins: a register only ever loads the tab plugins it declares itself — plugins from
