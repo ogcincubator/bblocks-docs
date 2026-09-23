@@ -5,8 +5,26 @@ toc: false
 classes: wide
 ---
 
+
 <img src="assets/bblocks-qr.png" alt="QR Code" style="float:right; width: 200px; max-width: 33%"/>
-This is the documentation for the OGC Building Blocks framework, a **specification component** packaging approach supporting:
+This is the documentation for the OGC Building Blocks framework.
+
+**Faster, better, further**...  Do more, with better quality and less effort by reusing standard solutions and help your users recognise these. 
+
+## What are Building Blocks?
+
+Building Blocks are **composable, reusable specification components**. 
+
+
+These components can be anything that can be expressed in information artefacts and needs **transparent dependency** declarations.
+
+**Building** is the key concept - the framework is a CI/CT environment - specifications can be built by heavy **reuse of components** and made available to be built upon in turn.
+
+<img src="assets/abstract-model.png" alt="Metamodel"/>
+
+## Benefits of a standardised packaging approach
+
+Provides a common, actionable and interoperable solution for:
 
 - improved documentation of dependencies between specifications
 - improved re-use of common elements across specifications
@@ -19,13 +37,18 @@ This is the documentation for the OGC Building Blocks framework, a **specificati
 
 To provide suggestions for improvement on this documentation or ask questions please lodge issues [here](https://github.com/ogcincubator/bblocks-docs/issues) or submit pull requests.
 
-<div class="notice notice--info" markdown="1" style="font-size: 1.15em !important;">
+<div class="notice notice--info" markdown="1" style="float:right; font-size: 1.15em !important;">
 #### Using an AI agent? Try our skills
 
 We publish [Claude Agent Skills](https://ogcincubator.github.io/ogc-llm-skills/) that teach an LLM how to
 work with OGC Building Blocks directly, so you don't need to paste this documentation into every
-conversation: `bblocks/authoring` (creating a register), `bblocks/consuming` (integrating with a published
-one), and `bblocks/schema-ontology` (adding semantics to an existing schema).
+conversation. Some examples are:
+ - `bblocks/authoring` (creating a register)
+ - `bblocks/consuming` (integrating with a published
+one), 
+ - `bblocks/schema-ontology` (adding semantics to an existing schema).
+
+Or share your own skills to support specific Use Cases! 
 </div>
 
 ## Overwhelmed?
