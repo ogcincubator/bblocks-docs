@@ -132,6 +132,8 @@ register: [`Override Binding - Base`](https://ogcincubator.github.io/bblocks-vie
 binds `note`/`label` to `skos:note`/`skos:prefLabel`, and
 [`Override Binding - Child (Profile)`](https://ogcincubator.github.io/bblocks-viewer/#/bblock/ogc.bbr.examples.semantic-uplift.override-binding.child?register=https://ogcincubator.github.io/bblocks-examples/build/register.json)
 profiles it, redeclaring `note` (partial override — only `@id`) and `label` (full override — `@id` and `@type`).
+The same pair also covers the nested case above: the base binds `assets.href` to `dcat:downloadURL`, and the
+child restates the whole `assets` object to narrow it to `dcat:accessURL`.
 
 ### Why not just reuse a general-purpose vocabulary like schema.org?
 
