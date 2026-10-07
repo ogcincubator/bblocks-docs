@@ -35,8 +35,45 @@ automatically from `pip` otherwise). `classes` can list several classes, from on
 each seeing the previous one's output.
 
 A build plugin is an ordinary installable Python package — no base class, decorator, or special
-package metadata is needed. Its class needs no constructor arguments; it implements only the
+package metadata is needed. Its class is constructed with no arguments (or with its entry's
+[`config`](#configuration-and-multiple-instances), if one is declared); it implements only the
 lifecycle methods it cares about, and any event with no matching method is simply skipped.
+
+### Configuration and multiple instances
+
+```yaml
+plugins:
+  build:
+    - id: strict                          # optional; letters, digits, _ and -
+      classes: [my_org.my_hooks.MyBuildHooks]
+      pip: git+https://github.com/example/my-bblocks-build-plugin.git
+      config:                             # optional; JSON-serializable mapping
+        threshold: 3
+    - id: lenient
+      classes: [my_org.my_hooks.MyBuildHooks]   # same class, second instance
+      pip: git+https://github.com/example/my-bblocks-build-plugin.git
+      config:
+        threshold: 10
+```
+
+- **`config`** is passed to the constructor of *every* class in its entry, as a single positional
+  dict: `def __init__(self, config)`. With no `config` (or an empty one) the class is constructed
+  with no arguments, as before. Giving a non-empty `config` to a class whose constructor can't take
+  one aborts the run. To configure classes differently, declare separate entries.
+- `config` must be JSON-serializable (string keys, no `NaN`; quote values like dates, which YAML
+  would otherwise parse into non-JSON types) — this is checked up front, before any plugin is
+  installed. Validate the contents yourself and raise from the constructor to fail the run early.
+- `config` is never written to `register.json`, but `bblocks-config.yaml` is committed to git: don't
+  put secrets in it. Read them from environment variables (plugins inherit the environment) or from
+  files outside the repository.
+- **`id`** lets the same class run as several independent instances (each `(class, id)` pair gets
+  its own process; entries with the same `pip` still share one virtualenv). Each pair must be
+  unique, or the run aborts at load time. Declaring the same class twice *without* an `id` still
+  works (the entries share one instance, so only the first one's `config` applies) but logs a
+  prominent warning and will become an error in a future release. The `id` reaches the plugin as
+  `context['pluginId']` (`None` when absent).
+- `config`/`id` need a postprocessor release that supports them (v1.1.8 or later); older images
+  ignore the keys.
 
 Each declared class runs in its own isolated virtualenv (created automatically under the
 postprocessing sandbox), the same mechanism used for transform/validator plugins.
@@ -74,8 +111,9 @@ leaves the register unchanged.
 
 ## What each hook receives
 
-`context` (present on every event) carries the run's own settings — `itemsDir`, `baseUrl`,
-`registerFile`, `steps`, `filter`, `failOnError`. For per-block events at `FINALIZE`/`DOC`, it
+`context` (present on every event) carries the run's own settings — `rootDir` (the absolute
+directory the other paths are relative to), `pluginId` (the declaring entry's `id`, or `null`),
+`itemsDir`, `baseUrl`, `registerFile`, `steps`, `filter`, `failOnError`. For per-block events at `FINALIZE`/`DOC`, it
 additionally carries `light` (boolean): whether this block is excluded by `--filter` for this
 stage. It isn't present for run-level checkpoints.
 
