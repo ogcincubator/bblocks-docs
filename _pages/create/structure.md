@@ -11,6 +11,11 @@ The following image summarizes the general usage of a building block:
 
 The `_sources` directory will contain the sources for the building blocks inside this repository.
 
+Only `bblock.json` is required. All other files are optional, and a building block may package any kind of
+artefact - the files below are those with built-in tooling support (JSON Schema, JSON-LD, SHACL, etc.), not a
+definition of what a building block must contain. Artefacts of other types can be attached through
+[`resources`](resources) and validated through [validator plugins](validation#validator-plugins).
+
 - `bblock.json`: Contains the metadata for the building block. Please refer to this
   [JSON schema](https://raw.githubusercontent.com/opengeospatial/bblocks-postprocess/refs/heads/master/ogc/bblocks/schemas/bblock.schema.yaml)
   for more information.

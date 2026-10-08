@@ -7,12 +7,31 @@ Building Blocks are an **extensible framework** for specification development an
 
 Building Blocks support different technologies and the combination or translation between them. Types are however best thought of as the implementation of different [patterns](#patterns), which may be used in combination if required.  
 
+# Scope: any artefact type
 
-# Supported technologies
+A Building Block can package **any kind of specification artefact** - a schema in any language, an ontology,
+a UML model, an OpenAPI component, a codelist, a set of requirements, a transformation, a validation rule set,
+a document, or anything else that can be identified and published.
+
+The core capabilities of the framework are **not bound to any particular technology**:
+
+- **identification and metadata** (`bblock.json`)
+- **dependency and relationship declarations** (`dependsOn`, `isProfileOf`, `seeAlso`, etc.)
+- **documentation**
+- **examples**, in any language or format
+- **attachment of arbitrary artefacts** with declared roles and media types (see [External resources](../create/resources))
+- **publication** in a register and in the knowledge graph
+
+JSON Schema, JSON-LD and SHACL are the technologies with the **most mature built-in tooling** (schema
+annotation, context assembly, semantic uplift, automated validation) - and are therefore the most common
+in existing registers - but they are **not a defining feature** of a Building Block. Automated validation and
+transformation for other technologies can be added through [validator](../create/validation#validator-plugins), [transform](../create/transforms#transform-plugins) and [build](../create/build-plugins) plugins, and their presentation through viewer [view](../create/view-plugins) and [tab](../create/tab-plugins) plugins.
+
+# Technologies with built-in tooling support
 
 Because most people will arrive here with an understanding of one or more technologies, lets start with a few examples, before exploring the underlying behavioural types. 
 
-Key technologies currently supported include:
+Key technologies currently supported by built-in tooling include:
 
 - JSON schema fragments
 - JSON schema with JSON-LD mappings to semantic definitions
