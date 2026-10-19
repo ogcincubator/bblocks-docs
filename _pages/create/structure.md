@@ -19,7 +19,7 @@ The `_sources` directory will contain the sources for the building blocks inside
 - `examples.yaml`: A list of examples for this building block. See [Examples](examples).
 - `schema.json`: JSON schema for this building block, if any. See [JSON schema](schema).
     - `schema.yaml`, in YAML format, is also accepted (and even preferred).
-- `assets/`: Documentation assets (e.g. images) directory. See [Assets](#assets) below.
+- `assets/`: Documentation assets (e.g. images) directory. See [Assets](documentation#assets) below.
 - `tests/`: Test resources. See [Validation](validation).
 
 Building Block identifiers are automatically generated in the form:
@@ -89,9 +89,9 @@ The following additional properties can be set inside `bblocks-config.yml`:
 
 The `build/` directory will contain the **_reusable assets_** for implementing this building block.
 
-*Sources* minimise redundant information and preserve original forms of inputs, such as externally published
+*Sources* minimize redundant information and preserve original forms of inputs, such as externally published
 schemas, etc. This allows these to be updated safely, and also allows for alternative forms of original source
-material to be used whilst preserving uniformity of the reusable assets.
+material to be used while preserving uniformity of the reusable assets.
 
 **The `build` directory should never be edited**. Moreover, applications should only use (copy or reference) resources
 from this directory.

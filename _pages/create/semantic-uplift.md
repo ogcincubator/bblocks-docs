@@ -13,7 +13,7 @@ This provides multiple significant improvements over non-annotated schemas:
 
 1. differentiates between the same and different meanings for common element names used in different places
 2. can be used to link to a semantic model further describing each element
-3. allows use of advanced, standardised validation of instance data
+3. allows use of advanced, standardized validation of instance data
 4. allows automated annotation of schemas themselves for tools able ot exploit additional information
 
 The JSON schema for a building block is optionally linked to a conceptual model by using a root-level `x-jsonld-context`
@@ -22,7 +22,7 @@ then annotate every property inside the JSON schemas with their corresponding RD
 
 Building Blocks defining JSON schemas can be annotated with JSON-LD contexts using either:
 
-- including a file (`context.jsonld`) in the building block directory (this can be overriden with a file path or URL
+- including a file (`context.jsonld`) in the building block directory (this can be overridden with a file path or URL
   using the `ldContext` property in `bblock.json`)
 - using the property `x-jsonld-context` in the _schema.(yaml/json) for the building block - e.g.
   `x-jsonld-context: ../../../sosa-ssn.jsonld`
@@ -46,7 +46,7 @@ Schema, just not any semantic mappings.
 A schema `$ref` to another block is also added automatically to that block's `dependsOn`, which separately drives
 SHACL shape inheritance — see [Building Block relationships](../overview/relationships).
 
-The diagram below is a real "Context sources" graph, traced by the [viewer](https://ogcincubator.github.io/bblocks-viewer)
+The diagram below is a real "Context sources" graph, traced by the [viewer](https://ogcincubator.github.io/bblocks-viewer/)
 for the [`Custom Result for Observation Feature`](https://ogcincubator.github.io/bblocks-viewer/#/bblock/ogc.bbr.examples.observation.vectorObservationFeature?register=https://ogcincubator.github.io/bblocks-examples/build/register.json)
 building block, which defines no JSON-LD context of its own:
 
@@ -106,7 +106,7 @@ Because the override is resolved by branch order rather than by anything marking
 term is enough to override it — there's no separate opt-in, and no warning if you didn't mean to. Reusing a
 property name from a base schema in your own `context.jsonld` for an unrelated reason (or copy-pasting a mapping
 from a sibling block "just in case") will silently override the inherited binding the same way a deliberate
-specialisation would. If a property's meaning looks wrong in the assembled context, check whether every schema in
+specialization would. If a property's meaning looks wrong in the assembled context, check whether every schema in
 the `allOf`/`$ref` chain that mentions that property name is mapping it on purpose.
 
 The override applies per JSON-LD keyword, not to the whole binding at once: if the base context also gives `note`
@@ -123,7 +123,7 @@ to restate the enclosing structure itself in your own `allOf` branch — an `ass
 property and its own `x-jsonld-id` — not just add an entry to your context file.
 
 This is a deliberate, reliable mechanism — useful for [profiling](../overview/profiles) a parent building block to
-specialise an inherited term without forking its schema. It's unrelated to [extension points](extension-points),
+specialize an inherited term without forking its schema. It's unrelated to [extension points](extension-points),
 which substitute one *referenced block* for another rather than override a *term mapping*.
 
 A working, minimal example lives in the
@@ -178,7 +178,7 @@ additionalSteps:
 The following types are supported and will be automatically processed when uplifting examples and test resources:
 
 * Pre-processing (on JSON document, before applying JSON-LD context)
-  * `jq`: [JQ transform](https://jqlang.github.io/jq/manual/)
+  * `jq`: [JQ transform](https://jqlang.org/manual/)
 * Post-processing (on RDF graph, after applying JSON-LD context and parsing).
   * `shacl`: [SHACL AF](https://www.w3.org/TR/shacl-af/#rules) ruleset. The original graph plus the entailed triples
     (if any) will be returned.

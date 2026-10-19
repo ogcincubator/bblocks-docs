@@ -16,9 +16,9 @@ The main aspects of this are:
 
 The key enabler for Linked Data is the use of RDF - and this can be done with "native RDF" - but the focus on the Building Blocks is "semantic uplift" of JSON.
 
-This can be done with JSON-LD. Whilst it has its limitations JSON-LD is a commonly used standard that provides an enabler.
+This can be done with JSON-LD. While it has its limitations JSON-LD is a commonly used standard that provides an enabler.
 
-The challenges with JSON-LD lie in its mirroring of underlying JSON schema structures - it doesnt support significant structure reorganisation, and its complex to build JSON-LD contexts that mirror complex schemas.
+The challenges with JSON-LD lie in its mirroring of underlying JSON schema structures - it doesn't support significant structure reorganization, and it's complex to build JSON-LD contexts that mirror complex schemas.
 
 The OGC Building Blocks **solve this** by allowing unit-testing of simple JSON-LD contexts for sub-schemas, and compilation of reliable context documents for schemas that re-use these sub-schemas.
 (Note this is currently the only Open Source tooling known to support this, and was developed in consultation with JSON schema design leads.)

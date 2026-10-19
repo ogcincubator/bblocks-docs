@@ -27,7 +27,7 @@ This type of dependency is declared using `profileOf` in `bblock.json`.
 
 ## Extension points
 
-When defining [extension points](../create/extension-points.md), three new types of relationships are involved.
+When defining [extension points](../create/extension-points), three new types of relationships are involved.
 
 ### <a name="type-extends"></a>Extends
 

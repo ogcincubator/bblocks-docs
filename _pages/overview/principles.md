@@ -7,7 +7,7 @@ The OGC Building Block framework addresses the gap between the FAIR principles a
 
 The focus is on **Reusability**, as the point at which value is achieved for both specification creators and specification consumers.
 
-Resuability of common components enhances specification development speed and quality.
+Reusability of common components enhances specification development speed and quality.
 
 Identification of commonalities reduces effort for consumers to understand and exploit specifications.
 
@@ -35,9 +35,9 @@ Managing distributed development and evolution cycles is supported by [Regressio
 
 ## Profiling
 
-Building Blocks should be simple to specialise.
+Building Blocks should be simple to specialize.
 
-See [Profiles](profiles.md)
+See [Profiles](profiles)
 
 ## Testing
 

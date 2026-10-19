@@ -22,7 +22,7 @@ The word "specification" is used in many cases - because the target may be less 
 
 - **Notes**
   - Developing and testing a standard using a register of Building Blocks allows included and new content to be treated using the same toolkit
-  - OGC uses a standards documentation environment ("Metanorma") based on Asciidoc templates
+  - OGC uses a standards documentation environment ("Metanorma") based on AsciiDoc templates
   - An extension to the Building Block Register tooling to generate a Metanorma template would be far more efficient than manual copy/paste approaches currently required.
   - Annotations of requirements could be built into Building Blocks - e.g. as JSON schema annotation elements
   - Editing tools could be created to support capturing requirements during standards development and testing, leading to full automation of the normative components of standards writing.
@@ -35,7 +35,7 @@ An editor uses the Building Block Register to reference the one of the optional 
 - **Audience:** Standards Developers, Quality Control Engineers  
 - **Pre-conditions:**  
   - Encoding or schema-based standard is being authored  
-  - Component and compatability target schemas are available
+  - Component and compatibility target schemas are available
 - **Post-conditions:**  
   - Composite schemas support compatibility assertions and conformance testing
   - A Building Block for the stricter validation scenario is available for reuse in other contexts, such as STAC extensions.
@@ -105,7 +105,7 @@ Augmented guidance can be published at any time without republishing standards a
   - Relationships between profiles and 
 
 **Notes**
- - whilst not strictly necessary, the base and incorporated component standards can be "wrapped" as Building Blocks to improve visibility of dependencies - and to factor our validation rules common the base standard to avoid replicating these in multiple profiles.
+ - while not strictly necessary, the base and incorporated component standards can be "wrapped" as Building Blocks to improve visibility of dependencies - and to factor out validation rules common to the base standard to avoid replicating these in multiple profiles.
  - 
 **Scenario:**  
 A national agency in Europe publishes metadata standards restricted to their data policies and vocabularies, as a profile of ```GeoDCAT```, and a matching profile of ```OGG API Records``` to provide an implementation option. This profile is intended to be compatible with both regional standards (DCAT-AP - the DCAT Application Profile for European Portals) and domain specific standards - for example metadata for Machine Learning Training sets. 
@@ -153,7 +153,7 @@ Two application components share information according to an agreed and document
 A key design requirement may be to be able to deploy an application within a specific environment. This may have three aspects requiring detailed specifications, and commonality between these specification aspects can be handled using Building Blocks:
  1. Understanding data sources (and outputs of other components) during application design
 2.  Documenting application outputs for reuse
-3. Registering and categorising deployed applications according to infrastructure cataloguig requirements for management or discovery.
+3. Registering and categorizing deployed applications according to infrastructure cataloging requirements for management or discovery.
 
 ## Use Case 9: Discovering Relevant OGC Standards
 

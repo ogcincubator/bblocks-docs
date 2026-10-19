@@ -4,12 +4,12 @@ permalink: /use/finding
 ---
 
 
-Whilst components described as Building Blocks may be referenced by individual specifications, due to evolution of the specification publication process over time this is not consistent in terms of identification or disposition of published artefacts. Such components may be published as discrete resources, or bundled in larger packages. They may or may not be in consistent machine-readable forms. This leads to many challenges for discovery of such components.  General text search options may assist, but will be subject to limited ability to precisely recall only relevant components.
+While components described as Building Blocks may be referenced by individual specifications, due to evolution of the specification publication process over time this is not consistent in terms of identification or disposition of published artifacts. Such components may be published as discrete resources, or bundled in larger packages. They may or may not be in consistent machine-readable forms. This leads to many challenges for discovery of such components.  General text search options may assist, but will be subject to limited ability to precisely recall only relevant components.
 
 The OGC Building Block Framework provides three improved approaches for discovery:
 
 1. [Registers](../overview/registers)
-1. [RAINBOW (OGC Knowledge Graph)]() 
+1. [RAINBOW (OGC Knowledge Graph)](https://defs-dev.opengis.net/prez/catalogs/ns338:bblocks) 
 1. Transparent Dependencies 
 1. [The meta-register catalog](#the-meta-register-catalog-cross-register-search)
 

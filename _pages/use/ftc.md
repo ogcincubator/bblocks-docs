@@ -5,7 +5,7 @@ toc: false
 classes: wide
 ---
 
-Building Blocks solve a key limitation of traditional specifications using mixtures of documentation styles and locations - by normalising the documentation for a wide range of specification types it allows for increased **Access** in practice - since all the reusable components can be reliably found via the underlying Linked Data and Register models.
+Building Blocks solve a key limitation of traditional specifications using mixtures of documentation styles and locations - by normalizing the documentation for a wide range of specification types it allows for increased **Access** in practice - since all the reusable components can be reliably found via the underlying Linked Data and Register models.
 
 The concept of a "Feature Type Catalog" (FTC) has been widely accepted as a concept, however interoperable implementations have been slow to emerge.
 

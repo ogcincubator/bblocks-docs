@@ -41,7 +41,7 @@ for where the analogy breaks down.
 
 ## What "AI readiness" means
 
-AI readiness means increased efficiency - improved processing time, token and model cost, human validation, energy consumed - and also in the effort required to identify and frame the use of AI to improve utilisation of information.
+AI readiness means increased efficiency - improved processing time, token and model cost, human validation, energy consumed - and also in the effort required to identify and frame the use of AI to improve utilization of information.
 
 ## AI readiness factors
 
@@ -62,7 +62,7 @@ AI readiness means increased efficiency - improved processing time, token and mo
   machine-facing schemas can drift apart, an agent trained or grounded on one will mislead about the
   other.
 - **Predictable, consistent structure across blocks.** An agent that has learned to work with one
-  Building Block should be able to generalise to another without bespoke handling.
+  Building Block should be able to generalize to another without bespoke handling.
 
 ## Related material
 
@@ -82,7 +82,7 @@ frames AI agents as likely primary consumers of interoperability resources, and 
 - What would we actually measure or test to call a Building Block "AI-ready"? Is there a minimal
   checklist, or does it vary too much by consumer (RAG index vs. agentic tool vs. fine-tuning corpus)?
 - The register could expose retrieval-oriented artifacts directly (e.g. chunked/embedded
-  representations) - this may be done with a pluggable artefact construction layer rather than a hardcoded design for specific technologies?
+  representations) - this may be done with a pluggable artifact construction layer rather than a hardcoded design for specific technologies?
 - This Use Case and associated design perspectives are intended to introduce the Building Blocks from the perspective of a requirement or familiarity with AI readiness.
 
 ## See also

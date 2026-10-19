@@ -88,7 +88,7 @@ available to it as mounted [volumes](https://docs.docker.com/engine/storage/volu
  -v "$(pwd)/../../ogc/bblock-prov-schema:/imports/ogc/bblock-prov-schema"
 ```
 
-If you are using `build.sh` as suggested in [Local Build](../create/local), you can automate the volumes that
+If you are using `build.sh` as suggested in [Local Build](../build/local), you can automate the volumes that
 will be mounted in the `docker` command by creating a `.volumes` file in which each line will represent a
 `<local path>:<container mount path>` pair. For example:
 

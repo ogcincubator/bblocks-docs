@@ -14,14 +14,14 @@ Every register repository should carry a `SECURITY.md` alongside its `README.md`
 should state:
 
 - **where to report a suspected security issue** — a monitored email address or a private reporting channel (e.g.
-  [GitHub private vulnerability reporting](https://docs.github.com/en/code-security/security-advisories/guidance-on-reporting-and-writing/privately-reporting-a-security-vulnerability)), not a public issue tracker;
+  [GitHub private vulnerability reporting](https://docs.github.com/en/code-security/how-tos/report-and-fix-vulnerabilities/report-privately)), not a public issue tracker;
 - **what's in scope** — this repository's own sources (`transforms.yaml`, `plugins.transforms`/`plugins.validators`/
   `plugins.build` declarations, CI/CD workflows, `bblocks-config.yaml`); most maintainers cannot vouch for imported
   registers, so say so explicitly rather than leaving it implied;
 - **what a report should include** — the affected block identifier, the specific transform/plugin/import
   declaration if relevant, and whether the issue could propagate to registers that import this one.
 
-[`bblock-template`](https://github.com/opengeospatial/bblock-template) does not yet ship a `SECURITY.md` — that
+[`bblocks-template`](https://github.com/opengeospatial/bblocks-template) does not yet ship a `SECURITY.md` — that
 support is in progress and, once available, the tooling will create and keep one up to date for you automatically
 (choosing the right variant depending on whether your repository lives under an OGC-controlled organization or not).
 Until then, write one by hand; the structure above is the one the automated version will use, so nothing you write

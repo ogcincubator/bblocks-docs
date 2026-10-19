@@ -525,7 +525,7 @@ plugins:
 > to the `plugins.transforms` key in `bblocks-config.yaml`.
 
 Each plugin entry installs one or more pip packages and scans the listed Python modules for transformer
-classes. A transformer class is recognised by duck typing — it needs:
+classes. A transformer class is recognized by duck typing — it needs:
 
 - `transform_types`: a non-empty list of type name strings
 - `transform(metadata)`: a callable that accepts a metadata object and returns a string or bytes, or raises an exception on failure

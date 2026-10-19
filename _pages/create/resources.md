@@ -19,7 +19,7 @@ Each entry in the `resources` array has the following fields:
 
 ## Well-known roles
 
-The `role` field accepts any URI, but the following short names are also recognised:
+The `role` field accepts any URI, but the following short names are also recognized:
 
 | Role | Description |
 |---|---|

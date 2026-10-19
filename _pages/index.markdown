@@ -9,20 +9,20 @@ classes: wide
 <img src="assets/bblocks-qr.png" alt="QR Code" style="float:right; width: 200px; max-width: 33%"/>
 This is the documentation for the OGC Building Blocks framework.
 
-**Faster, better, further**...  Do more, with better quality and less effort by reusing standard solutions and help your users recognise these. 
+**Faster, better, further**...  Do more, with better quality and less effort by reusing standard solutions and help your users recognize these. 
 
 ## What are Building Blocks?
 
 Building Blocks are **composable, reusable specification components**. 
 
 
-These components can be anything that can be expressed in information artefacts and needs **transparent dependency** declarations.
+These components can be anything that can be expressed in information artifacts and needs **transparent dependency** declarations.
 
 **Building** is the key concept - the framework is a CI/CT environment - specifications can be built by heavy **reuse of components** and made available to be built upon in turn.
 
 <img src="assets/abstract-model.png" alt="Metamodel"/>
 
-## Benefits of a standardised packaging approach
+## Benefits of a standardized packaging approach
 
 Provides a common, actionable and interoperable solution for:
 
@@ -76,7 +76,7 @@ Building Blocks can be used to **add documentation** to existing specification c
 Building Blocks are *technology-agnostic* - i.e. may be various [types](overview/types) - however an emphasis is
 support for JSON schemas for use in OGC API definitions, with semantic annotation using JSON-LD.
 
-Building Blocks can be organised into [registers](overview/registers) for convenience, each repository creating a local
+Building Blocks can be organized into [registers](overview/registers) for convenience, each repository creating a local
 register that can be integrated with other application domain registers.
 
 Published OGC API specifications are, or will be, described in

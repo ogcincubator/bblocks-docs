@@ -82,7 +82,7 @@ e.g. to make the relatively simple constraints that a "SurveyObservationCollecti
 "SurveyVectorObsCollection": {
       "allOf": [
         {
-          "$ref": "https://opengeospatial.github.io/ogcapi-sosa/build/annotated/unstable/sosa/features/observationCollection/schema.json"
+          "$ref": "https://opengeospatial.github.io/ogcapi-sosa/build/annotated/sosa/features/observationCollection/schema.json"
         },
         {
           "properties": {
@@ -119,4 +119,4 @@ A number of strategies are being considered to simplify this. At this stage alte
 
 All these have significant impact and effort implications.
 
-Follow updates at [this issue](https://github.com/opengeospatial/bblock-template/issues/2)
+Follow updates at [this issue](https://github.com/opengeospatial/bblocks-template/issues/2)

@@ -40,7 +40,7 @@ Using the OGC Building Blocks approach to define or annotate a STAC extension pr
 - integration of other building blocks into STAC schemas
 
 
-### Dependency modelling and reduction of duplication
+### Dependency modeling and reduction of duplication
 
 Refactoring STAC schemas to reuse (rather than copy) sub-schemas for specific patterns makes it clear the common semantics and intended interoperability of these sub-schemas.
 

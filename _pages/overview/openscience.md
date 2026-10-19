@@ -4,9 +4,9 @@
 
 ## Overview
 
-Science requires reproducability.
+Science requires reproducibility.
 
-This requires detailed documentation of many aspects of the methodology and execution, as well as the inputs and results. Such documentation becomes extremely complex to create and interpret - but this is greatly facilitated by standardised structures and contents. Open Science increasingly aims for machine-readability (as far as possible) of these descriptions to support validation and reuse of the underlying science through repeatable **workflows**.
+This requires detailed documentation of many aspects of the methodology and execution, as well as the inputs and results. Such documentation becomes extremely complex to create and interpret - but this is greatly facilitated by standardized structures and contents. Open Science increasingly aims for machine-readability (as far as possible) of these descriptions to support validation and reuse of the underlying science through repeatable **workflows**.
 
 Scientific workflows are increasingly complex, encompassing not only data but also APIs, metadata structures, vocabularies, and methodological descriptions. Reusability, transparency, and interoperability across these components are essential for ensuring research processes align with the FAIR (Findable, Accessible, Interoperable, Reusable) principles. The OGC Building Blocks methodology offers a structured, component-based approach to standardization, validation, and discovery that directly supports these goals. This white paper explores its strategic relevance for open science.
 
@@ -32,7 +32,7 @@ This approach supports the use of mapping scripts and profiling files, as illust
 Scientific workflows commonly involve combinations of metadata standards, data exchange formats, and processing algorithms. The Building Block methodology enhances these workflows in several key ways:
 
 - **Profiling and Composition**: Researchers can construct domain-specific profiles by assembling relevant building blocks from multiple standards.
-- **Mapping and Transformation**: Explicit mappings (e.g., GeoDCAT to ISO 19115) can be authored, registered, and validated as first-class artefacts.
+- **Mapping and Transformation**: Explicit mappings (e.g., GeoDCAT to ISO 19115) can be authored, registered, and validated as first-class artifacts.
 - **Lifecycle Integration**: Tools and datasets can reference specific building blocks, embedding interoperability validation directly into the workflow lifecycle.
 
 This was evident in the application of profile-based JSON schema generation and modular schema production by namespace ([schemasplit]).
@@ -42,7 +42,7 @@ This was evident in the application of profile-based JSON schema generation and 
 The Building Block methodology aligns with and supports the FAIR principles:
 
 - **Findability**: Building blocks are published in a standardized form with metadata suitable for indexing in registries and knowledge graphs.
-- **Accessibility**: Blocks are retrievable as standalone artefacts, with versioning and licensing clearly documented.
+- **Accessibility**: Blocks are retrievable as standalone artifacts, with versioning and licensing clearly documented.
 - **Interoperability**: Semantic mappings, conformance relationships, and transformation tools can be directly expressed and tested.
 - **Reusability**: Blocks can be referenced, composed, and refined without duplicating entire specifications.
 

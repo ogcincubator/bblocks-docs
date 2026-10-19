@@ -42,10 +42,10 @@ Building block metadata provides context information about the item in the build
 | `sources` | Array of `{ title, link }` objects listing specifications, papers, or other documents this Building Block is based on. |
 | `link` | Single URL to a website or external documentation page. |
 | `links` | Array of `{ title, href, rel?, notes? }` link objects for richer link sets. |
-| `tags` | Array of free-text strings for categorisation and search. |
+| `tags` | Array of free-text strings for categorization and search. |
 | `group` | A short identifier to visually group related Building Blocks in the register. |
 | `highlighted` | Boolean. Marks this Building Block as featured in the register's entry page. |
-| `license` | `{ name?, url? }` object (at least one of the two required), or a plain string as shorthand for `{ name: <string> }`. Overrides the register-wide license declared in [`bblocks-config.yaml`](postprocessing#register-configuration), if any. |
+| `license` | `{ name?, url? }` object (at least one of the two required), or a plain string as shorthand for `{ name: <string> }`. Overrides the register-wide license declared in [`bblocks-config.yaml`](postprocessing), if any. |
 
 ### Lifecycle and relationships
 
@@ -55,7 +55,7 @@ Building block metadata provides context information about the item in the build
 | `successor` | Identifier or URI of the Building Block that supersedes this one. |
 | `dependsOn` | Array of Building Block identifiers this one has a runtime dependency on (distinct from `isProfileOf`). A block already referenced via `bblocks://` in the schema is added here automatically — see [Building Block relationships](../overview/relationships#type-dependsOn). |
 | `seeAlso` | Array of related Building Block identifiers or URIs. |
-| `isProfileOf` | Identifier(s) of the Building Block(s) this one is a profile of — i.e. a stricter, backward-compatible specialisation. See [Imports](imports). |
+| `isProfileOf` | Identifier(s) of the Building Block(s) this one is a profile of — i.e. a stricter, backward-compatible specialization. See [Imports](imports). |
 
 ### Schema and API artifacts
 
@@ -64,7 +64,7 @@ Building block metadata provides context information about the item in the build
 | `schema` | URL for the JSON Schema of this Building Block (auto-derived when a `schema.yaml/json` file is present). |
 | `openAPIDocument` | URL or path to an OpenAPI document backing this Building Block. |
 | `ldContext` | URL to the JSON-LD `@context` document. Auto-derived when `context.jsonld` is present. See [Semantic uplift](semantic-uplift). |
-| `extensionPoints` | Declares specialisations of referenced Building Blocks. See [Extension points](extension-points). |
+| `extensionPoints` | Declares specializations of referenced Building Blocks. See [Extension points](extension-points). |
 
 ### Validation
 

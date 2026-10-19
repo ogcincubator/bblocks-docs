@@ -3,7 +3,7 @@ title: Profiles
 permalink: /overview/profiles
 ---
 
-BuildingBlocks support several usage modes, as described in [Types (Patterns)](types#patterns)
+BuildingBlocks support several usage modes, as described in [Types (Patterns)](types#patterns-functional-types)
 
 
 This section describes the profiling mechanisms in more detail.
@@ -33,7 +33,7 @@ Profiles can be layered to meet different needs. The typical usage is for applic
 
 Underlying standards allow reusable software and libraries to be used at all levels.
 
-This can be visualised as a layered model of typical profiles, identifying the types of constraints typically present at each layer. 
+This can be visualized as a layered model of typical profiles, identifying the types of constraints typically present at each layer. 
 
 [![Profile layers](profiles.png)](profiles.png)
 
@@ -58,7 +58,7 @@ Using a JSON-LD context "semantic uplift" of JSON to RDF supports use of SHACL a
 
 Test cases should be provided for each component part of a specification.  This requires a minimal conformant **base example** that the specific test case can be added to.
 
-(Note consideration is being given to making such a baseline example resuable by reference instead of duplication, and potentially derived automatically from declared schema)
+(Note consideration is being given to making such a baseline example reusable by reference instead of duplication, and potentially derived automatically from declared schema)
 
 Testing should start by validating the **base example** passes all declared constraints, then for each profile constraint:
 - identifying a set of valid cases that should conform to the constraint, testing each aspect

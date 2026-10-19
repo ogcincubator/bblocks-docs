@@ -18,7 +18,7 @@ Note that this is not something that is consistently done, or easy to do in the 
 
 ### QC - schema compatibility
 
-Often standards are designed and state intended compatibility with other standards. In the case of validatable standards such as encoding schemas it is possible to define requirements to conform to multiple schemas, in whole or part. Building Blocks can define this as a composite schema that supports testing, whilst retaining the original standard schemas for use in run-time applications.
+Often standards are designed and state intended compatibility with other standards. In the case of validatable standards such as encoding schemas it is possible to define requirements to conform to multiple schemas, in whole or part. Building Blocks can define this as a composite schema that supports testing, while retaining the original standard schemas for use in run-time applications.
 
 ### QC - example correctness
 
@@ -59,7 +59,7 @@ Profiles of standards are in practice nearly always required.  Due to lack of ca
 
 BuildingBlocks allow profiles to be described in a way that inherits any rules from re-used standards.  Such profiles only need to describe the specific **additional** constraints - and they can often be described in **machine readable** forms. 
 
-The use of [semantic uplift](/create/semantic-uplift) is especially valuable to allow machine readable semantic rules to be created by experts and re-used by specialised profiles, and specialised profiles to unambigously create a validation capability. 
+The use of [semantic uplift](/create/semantic-uplift) is especially valuable to allow machine readable semantic rules to be created by experts and re-used by specialized profiles, and specialized profiles to unambiguously create a validation capability. 
 
 A profile can also go a step further and re-map a term it inherits, rather than just add constraints on top of it -
 for example, narrowing a base standard's generic `skos:note` down to `skos:definition` for a specific field. See
@@ -69,7 +69,7 @@ what to watch out for.
 
 ## Designing reusable infrastructure
 
-Clear documentation and conformance testing capabilities allow infrastructure such as hosting platforms to define the interoperability requirements for applications to be developed in such platforms.  An example would be a Digital Twin of a complex environment, where the goal is to support evolution of capabilities through extensible data acquisition, processing, visualisation - and user interactions.  
+Clear documentation and conformance testing capabilities allow infrastructure such as hosting platforms to define the interoperability requirements for applications to be developed in such platforms.  An example would be a Digital Twin of a complex environment, where the goal is to support evolution of capabilities through extensible data acquisition, processing, visualization - and user interactions.  
 Such infrastructures will typically require profiles of general standards, constrained to use information sources governed and accessible within the infrastructure - such as controlled vocabularies, and particular subsets of component and API functionality supporting discovery and re-use in consistent fashions.
 
 ## Applying OGC standards to an application

@@ -99,7 +99,7 @@ SHACL shapes can be defined in a `shapes.shacl` file or via the `shaclShapes` pr
 
 `shaclClosures` refers to additional files with RDF data required to perform validation - such as checking the types of related objects.
 
-This is particularly useful for relatively small, static vocabularies (e.g. "codelists") that form part of the specification realised by the building block
+This is particularly useful for relatively small, static vocabularies (e.g. "codelists") that form part of the specification realized by the building block
 
 ### Closure graph inheritance
 
@@ -174,7 +174,7 @@ plugins:
 ```
 
 Each plugin entry installs one or more pip packages and scans the listed Python modules for validator
-classes. A validator class is recognised by duck typing — it needs:
+classes. A validator class is recognized by duck typing — it needs:
 
 - `mime_types` and/or `file_extensions`: a list of strings declaring which files this class handles
 - `validate(self, meta)`: a callable that accepts a metadata object and returns a list of entries or `None`

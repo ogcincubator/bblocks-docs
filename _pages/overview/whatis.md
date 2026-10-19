@@ -8,11 +8,11 @@ An Building Block is a way of packaging a component of a **specification** that 
 
 This packaging directly supports **reuse** (according to FAIR principles), following these [Design Principles](principles).
 
-Note that one of the most common forms of re-use however is profiling a complete standard for application in a specific domain or jurisdiction. Buildings Blocks allow us to deal with complexity of real requirements by providing reusable implementation patterns and the tools to reuse them when combined and specialised.
+Note that one of the most common forms of re-use however is profiling a complete standard for application in a specific domain or jurisdiction. Building Blocks allow us to deal with complexity of real requirements by providing reusable implementation patterns and the tools to reuse them when combined and specialized.
 
-This "symmetrical" model of combination works because Building Blocks "normalise" the packaging of different specification components into a common consistent model that supports reuse both by other specification developers, but human and AI agents needed to understand and validate compliance with these specifications.
+This "symmetrical" model of combination works because Building Blocks "normalize" the packaging of different specification components into a common consistent model that supports reuse both by other specification developers, but human and AI agents needed to understand and validate compliance with these specifications.
 
-For various reasons specifications have often made statements in text regarding how they relate to other specifications, and created implementation artefacts such as schemas that may not make these intentions explicit. OGC Building Blocks support **technology agnostic dependencies and relationships** - essentially forming the data management method for this apsect of OGC's knowledge graph (OGC RAINBOW).
+For various reasons specifications have often made statements in text regarding how they relate to other specifications, and created implementation artifacts such as schemas that may not make these intentions explicit. OGC Building Blocks support **technology agnostic dependencies and relationships** - essentially forming the data management method for this aspect of OGC's knowledge graph (OGC RAINBOW).
 
 The key focus is on quality control and trust. 
 This is achieved through the ability to break complex problems into simpler parts, systematic documentation and testing with examples, and automated composition of these into the complex objects (comprehensive specifications) needed to support data exchange and analysis applications.  The ability to inherit validation rules makes the whole process quicker and more trustworthy, since subject experts can assess each part using examples.

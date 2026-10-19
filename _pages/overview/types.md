@@ -5,12 +5,12 @@ permalink: /overview/types
 
 Building Blocks are an **extensible framework** for specification development and re-use.  They are not run-time components for operational systems, but they can be used as part of the development, testing and documentation of such systems.
 
-Building Blocks support different technologies and the combination or translation between them. Types are however best thought of as the implementation of different [patterns](#patterns), which may be used in combination if required.  
+Building Blocks support different technologies and the combination or translation between them. Types are however best thought of as the implementation of different [patterns](#patterns-functional-types), which may be used in combination if required.  
 
 
 # Supported technologies
 
-Because most people will arrive here with an understanding of one or more technologies, lets start with a few examples, before exploring the underlying behavioural types. 
+Because most people will arrive here with an understanding of one or more technologies, let's start with a few examples, before exploring the underlying behavioral types. 
 
 Key technologies currently supported include:
 
@@ -33,15 +33,15 @@ Building blocks are combined in a number of common implementing patterns:
 
 ## Aggregation/Composition
 
-A schema or other model is constructed by aggregating a number of other building blocks. This may be a form of [specialisation](#specialisation) of a general container model, such as a GeoJSON Feature.
+A schema or other model is constructed by aggregating a number of other building blocks. This may be a form of [specialization](#specialization) of a general container model, such as a GeoJSON Feature.
 
 ## Extension
 
 A specification defines additional properties of another schema or model. (Note this is also a form of [profile](#profiling) since it constrains an "open to extension" option by defining what an extension must look like. )
 
-## Specialisation
+## Specialization
 
-A model or schema is constrained by specialising an existing attribute with a more specific model, such as defining the type of features present in a FeatureCollection.
+A model or schema is constrained by specializing an existing attribute with a more specific model, such as defining the type of features present in a FeatureCollection.
 
 ## Semantic annotation
 
@@ -53,7 +53,7 @@ For example, a simple mapping for some discovery metadata might use schema.org -
 
 ## Profiling
 
-Profiling adds constraints to a model - for use in a particular context. Profiles may involve [specialisation](#specialisation) or [extension](#extension).  They may also add **rules** or **vocabulary bindings**.
+Profiling adds constraints to a model - for use in a particular context. Profiles may involve [specialization](#specialization) or [extension](#extension).  They may also add **rules** or **vocabulary bindings**.
 
 ## Vocabulary Bindings
 

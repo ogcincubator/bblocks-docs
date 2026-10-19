@@ -10,8 +10,8 @@ _Last update: 2026-09-16_
 # Documentation and tutorials
 
 - [OGC Blocks documentation](https://ogcincubator.github.io/bblocks-docs/)
-- [Applied OGC Blocs](https://ogcincubator.github.io/rainbow-docs/tutorials/applied-ogc-blocks/introduction)
-- [OGC Blocks: Core capabilities](https://ogcincubator.github.io/rainbow-docs-preview/tutorials/ogc-blocks-core-capabilities/introduction) (Note: **preview**)
+- [Applied OGC Blocks](https://ogcincubator.github.io/rainbow-docs/tutorials/applied-ogc-blocks/introduction/)
+- [OGC Blocks: Core capabilities](https://ogcincubator.github.io/rainbow-docs-preview/tutorials/ogc-blocks-core-capabilities/introduction/) (Note: **preview**)
 
 # Other developer resources
 
