@@ -403,6 +403,11 @@ transforms:
 
 Both locally-defined building blocks and imported building blocks from other registers are supported.
 
+SHACL validation of an output uses the profile's own SHACL closures, plus the `shacl-closure` entries of the
+snippet the transform was applied to (see [SHACL closures for examples](examples#shacl-closures-for-examples)),
+so an example and its transformed output are checked against the same background data. Relative paths in the
+snippet's `shacl-closure` are resolved against the building block that owns the snippet, not the profile.
+
 ### What gets produced
 
 For each declared profile, postprocessing creates a subdirectory named after the profile identifier
