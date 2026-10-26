@@ -98,3 +98,8 @@ will be mounted in the `docker` command by creating a `.volumes` file in which e
 ```
 
 When you run `build.sh`, the `.volumes` file will be parsed and the volumes will be mounted.
+
+The local viewer (`view.sh`) uses the same mappings: it mounts the volumes listed in `.volumes` and redirects its
+requests for mapped URLs to the local copies. This lets you browse a locally modified copy of an imported register
+in the viewer, even if its public URLs aren't reachable from your machine. Rebuild with `build.sh` first, so the
+register picks up the mappings, then run `view.sh`.
