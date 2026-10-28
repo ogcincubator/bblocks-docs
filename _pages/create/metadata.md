@@ -70,7 +70,7 @@ Building block metadata provides context information about the item in the build
 
 | Property | Description |
 |---|---|
-| `shaclShapes` | Array of SHACL files (paths or URLs) to use for RDF validation. `shapes.ttl` in the building block directory is picked up automatically. |
+| `shaclShapes` | Array of SHACL files (paths or URLs) to use for RDF validation. `shapes.shacl` in the building block directory is picked up automatically. |
 | `shaclClosures` | Array of RDF files or URLs merged into every test snippet as a SHACL closure. Useful for small, static vocabularies that must be present for validation to pass. See [Validation](validation#shacl-validation). |
 | `requirementClasses` | Array of requirement class URIs (from a ModSpec specification) that can be used to validate this Building Block. |
 | `conformanceClasses` | Array of conformance class URIs (from a ModSpec specification) that this Building Block refers to. |

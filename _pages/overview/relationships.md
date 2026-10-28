@@ -18,12 +18,12 @@ detects that reference and adds it to `dependsOn` automatically. Declare `depend
 for dependencies the schema itself doesn't reveal (e.g. a transform-time or narrative-only
 prerequisite).
 
-## <a name="type-profileOf"></a>Profiling (`profileOf`)
+## <a name="type-isProfileOf"></a>Profiling (`isProfileOf`)
 
 Profiling signals that a building block does not merely reference or reuse another, but that it _extends_ it,
 that is, it inherits its main structure and provides additional metadata properties, constraints, examples, etc.
 
-This type of dependency is declared using `profileOf` in `bblock.json`.
+This type of dependency is declared using `isProfileOf` in `bblock.json`.
 
 ## Extension points
 
@@ -32,7 +32,7 @@ When defining [extension points](../create/extension-points), three new types of
 ### <a name="type-extends"></a>Extends
 
 This relationship links a building block with another that is used as an extension base, and for 
-which extension points are defined. It is a special case of the `profileOf` property.
+which extension points are defined. It is a special case of the `isProfileOf` property.
 
 ### <a name="type-extensionTarget"></a>Extension target
 

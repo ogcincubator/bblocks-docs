@@ -9,9 +9,9 @@ Repository imports can be defined as an array of URLs to the output `register.js
 `bblocks-config.yaml`:
 
 * If `imports` is missing from `bblocks-config.yaml`, the
-  [main OGC Building Blocks repository](http://blocks.ogc.org/register.html) will be imported by default.
+  [main OGC Building Blocks repository](https://opengeospatial.github.io/bblocks/register.json) will be imported by default.
 * `default` can be used instead of a URL to refer to the
-  [main OGC Building Blocks repository](http://blocks.ogc.org/register.html). 
+  [main OGC Building Blocks repository](https://opengeospatial.github.io/bblocks/register.json). 
 * If `imports` is an empty array, no repositories will be imported.
 
 For example, the following will import two repositories, one of them being the main OGC Building Blocks repository:

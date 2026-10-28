@@ -15,12 +15,12 @@ _Last update: 2026-09-16_
 
 # Other developer resources
 
-- [OGC Blocks meta-register](https://defs-dev.opengis.net/bblocks-meta-register) — cross-register search/browse
+- [OGC Blocks meta-register](https://w3id.org/ogc/bblocks/meta-register/) — cross-register search/browse
   catalog covering every register the ecosystem knows about, with a
-  REST API ([docs](https://defs-dev.opengis.net/bblocks-meta-register-backend/docs),
-  [OpenAPI](https://defs-dev.opengis.net/bblocks-meta-register-backend/openapi.json)) and
-  [MCP server](https://defs-dev.opengis.net/bblocks-meta-register-backend/mcp) for tooling/agents. **Still a
-  development project** — this is a dev deployment; expect the URL to change once a production register exists.
+  REST API ([docs](https://w3id.org/ogc/bblocks/meta-register-backend/docs),
+  [OpenAPI](https://w3id.org/ogc/bblocks/meta-register-backend/openapi.json)) and
+  [MCP server](https://w3id.org/ogc/bblocks/meta-register-backend/mcp) for tooling/agents. **Still a
+  development project** — expect changes while it matures. The w3id.org URLs are stable, even if the deployment behind them moves.
 - [OGC Blocks template](https://github.com/opengeospatial/bblocks-template)
 - [OGC Blocks examples register](https://ogcincubator.github.io/bblocks-examples/)
 - [Claude skills](https://ogcincubator.github.io/ogc-llm-skills/) (see `bblocks-authoring`, `bblocks-consuming`, `bblocks-schema-ontology`)
