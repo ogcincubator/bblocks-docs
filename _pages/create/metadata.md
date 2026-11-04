@@ -53,9 +53,11 @@ Building block metadata provides context information about the item in the build
 |---|---|
 | `predecessor` | Identifier or URI of the Building Block that this one supersedes. |
 | `successor` | Identifier or URI of the Building Block that supersedes this one. |
-| `dependsOn` | Array of Building Block identifiers this one has a runtime dependency on (distinct from `isProfileOf`). A block already referenced via `bblocks://` in the schema is added here automatically — see [Building Block relationships](../overview/relationships#type-dependsOn). |
+| `dependsOn` | Array of Building Block identifiers this one depends on. The postprocessor adds to it every block referenced via `bblocks://` in the schema, and every `isProfileOf` and `isDescribedBy` target, so you only need to list dependencies that none of those reveal — see [Building Block relationships](../overview/relationships#type-dependsOn). |
 | `seeAlso` | Array of related Building Block identifiers or URIs. |
 | `isProfileOf` | Identifier(s) of the Building Block(s) this one is a profile of — i.e. a stricter, backward-compatible specialization. See [Imports](imports). |
+| `isDescribedBy` | Identifier, or array of identifiers, of the model Building Block(s) that describe this one (declared on the schema block). See [Building Block relationships](../overview/relationships#type-isDescribedBy). |
+| `hasFormat` | Array of identifiers of Building Blocks that represent the same content in an alternate format. Declare it on every sibling. See [Building Block relationships](../overview/relationships#type-hasFormat). |
 
 ### Schema and API artifacts
 

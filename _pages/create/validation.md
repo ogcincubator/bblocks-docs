@@ -104,7 +104,7 @@ This is particularly useful for relatively small, static vocabularies (e.g. "cod
 ### Closure graph inheritance
 
 A building block's closure graph used for SHACL validation is not just its own `shaclClosures`. It is assembled
-from the whole `dependsOn`/`isProfileOf` chain (the same chain `shaclShapes` are inherited across), and includes,
+from the whole chain of dependencies (`dependsOn`, `isProfileOf` and `isDescribedBy`; the same chain `shaclShapes` are inherited across), and includes,
 for every building block in that chain (including itself):
 
 * its declared `shaclClosures`;

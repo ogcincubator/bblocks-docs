@@ -191,7 +191,7 @@ The following types are supported and will be automatically processed when uplif
 
 A post-processing step (`shacl`, `sparql-construct`, `sparql-update` — not `jq`, which operates on this block's
 own JSON document shape) can be marked `inheritable: true`. A wrapping or profiling building block (one that
-depends on or profiles it, directly or transitively via `dependsOn`/`isProfileOf`) can then opt in to running
+depends on or profiles it, directly or transitively via `dependsOn`, `isProfileOf` or `isDescribedBy`) can then opt in to running
 that step automatically as part of its own semantic uplift, via its own `inheritedPostSteps` property:
 
 ```yaml
