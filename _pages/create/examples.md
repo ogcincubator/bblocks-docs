@@ -42,6 +42,25 @@ examples:
         json-path: $.features
 ```
 
+## Examples that produce no RDF triples
+
+JSON and JSON-LD examples are semantically uplifted to RDF and, by default, an example whose uplift yields an empty
+graph is reported as a validation **error**: it usually means the JSON-LD context did not map anything. Some examples are
+legitimately empty, however, such as a bare reference like `{"@id": "http://example.com/term"}`, which cannot
+produce any triples. Set `allow-empty-graph: true` on the example to report it as a warning instead:
+
+```yaml
+examples:
+  - title: Reference to a published term
+    allow-empty-graph: true
+    snippets:
+      - language: json
+        code: '{ "@id": "http://example.com/term" }'
+```
+
+The empty graph is then shown in the validation report as a warning and does not fail the building block (this is
+independent of the `shacl.allow-warnings` setting). Note that no SHACL validation is performed on an empty graph.
+
 Please refer to
 [the updated JSON schema for `examples.yaml`](https://raw.githubusercontent.com/opengeospatial/bblocks-postprocess/master/ogc/bblocks/schemas/examples.schema.yaml)
 for more information.

@@ -134,6 +134,25 @@ examples:
 This is useful for RDF data that only one particular example needs, rather than the whole building block.
 See [Creating examples](examples#shacl-closures-for-examples) for details.
 
+### Severity: warnings and infos
+
+Shapes can declare `sh:severity sh:Warning` or `sh:severity sh:Info` for advisory constraints (recommendations
+that should not make a building block fail). By default, these results are shown in the validation report,
+marked as warnings, but only `sh:Violation` results (or a custom severity) fail the building block, and a block
+with only advisory results is reported as *passed with warnings*.
+
+To make every SHACL result fail the block instead, set `shacl.allow-warnings` to `false` in `bblocks-config.yaml`:
+
+```yaml
+shacl:
+  allow-warnings: false   # default: true
+```
+
+Warnings are then still labeled as such in the report, but they count as errors.
+
+A test resource whose name ends in `-fail` (a negative test) must produce at least one actual error. With
+`allow-warnings: true`, a `-fail` resource that only triggers warnings is therefore reported as failed.
+
 ## Tools
 
 In addition to built-in testing capabilities the following online tools can be helpful in developing and debugging different layers of the design:
