@@ -34,6 +34,11 @@ need to manually enable them on the "Actions" tab of your forked repository.
 
 ## Avoiding "build" resource merge conflicts
 
+<div class="notice notice--info" markdown="1">
+Registers that [publish to a branch](../build/github#publishing-to-a-branch) (`deploy.mode: branch`) don't commit
+`build/` to their source branch, so this problem doesn't arise and `create-clean-pr.sh` is not needed.
+</div>
+
 The main downside of working with forks is that the Building Blocks postprocessing workflow generates artifacts
 inside the `build/` directory of the repository, which can result in 
 [merge conflicts](https://docs.github.com/en/pull-requests/how-tos/merge-and-close-pull-requests/resolving-a-merge-conflict-on-github)

@@ -38,7 +38,9 @@ In all cases follow the [local build process](../build/local) to test before com
    5. See [transforms](/create/transforms) for information on how to define and test transformations.
 9. Replace the README.md file with documentation about the new building block(s).
 10. Enable GitHub pages in the repository settings, setting "Source" (under "Build and deployment")
-    to "GitHub Actions".
+    to "GitHub Actions". Alternatively, you can [publish the site to a branch](/build/github#publishing-to-a-branch)
+    instead (`deploy.mode: branch` in `bblocks-config.yaml`), in which case "Source" is set to
+    "Deploy from a branch" after the first run.
 
 ## Additional register metadata properties
 

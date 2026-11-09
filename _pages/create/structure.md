@@ -85,6 +85,12 @@ The following additional properties can be set inside `bblocks-config.yml`:
   * `tab-plugins`: custom client-side tabs on a bblock's detail page, driven by the whole bblock
     rather than a single example/transform output. See [Viewer tab plugins](/create/tab-plugins).
 
+* `deploy`: How the built site is published (see [Publishing to a branch](/build/github#publishing-to-a-branch)).
+  * `mode`: `artifact` (default) commits `build/` to the source branch and deploys it to GitHub Pages
+    through GitHub Actions. `branch` publishes the site to a separate branch instead, leaving `build/` out of
+    the source branch.
+  * `branch`: name of the branch to publish to in `branch` mode (default: `gh-pages`).
+
 ## Ready to use components
 
 The `build/` directory will contain the **_reusable assets_** for implementing this building block.
