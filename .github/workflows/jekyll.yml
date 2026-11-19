@@ -38,7 +38,7 @@ jobs:
         with:
           python-version: '3.x'
       - name: Install search indexer dependencies
-        run: pip install pyyaml beautifulsoup4
+        run: pip install -r requirements.txt
       - name: Build search index
         # Populates assets/search/search-index.<hash>.sqlite and
         # _data/search_index.yml, consumed by assets/js/search.js -- see
