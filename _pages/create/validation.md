@@ -233,10 +233,22 @@ Return a list of entry dicts to report findings:
 
 ```python
 [
-    {"message": "File is valid", "is_error": False},
-    {"message": "Checksum mismatch", "is_error": True},
+    {"message": "File is valid", "severity": "info"},
+    {"message": "Checksum mismatch", "severity": "error"},
+    {"message": "Timestamps are in the future", "severity": "warning"},
 ]
 ```
+
+`severity` is one of `info`, `warning` or `error` (case-insensitive). Only `error` entries make the
+validation fail; `warning` entries are reported as advisory (the block's report is flagged as having
+warnings, but it still passes), and `info` entries are purely informational.
+
+The older `is_error` boolean is still accepted when `severity` is absent: `True` is treated as `error`
+and `False` as `info`. If both are given and disagree, `severity` wins. An unrecognized `severity` value
+is ignored (with a note appended to the message and a logged warning), falling back to `is_error`.
+
+> `severity` is read by bblocks-postprocess v1.2.4 and later. Older versions ignore it, so a plugin that
+> must also run on them should send `is_error` too.
 
 Return `None` or `[]` to signal "nothing to report" (not an error — the validator simply did not apply
 or found nothing to flag).
@@ -247,8 +259,13 @@ error in the validation output.
 Each entry dict supports an optional `payload` key for structured metadata:
 
 ```python
-{"message": "Invalid geometry on line 3", "is_error": True, "payload": {"line": 3}}
+{"message": "Invalid geometry on line 3", "severity": "error", "payload": {"line": 3}}
 ```
+
+Payload keys are merged into the entry in the JSON report. Use `"subsection"` to group entries under a
+sub-heading in the HTML report. The keys `op`, `isError`, `severity`, `message` and `plugin` are
+reserved and ignored if set in a payload. Entries always appear in the **Plugin** section of the report;
+a `section` key is not supported.
 
 Any output written to `stdout` or `stderr` during `validate()` (e.g. `print()` calls) is captured and
 logged at `DEBUG` level. To see it, run the postprocessor with `--log-level DEBUG`.
@@ -320,10 +337,10 @@ class XsdValidator:
         for spec in xsd_specs:
             xsd = etree.XMLSchema(etree.parse(spec['ref']))
             if xsd.validate(doc):
-                entries.append({'message': f"Valid against {spec['ref']}", 'is_error': False})
+                entries.append({'message': f"Valid against {spec['ref']}", 'severity': 'info'})
             else:
                 for error in xsd.error_log:
-                    entries.append({'message': error.message, 'is_error': True,
+                    entries.append({'message': error.message, 'severity': 'error',
                                     'payload': {'line': error.line}})
         return entries
 ```
@@ -346,14 +363,14 @@ class ZipValidator:
             with zipfile.ZipFile(meta.input_path) as zf:
                 bad_file = zf.testzip()
         except zipfile.BadZipFile as exc:
-            return [{'message': f'Invalid ZIP file: {exc}', 'is_error': True}]
+            return [{'message': f'Invalid ZIP file: {exc}', 'severity': 'error'}]
 
         if bad_file is not None:
             return [{'message': f'ZIP archive is corrupt (first bad entry: {bad_file})',
-                     'is_error': True}]
+                     'severity': 'error'}]
 
         return [{'message': f'ZIP archive is valid ({meta.display_filename})',
-                 'is_error': False}]
+                 'severity': 'info'}]
 ```
 
 A real-world example with multiple validators (ZIP, WKT geometry, and XSD) is
@@ -363,4 +380,4 @@ A real-world example with multiple validators (ZIP, WKT geometry, and XSD) is
 
 Validation entries produced by plugins appear in a **Plugin** section of the HTML and text reports.
 Each entry is attributed to its source class (`module.ClassName`) so it is easy to trace which plugin
-flagged a given file.
+flagged a given file. Warnings and informational entries are styled differently from errors.
