@@ -40,6 +40,8 @@ docs:
     children:
       - title: Finding Building Blocks
         url: /use/finding
+      - title: Using the viewer
+        url: /use/viewer
       - title: Accessibility
         url: /use/ftc
       - title: Interoperable Linked Data / JSON-LD Context
