@@ -40,3 +40,7 @@ gem "wdm", "~> 0.1.1", :platforms => [:mingw, :x64_mingw, :mswin]
 gem "http_parser.rb", "~> 0.6.0", :platforms => [:jruby]
 
 gem "webrick", "~> 1.8"
+
+# json 3.x no longer accepts the two-argument JSON.parse that some system-packaged
+# multi_json versions (e.g. Debian's) still use, which breaks the Jekyll build.
+gem "json", "< 3"
