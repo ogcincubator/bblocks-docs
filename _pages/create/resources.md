@@ -42,6 +42,10 @@ also feeds the building block's SHACL closure graph, and is inherited by any bui
 depends on it (via `dependsOn`, `isProfileOf` or `isDescribedBy`) — see [Closure graph inheritance](validation#closure-graph-inheritance). A
 non-RDF `data` resource (CSV, NetCDF, etc.) is unaffected and stays a published artifact only.
 
+RDF `data` resources can also be loaded into a triplestore, as one graph per building block, by setting
+`sparql.resources.data: true` in `bblocks-config.yaml` (see
+[Additional register metadata properties](structure#additional-register-metadata-properties)).
+
 ## Example
 
 ```json

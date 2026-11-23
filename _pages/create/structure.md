@@ -85,6 +85,21 @@ The following additional properties can be set inside `bblocks-config.yml`:
   * `tab-plugins`: custom client-side tabs on a bblock's detail page, driven by the whole bblock
     rather than a single example/transform output. See [Viewer tab plugins](/create/tab-plugins).
 
+* `sparql`: Publishes the register's RDF output to a triplestore after each successful build (set to `false` or
+  `null` to disable it, e.g. [on a fork](/build/contribution)).
+  * `push`: [SPARQL Graph Store Protocol](https://www.w3.org/TR/sparql11-http-rdf-update/) endpoint to upload to.
+    Setting it is what enables uploading; credentials are passed through the `sparql_username` and
+    `sparql_password` workflow secrets.
+  * `graph`: named graph for the register metadata (defaults to the register's base URL).
+  * `query`: SPARQL query endpoint where the data will be available (informational, written to `register.json`).
+  * `resources`: additional resources to upload apart from building block metadata.
+    * `ontologies`: if `true`, each building block's `ontology` is uploaded to its own graph
+      (`urn:ogc:bblocks/<id>/ontology`).
+    * `data`: if `true`, the RDF [`data` resources](resources) of each building block (an RDF `format` such as
+      `text/turtle` is required; non-RDF data is skipped) are merged and uploaded to a single graph per building
+      block (`urn:ogc:bblocks/<id>/data`). Replacing or removing a resource is therefore picked up on the next
+      build. Unlike ontologies, no profile entailment is applied, so this is suitable for instance data.
+
 * `deploy`: How the built site is published (see [Publishing to a branch](/build/github#publishing-to-a-branch)).
   * `mode`: `artifact` (default) commits `build/` to the source branch and deploys it to GitHub Pages
     through GitHub Actions. `branch` publishes the site to a separate branch instead, leaving `build/` out of
