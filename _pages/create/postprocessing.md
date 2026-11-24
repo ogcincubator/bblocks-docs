@@ -50,6 +50,21 @@ docker run --rm --pull=always -v "$(pwd):/register" -p 9090:9090 ghcr.io/ogcincu
   [view plugins](view-plugins.md), or a whole new top-level bblock detail tab via
   [tab plugins](tab-plugins.md).
 
+### Time limit in CI
+
+The `validate-and-process.yml` and `pr-check.yml` workflows stop their processing job after 30 minutes, so that a
+stuck build does not run until GitHub's 6-hour limit. If your register legitimately takes longer, set
+`timeout_minutes` in the corresponding caller workflow (`.github/workflows/process-bblocks.yml` or
+`.github/workflows/pr-check.yml`):
+
+```yaml
+jobs:
+  validate-and-process:
+    uses: opengeospatial/bblocks-postprocess/.github/workflows/validate-and-process.yml@master
+    with:
+      timeout_minutes: 60
+```
+
 ### Using the development build
 
 The postprocessor's `develop` branch and Docker image carry work that hasn't shipped in a stable
