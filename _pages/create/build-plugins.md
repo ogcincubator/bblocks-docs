@@ -7,8 +7,8 @@ Build plugins (also called lifecycle-hook plugins) let you run custom code at fi
 postprocessor's own run — before/after each building block at each processing stage, and at a
 handful of run-level checkpoints (register assembly, semantic uplift, run completion, failure).
 
-They are a different mechanism from [transform plugins](transforms#transform-plugins) and
-[validator plugins](validation#validator-plugins): those run against a single building block's
+They are a different mechanism from [transform plugins](transforms.md#transform-plugins) and
+[validator plugins](validation.md#validator-plugins): those run against a single building block's
 example snippets, one at a time. A build plugin instead observes or acts on the run as a whole —
 stamping extra fields into `register.json`, triggering a notification, validating the assembled
 register against an external system, syncing output somewhere.
@@ -176,7 +176,7 @@ A fuller, real-world example implementing every event is
 `after_register`.
 
 A build plugin that stamps a new field/document onto a bblock pairs naturally with a
-[tab plugin](/create/tab-plugins) on the viewer side: the build plugin emits the data into
+[tab plugin](tab-plugins.md) on the viewer side: the build plugin emits the data into
 `json-full`, the tab plugin renders it as its own tab. The two are independent mechanisms, though —
 a tab plugin can just as validly key off existing bblock/register metadata with no build plugin
 involved at all.
@@ -190,4 +190,4 @@ specifier(s), URL) — parallel to the existing `transformPlugins`/`validatorPlu
 matters more here than for transform/validator plugins, since `after_register` can silently rewrite
 the register: a consumer can see from `buildPlugins` that plugin code had the opportunity to edit it.
 
-See [Security](security) for the shared permission/sandboxing model across plugin kinds.
+See [Security](security.md) for the shared permission/sandboxing model across plugin kinds.

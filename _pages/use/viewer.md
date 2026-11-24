@@ -29,7 +29,7 @@ The side bar contains:
    Building Block's *Examples* tab they list its examples; on the *Transforms* tab, its transforms.
 3. **Highlighted Building Blocks**: the Building Blocks that the register's publisher wants to showcase,
    grouped by theme, for quick access. (Publishers can mark Building Blocks with the
-   [`highlighted`](/create/metadata) property.)
+   [`highlighted`](../create/metadata.md) property.)
 
 The **home page** is the register's presentation card: description, links to its validation report and
 repository, the address of its machine-readable `register.json`, and the list of other registers it
@@ -79,7 +79,7 @@ related Building Blocks, and administrative information (dates, register, licens
 
 The dependency graph can show a *Simplified* view (only direct relationships) or the *Full* one, and has a
 legend that explains the node shapes and colors. Clicking on a node opens the corresponding Building Block, and clicking
-on the legend entries lets you hide kinds of nodes or registers. See [Relationships](/overview/relationships) for
+on the legend entries lets you hide kinds of nodes or registers. See [Relationships](../overview/relationships.md) for
 the meaning of the different kinds of arrows.
 
 ![Dependency graph of a Building Block](../assets/viewer/bblock-dependencies.png)
@@ -88,8 +88,8 @@ the meaning of the different kinds of arrows.
 
 Each example is shown in its own panel, and you can display it in any of the formats the publisher has
 made available: for instance JSON, JSON-LD and RDF/Turtle, the output of any
-[transform](/create/transforms) applied to it, or a rich visualization such as a map or a 3D view when the
-content allows it (see [Viewer view plugins](/create/view-plugins)).
+[transform](../create/transforms.md) applied to it, or a rich visualization such as a map or a 3D view when the
+content allows it (see [Viewer view plugins](../create/view-plugins.md)).
 
 ![The Examples tab](../assets/viewer/bblock-examples.png)
 
@@ -116,14 +116,14 @@ the schema itself, so you can copy or download it.
 The JSON-LD context that gives the data its meaning, along with its address (for use in your own
 data and tools), and a diagram showing which of the Building Block's dependencies each part of the context
 comes from. If the Building Block needs additional steps to go from JSON to RDF, they are described here too.
-See [Interoperable Linked Data](/use/linked-data) and [Semantic uplift](/create/semantic-uplift) for details.
+See [Interoperable Linked Data](linked-data.md) and [Semantic uplift](../create/semantic-uplift.md) for details.
 
 ![The Semantic uplift tab](../assets/viewer/bblock-semantic-uplift.png)
 
 ### Validation
 
 The SHACL shapes used to validate the Building Block's data, including those inherited from the Building
-Blocks it depends on, with links to each one. See [Validation](/create/validation).
+Blocks it depends on, with links to each one. See [Validation](../create/validation.md).
 
 ![The Validation tab](../assets/viewer/bblock-validation.png)
 
@@ -143,9 +143,9 @@ Depending on the Building Block you may also find:
   properties.
 * **OpenAPI document** and **API dependencies**: for API Building Blocks, the interactive API documentation and the
   other Building Blocks it is built from.
-* **Custom tabs**: registers can add their own tabs, see [Viewer tab plugins](/create/tab-plugins).
+* **Custom tabs**: registers can add their own tabs, see [Viewer tab plugins](../create/tab-plugins.md).
 
 ## Where to go next
 
-* [Finding Building Blocks](/use/finding) across registers.
-* [Creating Building Blocks](/create), to publish your own and see them here.
+* [Finding Building Blocks](finding.md) across registers.
+* [Creating Building Blocks](../create/index.md), to publish your own and see them here.

@@ -38,7 +38,8 @@ concatenates all doc pages into a single `all-bblocks-docs.md` for the user's ow
 another tool). It has no bearing on the Jekyll site, CI, or published output — ignore it unless the user
 specifically asks about it.
 
-There is no test suite or linter configured for this repo.
+There is no test suite or linter configured for this repo; the only check is `tools/check_links.py` (see
+[Links and images](#links-and-images)).
 
 ## Architecture / content structure
 
@@ -51,7 +52,7 @@ There is no test suite or linter configured for this repo.
   whether/where it shows up in the site nav and in `all-bblocks-docs.md`.
 - Every page under `_pages/` needs Jekyll frontmatter with at least `title`; `permalink` is used for pages
   referenced by a stable/short URL (e.g. `_pages/create/index.md` has `permalink: /create`). Internal links
-  between docs pages use relative paths (e.g. `../build/local`, `imports`, `#anchor`).
+  follow the rules in [Links and images](#links-and-images).
 - `toc`/`toc_sticky` default to `true` (set in `_config.yml`'s `defaults`), giving every page a right-hand table
   of contents — added to accommodate the docs search box in the masthead. Short pages with few/no headings (the
   homepage, `overview/qr`, `overview/registers`, `overview/whatis`, `use/ftc`, `use/reusing-schemas`) override
@@ -63,7 +64,24 @@ There is no test suite or linter configured for this repo.
 - `design/`: standalone design notes (architecture, versioning, agent federation) — not part of the built site
   nav, kept as reference/working documents.
 - `.github/workflows/jekyll.yml`: CI/CD — builds with Jekyll on push to `master` and deploys to GitHub Pages.
-  No test job; a successful `jekyll build` is the only gate.
+  No test job; a successful `jekyll build` and `tools/check_links.py` are the only gates.
+
+## Links and images
+
+The site is served under a base path (`/bblocks-docs`), so a root-absolute URL works locally but 404s on GitHub
+Pages.
+
+- Link to other pages with the relative path to the **source file**, including `.md` (`imports.md`,
+  `../build/local.md#windows-setup`, `index.markdown` for the homepage). `jekyll-relative-links` rewrites these to
+  the final URL with the base path, so permalinks don't matter. Same-page anchors are just `#anchor`.
+- Don't link to pages by URL (`/create/imports`, `../create/imports`, or the full
+  `https://ogcincubator.github.io/bblocks-docs/...`; the latter is fine where the public address itself is the
+  content, as in `overview/qr`).
+- Keep the link text on one line: `jekyll-relative-links` silently leaves a link unrewritten if its text wraps.
+  It also misses linked images (`[![alt](x.png)](x.png)`) pointing to files under `_pages/`.
+- Put new images in `assets/` and reference them with relative paths (`../assets/x.png`), never `/assets/...`.
+- To check, build with a non-empty base URL and run the checker (CI does the same before deploying):
+  `bundle exec jekyll build --baseurl /zz-test-base && python3 tools/check_links.py _site --baseurl /zz-test-base`
 
 ## Content conventions
 

@@ -20,7 +20,7 @@ no `.bat`/PowerShell equivalent, so on Windows you should run them from
 3. `cd` into the checked-out directory.
 4. Run `build.sh` if present.
    - This runs the current build scripts and compiles the Building Blocks locally.
-   - If not present, run the command directly (see [Postprocessing overview](../create/postprocessing) for more
+   - If not present, run the command directly (see [Postprocessing overview](../create/postprocessing.md) for more
      details and options):
    ```shell
    # Process building blocks
@@ -33,15 +33,15 @@ no `.bat`/PowerShell equivalent, so on Windows you should run them from
    docker run --rm --pull=always -v "$(pwd):/register" -p 9090:9090 ghcr.io/ogcincubator/bblocks-viewer
    ```
 
-You can now experiment with the source material, or proceed to [create your own building blocks](../create).
+You can now experiment with the source material, or proceed to [create your own building blocks](../create/index.md).
 
 The output of the commands above is written to `build-local`, which is not tracked by git, so it will never
 interfere with commits or Pull Requests.
 
 If instead you want to update an existing register and submit your changes upstream, work on a
-[fork of the repository](../build/contribution) rather than a plain local checkout. Forks have their own
+[fork of the repository](contribution.md) rather than a plain local checkout. Forks have their own
 concerns — most notably merge conflicts caused by the `build/` directory that the automated postprocessing
-workflow commits on every push — covered in [Contributing updates to Building Blocks](../build/contribution).
+workflow commits on every push — covered in [Contributing updates to Building Blocks](contribution.md).
 
 ## Postprocessing a subset of Building Blocks
 

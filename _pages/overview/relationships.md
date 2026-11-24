@@ -77,7 +77,7 @@ display relationships, such as the Building Blocks viewer, show only the most sp
 
 ## Extension points
 
-When defining [extension points](../create/extension-points), three new types of relationships are involved.
+When defining [extension points](../create/extension-points.md), three new types of relationships are involved.
 
 ### <a name="type-extends"></a>Extends
 

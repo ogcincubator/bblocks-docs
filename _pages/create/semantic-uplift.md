@@ -30,8 +30,8 @@ Building Blocks defining JSON schemas can be annotated with JSON-LD contexts usi
 The JSON LD context:
 
 1. Maps JSON elements to URIs (which can be URIs of a richer semantic model)
-2. Allows validation of complex logical constraints using SHACL Shapes to [validate examples](validation)
-3. [Perform transforms](transforms) to any other RDF model and validate results
+2. Allows validation of complex logical constraints using SHACL Shapes to [validate examples](validation.md)
+3. [Perform transforms](transforms.md) to any other RDF model and validate results
 
 ## Modularity support
 
@@ -44,7 +44,7 @@ one. Referenced blocks without a context of their own are simply skipped over �
 Schema, just not any semantic mappings.
 
 A schema `$ref` to another block is also added automatically to that block's `dependsOn`, which separately drives
-SHACL shape inheritance — see [Building Block relationships](../overview/relationships).
+SHACL shape inheritance — see [Building Block relationships](../overview/relationships.md).
 
 The diagram below is a real "Context sources" graph, traced by the [viewer](https://ogcincubator.github.io/bblocks-viewer/)
 for the [`Custom Result for Observation Feature`](https://ogcincubator.github.io/bblocks-viewer/#/bblock/ogc.bbr.examples.observation.vectorObservationFeature?register=https://ogcincubator.github.io/bblocks-examples/build/register.json)
@@ -122,8 +122,8 @@ your own schema for the assembly walk to find, so it never sees your mapping. To
 to restate the enclosing structure itself in your own `allOf` branch — an `assets` object with its own `href`
 property and its own `x-jsonld-id` — not just add an entry to your context file.
 
-This is a deliberate, reliable mechanism — useful for [profiling](../overview/profiles) a parent building block to
-specialize an inherited term without forking its schema. It's unrelated to [extension points](extension-points),
+This is a deliberate, reliable mechanism — useful for [profiling](../overview/profiles.md) a parent building block to
+specialize an inherited term without forking its schema. It's unrelated to [extension points](extension-points.md),
 which substitute one *referenced block* for another rather than override a *term mapping*.
 
 A working, minimal example lives in the
@@ -141,7 +141,7 @@ A general-purpose vocabulary has to cover every domain at once, so it ends up la
 loosely typed against any particular schema — good for broad discovery, but weak for validation and precise
 tooling. A context assembled from Building Blocks is the opposite: each mapping is scoped to the exact schema it
 annotates, tested against real examples (via [semantic uplift](#additional-semantic-uplift-steps) and
-[SHACL validation](validation)), and versioned alongside the schema it describes. The resulting contexts are
+[SHACL validation](validation.md)), and versioned alongside the schema it describes. The resulting contexts are
 small and stable enough to be identified and cached per building block, rather than re-fetched wholesale — which
 matters as much for tooling and AI agents consuming these schemas as it does for the infrastructure serving them.
 

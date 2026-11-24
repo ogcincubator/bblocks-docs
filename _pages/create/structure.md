@@ -15,12 +15,12 @@ The `_sources` directory will contain the sources for the building blocks inside
   [JSON schema](https://raw.githubusercontent.com/opengeospatial/bblocks-postprocess/refs/heads/master/ogc/bblocks/schemas/bblock.schema.yaml)
   for more information.
 - `description.md`: Human-readable, Markdown document with the description of this building block.
-  See [Adding documentation](documentation) for more information.
-- `examples.yaml`: A list of examples for this building block. See [Examples](examples).
-- `schema.json`: JSON schema for this building block, if any. See [JSON schema](schema).
+  See [Adding documentation](documentation.md) for more information.
+- `examples.yaml`: A list of examples for this building block. See [Examples](examples.md).
+- `schema.json`: JSON schema for this building block, if any. See [JSON schema](schema.md).
     - `schema.yaml`, in YAML format, is also accepted (and even preferred).
-- `assets/`: Documentation assets (e.g. images) directory. See [Assets](documentation#assets) below.
-- `tests/`: Test resources. See [Validation](validation).
+- `assets/`: Documentation assets (e.g. images) directory. See [Assets](documentation.md#assets) below.
+- `tests/`: Test resources. See [Validation](validation.md).
 
 Building Block identifiers are automatically generated in the form:
 
@@ -31,7 +31,7 @@ Building Block identifiers are automatically generated in the form:
 where:
 
 - `identifier-prefix` is read from `bblocks-config.yaml`. This will initially be a placeholder value,
-  but should have an official value eventually (see [How-to](/create/#quick-how-to-create)).
+  but should have an official value eventually (see [How-to](index.md#quick-how-to-create)).
 - `bb-path` is the dot-separated path to the building block inside the repository.
 
 For example, given a `r1.branch1.` identifier prefix and a `cat1/cat2/my-bb/bblock.json` metadata file,
@@ -69,24 +69,24 @@ The following additional properties can be set inside `bblocks-config.yml`:
 * `license`: `{ name?, url? }` object (at least one of the two is required) declaring the default license for
   the register and for every building block in it. A plain string (e.g. `"Apache-2.0"`) is also accepted as
   shorthand for `{ name: <string> }`. A building block can override this by declaring its own `license` in
-  its `bblock.json` (see [Building Block metadata](metadata#links-and-references)). If `url` is omitted and
+  its `bblock.json` (see [Building Block metadata](metadata.md#links-and-references)). If `url` is omitted and
   a `LICENSE`, `LICENSE.md` or `LICENSE.txt` file exists at the repository root, its published URL is used
   automatically.
-* `viewer`: Configuration for the [Building Blocks Viewer](/create/postprocessing#building-blocks-viewer).
+* `viewer`: Configuration for the [Building Blocks Viewer](postprocessing.md#building-blocks-viewer).
   * `show-imported-depth`: Controls which imported building blocks are shown in the viewer.
     * `0` (default): only local building blocks.
     * Positive integer (e.g. `1`, `2`): local building blocks plus imports up to that many levels deep.
     * Negative integer (e.g. `-1`): all imported building blocks, regardless of depth.
 
     This value is written to `register.json` and respected by the viewer both when deployed via GitHub Pages
-    and when [run locally](/create/postprocessing#building-blocks-viewer) against the register directly.
+    and when [run locally](postprocessing.md#building-blocks-viewer) against the register directly.
   * `view-plugins`: custom client-side visualizations for example snippets or transform outputs.
-    See [Viewer view plugins](/create/view-plugins).
+    See [Viewer view plugins](view-plugins.md).
   * `tab-plugins`: custom client-side tabs on a bblock's detail page, driven by the whole bblock
-    rather than a single example/transform output. See [Viewer tab plugins](/create/tab-plugins).
+    rather than a single example/transform output. See [Viewer tab plugins](tab-plugins.md).
 
 * `sparql`: Publishes the register's RDF output to a triplestore after each successful build (set to `false` or
-  `null` to disable it, e.g. [on a fork](/build/contribution)).
+  `null` to disable it, e.g. [on a fork](../build/contribution.md)).
   * `push`: [SPARQL Graph Store Protocol](https://www.w3.org/TR/sparql11-http-rdf-update/) endpoint to upload to.
     Setting it is what enables uploading; credentials are passed through the `sparql_username` and
     `sparql_password` workflow secrets.
@@ -95,12 +95,12 @@ The following additional properties can be set inside `bblocks-config.yml`:
   * `resources`: additional resources to upload apart from building block metadata.
     * `ontologies`: if `true`, each building block's `ontology` is uploaded to its own graph
       (`urn:ogc:bblocks/<id>/ontology`).
-    * `data`: if `true`, the RDF [`data` resources](resources) of each building block (an RDF `format` such as
+    * `data`: if `true`, the RDF [`data` resources](resources.md) of each building block (an RDF `format` such as
       `text/turtle` is required; non-RDF data is skipped) are merged and uploaded to a single graph per building
       block (`urn:ogc:bblocks/<id>/data`). Replacing or removing a resource is therefore picked up on the next
       build. Unlike ontologies, no profile entailment is applied, so this is suitable for instance data.
 
-* `deploy`: How the built site is published (see [Publishing to a branch](/build/github#publishing-to-a-branch)).
+* `deploy`: How the built site is published (see [Publishing to a branch](../build/github.md#publishing-to-a-branch)).
   * `mode`: `artifact` (default) commits `build/` to the source branch and deploys it to GitHub Pages
     through GitHub Actions. `branch` publishes the site to a separate branch instead, leaving `build/` out of
     the source branch.

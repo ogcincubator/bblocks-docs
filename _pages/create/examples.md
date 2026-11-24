@@ -93,7 +93,7 @@ examples:
 A snippet can declare its own `shacl-closure`: a list of Turtle documents (file names, relative to
 `examples.yaml`, or URLs) with background RDF data needed for that snippet's SHACL validation to pass —
 e.g. a small codelist or class hierarchy that only this example depends on. It is merged with the building
-block's own `shaclClosures` (see [SHACL Validation](validation#shacl-validation)), so you only need it for
+block's own `shaclClosures` (see [SHACL Validation](validation.md#shacl-validation)), so you only need it for
 data that isn't already part of the block's general closure graph.
 
 ```yaml

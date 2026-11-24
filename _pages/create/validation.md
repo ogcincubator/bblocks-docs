@@ -34,7 +34,7 @@ Each test resource goes through the following steps:
 Outputs are written to `/build/tests/`. A summary report is produced at `/build/tests/report.html`, linked from the generated building block index.
 
 Transform outputs can also be validated against building block profiles using the same validators —
-see [Transforms — Output profile validation](/create/transforms#output-profile-validation).
+see [Transforms — Output profile validation](transforms.md#output-profile-validation).
 
 ### File types
 
@@ -108,9 +108,9 @@ from the whole chain of dependencies (`dependsOn`, `isProfileOf` and `isDescribe
 for every building block in that chain (including itself):
 
 * its declared `shaclClosures`;
-* its `ontology`, if it has one (see [Metadata](metadata) and [RDF-only Building Blocks](rdf-only));
+* its `ontology`, if it has one (see [Metadata](metadata.md) and [RDF-only Building Blocks](rdf-only.md));
 * any `resources` entry with `role: data` whose `format` is an RDF serialization (Turtle, RDF/XML, JSON-LD,
-  N-Triples, N3, TriG) — see [External resources](resources). A `role: data` resource in a non-RDF format
+  N-Triples, N3, TriG) — see [External resources](resources.md). A `role: data` resource in a non-RDF format
   (e.g. CSV, NetCDF) is not affected; it is not parseable RDF and stays a published artifact only.
 
 So a building block that depends on (or profiles) another one declaring an ontology or an RDF `role: data`
@@ -132,7 +132,7 @@ examples:
 ```
 
 This is useful for RDF data that only one particular example needs, rather than the whole building block.
-See [Creating examples](examples#shacl-closures-for-examples) for details.
+See [Creating examples](examples.md#shacl-closures-for-examples) for details.
 
 ### Severity: warnings and infos
 

@@ -39,12 +39,12 @@ If a `data.ttl` file is present in the building block directory and no `resource
 
 A `role: data` resource whose `format` is an RDF serialization (Turtle, RDF/XML, JSON-LD, N-Triples, N3, TriG)
 also feeds the building block's SHACL closure graph, and is inherited by any building block that
-depends on it (via `dependsOn`, `isProfileOf` or `isDescribedBy`) — see [Closure graph inheritance](validation#closure-graph-inheritance). A
+depends on it (via `dependsOn`, `isProfileOf` or `isDescribedBy`) — see [Closure graph inheritance](validation.md#closure-graph-inheritance). A
 non-RDF `data` resource (CSV, NetCDF, etc.) is unaffected and stays a published artifact only.
 
 RDF `data` resources can also be loaded into a triplestore, as one graph per building block, by setting
 `sparql.resources.data: true` in `bblocks-config.yaml` (see
-[Additional register metadata properties](structure#additional-register-metadata-properties)).
+[Additional register metadata properties](structure.md#additional-register-metadata-properties)).
 
 ## Example
 

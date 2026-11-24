@@ -6,7 +6,7 @@ classes: wide
 ---
 An Building Block is a way of packaging a component of a **specification** that can be re-used in other specifications.
 
-This packaging directly supports **reuse** (according to FAIR principles), following these [Design Principles](principles).
+This packaging directly supports **reuse** (according to FAIR principles), following these [Design Principles](principles.md).
 
 Note that one of the most common forms of re-use however is profiling a complete standard for application in a specific domain or jurisdiction. Building Blocks allow us to deal with complexity of real requirements by providing reusable implementation patterns and the tools to reuse them when combined and specialized.
 
@@ -23,6 +23,6 @@ The following diagram shows how Building Blocks form a value-added packaging opt
 
 Many OGC Standards contain reusable building blocks that can be used in other OGC Standards. The Standards themselves can also be structured with modular sets of requirements that collectively function as a reusable building block (see image bellow).
 
-[![Usage](/assets/api-bblocks.png)](/assets/api-bblocks.png)
+[![Usage](../assets/api-bblocks.png)](../assets/api-bblocks.png)
 
 To facilitate the discovery of these building blocks by other Standards and applications, once they are identified their definition should be published in the [OGC Register](https://opengeospatial.github.io/bblocks/register/). Normative information about the OGC Standards building blocks can be found in the [Technical Committee Policies and Procedures](https://docs.ogc.org/pol/05-020r29/05-020r29.html#building-bloocks) 

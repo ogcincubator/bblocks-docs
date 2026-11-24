@@ -45,10 +45,10 @@ docker run --rm --pull=always -v "$(pwd):/register" -p 9090:9090 ghcr.io/ogcincu
 * The syntax for `-v "$(pwd):/register"` may vary depending on your operating system
 * `-p 9090:9090` will publish the Viewer on port 9090 on your machine
 * By default the viewer shows only local building blocks. To also show imported ones, set
-  [`viewer.show-imported-depth`](/create/structure#additional-register-metadata-properties) in `bblocks-config.yaml`.
+  [`viewer.show-imported-depth`](structure.md#additional-register-metadata-properties) in `bblocks-config.yaml`.
 * A register can add custom visualizations for examples/transform outputs via
-  [view plugins](/create/view-plugins), or a whole new top-level bblock detail tab via
-  [tab plugins](/create/tab-plugins).
+  [view plugins](view-plugins.md), or a whole new top-level bblock detail tab via
+  [tab plugins](tab-plugins.md).
 
 ### Using the development build
 
@@ -72,7 +72,7 @@ alongside `build.sh`/`view.sh` — run it instead of `build.sh` to build against
 ```
 
 Any extra arguments are passed straight through to the postprocessor, so it composes with the usual
-[flags](/create/postprocessing#output-testing) for finer-grained iteration, e.g.:
+[flags](#output-testing) for finer-grained iteration, e.g.:
 
 ```shell
 ./build-devel.sh --filter ogc.my.namespace.myblock --steps annotate,jsonld,tests

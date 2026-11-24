@@ -10,7 +10,7 @@ deeper dive into design principles and mechanisms in the [design notes](https://
 
 Standards, schemas and vocabularies are increasingly discovered, interpreted and acted on by AI
 agents (LLMs, RAG pipelines, agentic tools) rather than solely by humans reading documentation. This
-is already touched on under [Discovering relevant OGC standards](usecases#discovering-relevant-ogc-standards),
+is already touched on under [Discovering relevant OGC standards](usecases.md#discovering-relevant-ogc-standards),
 where the register's Knowledge Graph is identified as a discovery aid. **AI readiness is broader than
 discovery**: it is about whether a standard's artifacts are structured so that an agent can correctly
 *interpret* them, *act* on them, and have that action *verified*, at a cost (in tokens, time, risk)
@@ -49,14 +49,14 @@ AI readiness means increased efficiency - improved processing time, token and mo
   durable to cite and re-fetch, instead of re-deriving meaning from free text each time.
 - **Explicit, disambiguated semantics.** JSON-LD context and SHACL shapes turn "what does this field
   mean" from a prose question into a queryable, machine-checkable fact (see
-  [semantic uplift](../create/semantic-uplift)).
+  [semantic uplift](../create/semantic-uplift.md)).
 - **Bounded, composable units.** Small, well-scoped blocks are easier to retrieve, fit in a context
   window, and reason about individually than one large, monolithic standard document.
 - **Verifiable output, not just plausible output.** JSON Schema/SHACL validation and example test suites
   let an agent's generated content be checked mechanically, rather than trusted on the strength of the
   model producing it.
 - **Grounding examples, including negative ones.** Pass *and* fail examples (already a QC practice —
-  see [QC - testing rules](usecases#qc---testing-rules)) give an agent concrete signal about the
+  see [QC - testing rules](usecases.md#qc---testing-rules)) give an agent concrete signal about the
   boundary of correctness, not just descriptions of it.
 - **Documentation generated from the same source as the machine artifacts.** If human-facing docs and
   machine-facing schemas can drift apart, an agent trained or grounded on one will mislead about the
@@ -66,7 +66,7 @@ AI readiness means increased efficiency - improved processing time, token and mo
 
 ## Related material
 
-- [Discovering relevant OGC standards](usecases#discovering-relevant-ogc-standards) — the existing
+- [Discovering relevant OGC standards](usecases.md#discovering-relevant-ogc-standards) — the existing
   use case section this one extends, moving from *finding* the right standard to *correctly using* it.
 - [design/agent-federation.md](https://github.com/ogcincubator/bblocks-docs/blob/master/design/agent-federation.md) —
 frames AI agents as likely primary consumers of interoperability resources, and lays out the
@@ -87,6 +87,6 @@ frames AI agents as likely primary consumers of interoperability resources, and 
 
 ## See also
 
-- [Improving and Augmenting Standards](usecases) — the parent use-case index
-- [Semantic uplift](../create/semantic-uplift)
-- [Extension points](../create/extension-points)
+- [Improving and Augmenting Standards](usecases.md) — the parent use-case index
+- [Semantic uplift](../create/semantic-uplift.md)
+- [Extension points](../create/extension-points.md)

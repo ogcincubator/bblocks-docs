@@ -7,8 +7,8 @@ Building Blocks can be defined to reuse existing JSON schemas in a more sophisti
 A re-used schema can be:
 
 1. [Profiled (by extension or constraints)](#profiling-json-schemas)
-2. Mapped to a [semantic (RDF)](rdf-only) model allowing richer specification of constraints.
-3. [Tested](validation) with examples and test cases.
+2. Mapped to a [semantic (RDF)](rdf-only.md) model allowing richer specification of constraints.
+3. [Tested](validation.md) with examples and test cases.
 
 ## How to reuse
 
@@ -32,20 +32,20 @@ This is done in a two-step process:
       - https://opengeospatial.github.io/ogcapi-sosa/build/register.json
     ```
 
-    `default` refers to the main OGC master register of building blocks. See [Setting up imports](imports)
+    `default` refers to the main OGC master register of building blocks. See [Setting up imports](imports.md)
     for the full syntax, including URL resolution rules and local URL mappings for testing.
 
 2. Use the `bblocks://{id}` syntax as the value of `$ref` in your schema.
 
     This means your building block will inherit all JSON-LD contexts and SHACL shapes from the referenced
-    building block automatically and apply during [testing](../create/validation).
+    building block automatically and apply during [testing](validation.md).
 
 ## Profiling JSON Schemas
 
 Profiling JSON schemas is a complex subject. This document is a placeholder for a description of best practices and support tooling.
 
 The basic, standard mechanism is to wrap a `bblocks://` `$ref` to the base building block in an `allOf`
-alongside your own constraints. [Extension points](extension-points) (experimental) cover a more specific
+alongside your own constraints. [Extension points](extension-points.md) (experimental) cover a more specific
 case: specializing a base building block by constraining specific building blocks it references —
 including ones referenced transitively through its imports — without hand-editing the base schema.
 

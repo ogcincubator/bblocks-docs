@@ -3,7 +3,7 @@ title: Viewer view plugins
 permalink: /create/view-plugins
 ---
 
-The [Building Blocks Viewer](/create/postprocessing#building-blocks-viewer) renders a few
+The [Building Blocks Viewer](postprocessing.md#building-blocks-viewer) renders a few
 content-based visualizations out of the box — a map view for GeoJSON, a 3D view, and a web view for
 HTML/XML content. **View plugins** let a register add its own custom visualizations for example
 snippets or transform outputs, without that code living inside the viewer itself.
@@ -15,7 +15,7 @@ code/schema tabs.
 
 If what you want is a whole new top-level tab on the bblock's detail page instead — driven by the
 full bblock rather than one example/transform-output candidate — see
-[Viewer tab plugins](/create/tab-plugins), a separate, parallel mechanism.
+[Viewer tab plugins](tab-plugins.md), a separate, parallel mechanism.
 
 ## Adding a view plugin to a register
 
@@ -163,7 +163,7 @@ to jsDelivr's GitHub CDN (`cdn.jsdelivr.net/gh/<org>/<repo>@dist/index.js`) on e
 push by default; see the starter's README ("Hosting `dist/` via jsDelivr") if you want to gate it
 behind tags/releases instead. For local testing, the simplest setup is same-origin: serve the
 plugin file from the same static server as the register/build directory you're previewing in the
-[local viewer](/create/postprocessing#building-blocks-viewer).
+[local viewer](postprocessing.md#building-blocks-viewer).
 
 Keep the browser devtools console open while developing — a synchronous throw from `render()` gets
 a visible error banner in the tab itself, but anything from your plugin's own async code (an

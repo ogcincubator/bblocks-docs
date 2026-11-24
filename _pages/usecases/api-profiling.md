@@ -3,7 +3,7 @@ title: Profiling an API
 permalink: /usecases/api-profiling
 ---
 
-[Profiling a standard](usecases#profiling-a-standard) is discussed in the abstract elsewhere in these
+[Profiling a standard](usecases.md#profiling-a-standard) is discussed in the abstract elsewhere in these
 use cases. APIs are a special case worth walking through on their own: the base standard is described
 by an OpenAPI document rather than a standalone JSON Schema, which changes how far Building Blocks can
 automate the profiling for you.
@@ -30,7 +30,7 @@ the reasoning behind its structure — for the schemas themselves, follow the li
    this profile needs to fix in place.
 
 3. **Check how the base block can be constrained.** Because the base is OpenAPI-backed rather than a
-   plain JSON Schema, [extension points](../create/extension-points) on it are **declarative only** —
+   plain JSON Schema, [extension points](../create/extension-points.md) on it are **declarative only** —
    the postprocessor records the mapping in the register for tooling and consumers, but it cannot
    compile a single merged OpenAPI document the way it can for schema-only blocks. This means the
    OpenAPI wiring itself has to be written by hand, and the extension point is added on top to make
@@ -89,7 +89,7 @@ consuming the register, the same way it would be for a schema-only block.
 
 ## See also
 
-- [Extension points](../create/extension-points) — the mechanism used to declare the profiling
+- [Extension points](../create/extension-points.md) — the mechanism used to declare the profiling
   relationship, including the OpenAPI-specific caveat
-- [Imports and profiles](../overview/profiles) — the general `isProfileOf` relationship
-- [Profiling a standard](usecases#profiling-a-standard) — the abstract use case this page makes concrete
+- [Imports and profiles](../overview/profiles.md) — the general `isProfileOf` relationship
+- [Profiling a standard](usecases.md#profiling-a-standard) — the abstract use case this page makes concrete

@@ -8,7 +8,7 @@ While components described as Building Blocks may be referenced by individual sp
 
 The OGC Building Block Framework provides three improved approaches for discovery:
 
-1. [Registers](../overview/registers)
+1. [Registers](../overview/registers.md)
 1. [RAINBOW (OGC Knowledge Graph)](https://defs-dev.opengis.net/prez/catalogs/ns338:bblocks) 
 1. Transparent Dependencies 
 1. [The meta-register catalog](#the-meta-register-catalog-cross-register-search)

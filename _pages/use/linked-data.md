@@ -23,7 +23,7 @@ The challenges with JSON-LD lie in its mirroring of underlying JSON schema struc
 The OGC Building Blocks **solve this** by allowing unit-testing of simple JSON-LD contexts for sub-schemas, and compilation of reliable context documents for schemas that re-use these sub-schemas.
 (Note this is currently the only Open Source tooling known to support this, and was developed in consultation with JSON schema design leads.)
 
-For more information see the [Use Cases](/usecases/usecases).
+For more information see the [Use Cases](../usecases/usecases.md).
 
 ## Tooling for consuming and displaying Linked Data
 

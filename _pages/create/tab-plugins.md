@@ -3,7 +3,7 @@ title: Viewer tab plugins
 permalink: /create/tab-plugins
 ---
 
-[View plugins](/create/view-plugins) add a custom visualization for one example snippet or one
+[View plugins](view-plugins.md) add a custom visualization for one example snippet or one
 transform output. **Tab plugins** are a separate, parallel mechanism: they add a whole new
 top-level tab to a bblock's detail page, driven by the full bblock (and its register) rather than
 a single piece of content — useful for anything that doesn't fit "one visualization for one
@@ -41,7 +41,7 @@ This is written through to `register.json` (as `viewer.tabPlugins`, camelCased) 
 viewer at runtime — no postprocessing step touches the plugin code itself, so a register only ever
 needs to point at where the plugin is hosted.
 
-Tab plugins pair naturally with a [build plugin](/create/build-plugins) that adds a new
+Tab plugins pair naturally with a [build plugin](build-plugins.md) that adds a new
 field/document to a bblock's `json-full` output — the build plugin emits the data, the tab plugin
 renders it — but the two aren't coupled at the mechanism level. A tab plugin's `matches()` can key
 off anything in the bblock or register, not just a specific field a build plugin added.
@@ -118,7 +118,7 @@ wants to check or render something beyond what's already inline in `context.bblo
 Bundle any third-party dependency (including a UI framework, if you want one — `render(el)` is a
 plain DOM-element handoff, so `createApp(...).mount(el)`/React's `createRoot(el).render(...)` work
 the same way a view plugin could mount Three.js into its box) into your own plugin module rather
-than assuming the host provides it. See [View plugins](/create/view-plugins#writing-a-view-plugin)
+than assuming the host provides it. See [View plugins](view-plugins.md#writing-a-view-plugin)
 and the starter template's README for the shared guidance (lazy-loading heavy dependencies,
 `context.depResolver`, CSS injection) that applies identically here.
 
@@ -126,7 +126,7 @@ and the starter template's README for the shared guidance (lazy-loading heavy de
 
 Same as for view plugins: build the plugin, serve `dist/` from any static host with permissive
 CORS, and point `bblocks-config.yaml` at it as shown above. See
-[View plugins → Trying it out](/create/view-plugins#trying-it-out) for the full walkthrough
+[View plugins → Trying it out](view-plugins.md#trying-it-out) for the full walkthrough
 (jsDelivr hosting via the starter template, local testing tips, and why the devtools console
 matters for anything an async error in your own plugin code wouldn't otherwise surface).
 

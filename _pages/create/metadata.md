@@ -45,7 +45,7 @@ Building block metadata provides context information about the item in the build
 | `tags` | Array of free-text strings for categorization and search. |
 | `group` | A short identifier to visually group related Building Blocks in the register. |
 | `highlighted` | Boolean. Marks this Building Block as featured in the register's entry page. |
-| `license` | `{ name?, url? }` object (at least one of the two required), or a plain string as shorthand for `{ name: <string> }`. Overrides the register-wide license declared in [`bblocks-config.yaml`](postprocessing), if any. |
+| `license` | `{ name?, url? }` object (at least one of the two required), or a plain string as shorthand for `{ name: <string> }`. Overrides the register-wide license declared in [`bblocks-config.yaml`](postprocessing.md), if any. |
 
 ### Lifecycle and relationships
 
@@ -53,11 +53,11 @@ Building block metadata provides context information about the item in the build
 |---|---|
 | `predecessor` | Identifier or URI of the Building Block that this one supersedes. |
 | `successor` | Identifier or URI of the Building Block that supersedes this one. |
-| `dependsOn` | Array of Building Block identifiers this one depends on. The postprocessor adds to it every block referenced via `bblocks://` in the schema, and every `isProfileOf` and `isDescribedBy` target, so you only need to list dependencies that none of those reveal — see [Building Block relationships](../overview/relationships#type-dependsOn). |
+| `dependsOn` | Array of Building Block identifiers this one depends on. The postprocessor adds to it every block referenced via `bblocks://` in the schema, and every `isProfileOf` and `isDescribedBy` target, so you only need to list dependencies that none of those reveal — see [Building Block relationships](../overview/relationships.md#type-dependsOn). |
 | `seeAlso` | Array of related Building Block identifiers or URIs. |
-| `isProfileOf` | Identifier(s) of the Building Block(s) this one is a profile of — i.e. a stricter, backward-compatible specialization. See [Imports](imports). |
-| `isDescribedBy` | Identifier, or array of identifiers, of the model Building Block(s) that describe this one (declared on the schema block). See [Building Block relationships](../overview/relationships#type-isDescribedBy). |
-| `hasFormat` | Array of identifiers of Building Blocks that represent the same content in an alternate format. Declare it on every sibling. See [Building Block relationships](../overview/relationships#type-hasFormat). |
+| `isProfileOf` | Identifier(s) of the Building Block(s) this one is a profile of — i.e. a stricter, backward-compatible specialization. See [Imports](imports.md). |
+| `isDescribedBy` | Identifier, or array of identifiers, of the model Building Block(s) that describe this one (declared on the schema block). See [Building Block relationships](../overview/relationships.md#type-isDescribedBy). |
+| `hasFormat` | Array of identifiers of Building Blocks that represent the same content in an alternate format. Declare it on every sibling. See [Building Block relationships](../overview/relationships.md#type-hasFormat). |
 
 ### Schema and API artifacts
 
@@ -65,15 +65,15 @@ Building block metadata provides context information about the item in the build
 |---|---|
 | `schema` | URL for the JSON Schema of this Building Block (auto-derived when a `schema.yaml/json` file is present). |
 | `openAPIDocument` | URL or path to an OpenAPI document backing this Building Block. |
-| `ldContext` | URL to the JSON-LD `@context` document. Auto-derived when `context.jsonld` is present. See [Semantic uplift](semantic-uplift). |
-| `extensionPoints` | Declares specializations of referenced Building Blocks. See [Extension points](extension-points). |
+| `ldContext` | URL to the JSON-LD `@context` document. Auto-derived when `context.jsonld` is present. See [Semantic uplift](semantic-uplift.md). |
+| `extensionPoints` | Declares specializations of referenced Building Blocks. See [Extension points](extension-points.md). |
 
 ### Validation
 
 | Property | Description |
 |---|---|
 | `shaclShapes` | Array of SHACL files (paths or URLs) to use for RDF validation. `shapes.shacl` in the building block directory is picked up automatically. |
-| `shaclClosures` | Array of RDF files or URLs merged into every test snippet as a SHACL closure. Useful for small, static vocabularies that must be present for validation to pass. See [Validation](validation#shacl-validation). |
+| `shaclClosures` | Array of RDF files or URLs merged into every test snippet as a SHACL closure. Useful for small, static vocabularies that must be present for validation to pass. See [Validation](validation.md#shacl-validation). |
 | `requirementClasses` | Array of requirement class URIs (from a ModSpec specification) that can be used to validate this Building Block. |
 | `conformanceClasses` | Array of conformance class URIs (from a ModSpec specification) that this Building Block refers to. |
 
@@ -81,12 +81,12 @@ Building block metadata provides context information about the item in the build
 
 | Property | Description |
 |---|---|
-| `ontology` | Path or URL to an RDF document containing the ontology for this Building Block. `ontology.ttl` or `ontology.owl` are auto-detected. Feeds this Building Block's SHACL closure graph (and is inherited by dependents), see [Closure graph inheritance](validation#closure-graph-inheritance). See [RDF-only Building Blocks](rdf-only#ontology). |
-| `concept` | Array of URIs for the RDF concept(s) this Building Block represents (`skos:closeMatch`). See [RDF-only Building Blocks](rdf-only#semantic-annotations). |
-| `rdfType` | Array of URIs for the RDF class(es) that instances of this Building Block conform to (`rdfs:subClassOf`). See [RDF-only Building Blocks](rdf-only#semantic-annotations). |
+| `ontology` | Path or URL to an RDF document containing the ontology for this Building Block. `ontology.ttl` or `ontology.owl` are auto-detected. Feeds this Building Block's SHACL closure graph (and is inherited by dependents), see [Closure graph inheritance](validation.md#closure-graph-inheritance). See [RDF-only Building Blocks](rdf-only.md#ontology). |
+| `concept` | Array of URIs for the RDF concept(s) this Building Block represents (`skos:closeMatch`). See [RDF-only Building Blocks](rdf-only.md#semantic-annotations). |
+| `rdfType` | Array of URIs for the RDF class(es) that instances of this Building Block conform to (`rdfs:subClassOf`). See [RDF-only Building Blocks](rdf-only.md#semantic-annotations). |
 
 ### External resources
 
 | Property | Description |
 |---|---|
-| `resources` | Array of external artifacts (data files, specifications, vocabularies…) associated with this Building Block. `role: data` entries in an RDF format also feed the SHACL closure graph (and are inherited by dependents), see [Closure graph inheritance](validation#closure-graph-inheritance). See [External resources](resources). |
+| `resources` | Array of external artifacts (data files, specifications, vocabularies…) associated with this Building Block. `role: data` entries in an RDF format also feed the SHACL closure graph (and are inherited by dependents), see [Closure graph inheritance](validation.md#closure-graph-inheritance). See [External resources](resources.md). |

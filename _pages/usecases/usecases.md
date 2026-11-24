@@ -59,11 +59,11 @@ Profiles of standards are in practice nearly always required.  Due to lack of ca
 
 BuildingBlocks allow profiles to be described in a way that inherits any rules from re-used standards.  Such profiles only need to describe the specific **additional** constraints - and they can often be described in **machine readable** forms. 
 
-The use of [semantic uplift](/create/semantic-uplift) is especially valuable to allow machine readable semantic rules to be created by experts and re-used by specialized profiles, and specialized profiles to unambiguously create a validation capability. 
+The use of [semantic uplift](../create/semantic-uplift.md) is especially valuable to allow machine readable semantic rules to be created by experts and re-used by specialized profiles, and specialized profiles to unambiguously create a validation capability. 
 
 A profile can also go a step further and re-map a term it inherits, rather than just add constraints on top of it -
 for example, narrowing a base standard's generic `skos:note` down to `skos:definition` for a specific field. See
-[overriding an inherited binding](/create/semantic-uplift#overriding-an-inherited-binding) for how that works and
+[overriding an inherited binding](../create/semantic-uplift.md#overriding-an-inherited-binding) for how that works and
 what to watch out for.
 
 

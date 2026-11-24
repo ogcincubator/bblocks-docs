@@ -10,7 +10,7 @@ New and forked Github repositories need configuration to allow automated buildin
 1. Fork the template or another repository to a GitHub organization (or personal account) you have admin access to.
    - If you forked an existing repository (rather than starting from the template), GitHub disables Actions
      workflows by default on forks — enable them on the "Actions" tab first, or the next steps won't run. See
-     [Contributing updates to Building Blocks](../build/contribution) for details and a screenshot.
+     [Contributing updates to Building Blocks](contribution.md) for details and a screenshot.
 2. In settings set "pages build" to "Github actions"
    (or, to publish to a branch instead, follow [Publishing to a branch](#publishing-to-a-branch) below)
 ![](pages.png)
@@ -30,7 +30,7 @@ You can now navigate between repository sources and the published Building Block
 By default the postprocessing workflow commits the generated `build/` directory to your source branch and deploys
 the site to GitHub Pages through GitHub Actions. As an alternative, it can publish the built site to a separate
 branch (`gh-pages` by default), which keeps build output out of your source branch while it remains browsable and
-versioned in git. This also avoids the [`build/` merge conflicts](../build/contribution#avoiding-build-resource-merge-conflicts)
+versioned in git. This also avoids the [`build/` merge conflicts](contribution.md#avoiding-build-resource-merge-conflicts)
 on pull requests.
 
 1. Add the following to `bblocks-config.yaml` (the default `mode` is `artifact`, the behavior described above):

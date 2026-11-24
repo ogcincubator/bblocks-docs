@@ -8,7 +8,7 @@ permalink: /create
 2. Fork an existing repository to update or add new building blocks, and generate a Pull Request to submit to the register owner
 2. Copy any building block repository and edit `bblocks-config.yaml` and the `_sources/*` to create a new register
 
-In all cases follow the [local build process](../build/local) to test before committing to an online repository.
+In all cases follow the [local build process](../build/local.md) to test before committing to an online repository.
 
 ## Quick how-to create
 
@@ -26,19 +26,19 @@ In all cases follow the [local build process](../build/local) to test before com
      building blocks to production (i.e., being adopted by the OGC as official), and avoids having to manually/update
      references (in dependency declarations, schemas, etc.).
 4. Set a `name` for the repository inside `bblocks-config.yaml`.
-5. Configure any necessary [imports](/create/imports) inside `bblocks-config.yaml`.
+5. Configure any necessary [imports](imports.md) inside `bblocks-config.yaml`.
 6. Set the [additional register metadata properties](#additional-register-metadata-properties) in `bblocks-config.yaml`.
 7. For each new building block, replace or create a copy of the `mySchema` or `myFeature` inside `_sources`.
    Note: **the path to and name of the new directory will be part of the building block identifier**.
-8. Update the [building block's files](/create/structure).
-   1. [Add documentation](/create/documentation) to your Building Block.
-   2. See [defining a schema](/create/schema) for information on how to test an existing schema.
-   3. See [adding JSON-LD context](/create/semantic-uplift) for information on how to "uplift" a schema - linking to a model using JSON-LD.
-   4. See [validation](/create/validation) for information on how to define powerful constraints for schemas and semantic models.
-   5. See [transforms](/create/transforms) for information on how to define and test transformations.
+8. Update the [building block's files](structure.md).
+   1. [Add documentation](documentation.md) to your Building Block.
+   2. See [defining a schema](schema.md) for information on how to test an existing schema.
+   3. See [adding JSON-LD context](semantic-uplift.md) for information on how to "uplift" a schema - linking to a model using JSON-LD.
+   4. See [validation](validation.md) for information on how to define powerful constraints for schemas and semantic models.
+   5. See [transforms](transforms.md) for information on how to define and test transformations.
 9. Replace the README.md file with documentation about the new building block(s).
 10. Enable GitHub pages in the repository settings, setting "Source" (under "Build and deployment")
-    to "GitHub Actions". Alternatively, you can [publish the site to a branch](/build/github#publishing-to-a-branch)
+    to "GitHub Actions". Alternatively, you can [publish the site to a branch](../build/github.md#publishing-to-a-branch)
     instead (`deploy.mode: branch` in `bblocks-config.yaml`), in which case "Source" is set to
     "Deploy from a branch" after the first run.
 

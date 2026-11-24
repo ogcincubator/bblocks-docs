@@ -59,7 +59,7 @@ It's natural to be overwhelmed by a new framework that addresses many complex as
 
 However the Building Blocks can be explored incrementally, based on your starting knowledge and problems you wish to solve.
 
-Explore these example [Use Cases](/usecases/usecases) or go straight to the [Tutorials](https://ogcincubator.github.io/bblocks-tutorial/) - which break these capabilities down step by step.
+Explore these example [Use Cases](usecases/usecases.md) or go straight to the [Tutorials](https://ogcincubator.github.io/bblocks-tutorial/) - which break these capabilities down step by step.
 
 Building Blocks give you the tools to explore new territory, and improve your understanding and re-use of standards when solving your own problems.
 
@@ -68,15 +68,15 @@ Building Blocks give you the tools to explore new territory, and improve your un
 ## Overview 
 
 Building Blocks  support the **FAIR principles** for **specifications** - with every specification being a component that can be
-re-used. For more discussion see [Design Principles](overview/principles)
+re-used. For more discussion see [Design Principles](overview/principles.md)
 
 Building Blocks can be used to **add documentation** to existing specification components, or to **design** and 
 **assemble** reusable specification components cost-effectively using a test-driven approach. 
 
-Building Blocks are *technology-agnostic* - i.e. may be various [types](overview/types) - however an emphasis is
+Building Blocks are *technology-agnostic* - i.e. may be various [types](overview/types.md) - however an emphasis is
 support for JSON schemas for use in OGC API definitions, with semantic annotation using JSON-LD.
 
-Building Blocks can be organized into [registers](overview/registers) for convenience, each repository creating a local
+Building Blocks can be organized into [registers](overview/registers.md) for convenience, each repository creating a local
 register that can be integrated with other application domain registers.
 
 Published OGC API specifications are, or will be, described in

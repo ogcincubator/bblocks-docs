@@ -15,13 +15,13 @@ so that they can be included in the upstream register.
 
 ![](pr-flow.png)
 1. [Fork the repository](https://docs.github.com/en/pull-requests/how-tos/work-with-forks/fork-a-repo)
-   on GitHub, then enable Actions on it and [configure](https://ogcincubator.github.io/bblocks-docs/build/github) so postprocessing runs on your fork and your "viewer" is enabled on github pages.
+   on GitHub, then enable Actions on it and [configure](github.md) so postprocessing runs on your fork and your "viewer" is enabled on github pages.
 2. Clone your fork locally and
    [add the upstream repository as a remote](https://docs.github.com/en/get-started/git-basics/about-remote-repositories#creating-remote-repositories),
    conventionally named `fork-parent` — this is the default name expected by the `create-clean-pr.sh` script
    described under [Merge conflicts](#avoiding-build-resource-merge-conflicts) below, though it can be configured to something else.
 3. Make your changes and commit/push them to your fork's `master`/`main` branch as usual. Each push triggers the
-   Building Blocks [postprocessing workflows](../create/postprocessing), so you can preview your version of the
+   Building Blocks [postprocessing workflows](../create/postprocessing.md), so you can preview your version of the
    register on its own GitHub Pages site (and importantly reviewers can access this content).
 4. When ready to submit your changes upstream, run `create-clean-pr.sh` to produce a PR-ready branch free of
    `build/` artifacts, and open the Pull Request using the URL it prints (see [Merge conflicts](#avoiding-build-resource-merge-conflicts)).
@@ -35,7 +35,7 @@ need to manually enable them on the "Actions" tab of your forked repository.
 ## Avoiding "build" resource merge conflicts
 
 <div class="notice notice--info" markdown="1">
-Registers that [publish to a branch](../build/github#publishing-to-a-branch) (`deploy.mode: branch`) don't commit
+Registers that [publish to a branch](github.md#publishing-to-a-branch) (`deploy.mode: branch`) don't commit
 `build/` to their source branch, so this problem doesn't arise and `create-clean-pr.sh` is not needed.
 </div>
 
@@ -55,7 +55,7 @@ deliberately removed from your repo's own git history.
 
 <div class="notice notice--info" markdown="1">
 This is a bash script, so on Windows it needs to be run from Git Bash or WSL — see the
-[Windows setup notes](../build/local#windows-setup) on the Local Build page.
+[Windows setup notes](local.md#windows-setup) on the Local Build page.
 </div>
 
 The script is run locally on the directory of the forked register, and it requires that the upstream repository

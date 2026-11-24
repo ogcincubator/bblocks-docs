@@ -32,7 +32,7 @@ now needs to be redone later.
 A register with no code of its own can still execute code when it's built, from three sources:
 
 - **`transforms.yaml`** — inline `python`, `node`, `jq`, `xslt`, SPARQL, SHACL-AF, or `semantic-uplift` logic, run
-  automatically against matching example snippets during postprocessing (see [Transforms](transforms));
+  automatically against matching example snippets during postprocessing (see [Transforms](transforms.md));
 - **transform and validator plugins**, declared under `plugins.transforms` / `plugins.validators` in
   `bblocks-config.yaml` and installed via `pip`, which accepts any specifier `pip install` understands — including
   `git+https://...` URLs, i.e. code from anywhere the declaration points to;
@@ -40,7 +40,7 @@ A register with no code of its own can still execute code when it's built, from 
   transform/validator plugins. Unlike those, which only run against matching example snippets, a build plugin can
   hook into the run itself — before/after each building block, once the register is assembled but before
   `register.json` is written, after semantic uplift, at the very end of the run, or on error — and can rewrite the
-  assembled register before it's published (see [Build plugins](build-plugins));
+  assembled register before it's published (see [Build plugins](build-plugins.md));
 - **cross-block `get_transformer` / `getTransformer` calls**, which can invoke a transform defined in a *different*
   block — including one reached through an import.
 
@@ -72,7 +72,7 @@ it's in.
 
 ## Imports and trust
 
-`bblocks-config.yaml`'s `imports` list (see [Setting up imports](imports)) can reference any register URL, OGC or
+`bblocks-config.yaml`'s `imports` list (see [Setting up imports](imports.md)) can reference any register URL, OGC or
 not. Once imported, that register's `bblocks://` schema references, JSON-LD context, and SHACL shapes are all
 inherited automatically — and any block in your repository can invoke a transform defined in it.
 
@@ -100,7 +100,7 @@ several things checkable without reading its source repository at all:
 - **the code each block's declared transforms would run**, published alongside the blocks themselves;
 - **its import edges**, and by resolving those recursively, its full transitive closure;
 - **the license** applying to the register and to each block, via the `license` object in `bblocks-config.yaml` or
-  a block's own `bblock.json` (see [Building Block metadata](metadata#links-and-references)).
+  a block's own `bblock.json` (see [Building Block metadata](metadata.md#links-and-references)).
 
 The [OGC Blocks meta-register catalog](https://w3id.org/ogc/bblocks/meta-register/) indexes this across
 every register it knows about, so you can look up a register's declared plugins, imports, and license without

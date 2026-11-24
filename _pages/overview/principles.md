@@ -37,7 +37,7 @@ Managing distributed development and evolution cycles is supported by [Regressio
 
 Building Blocks should be simple to specialize.
 
-See [Profiles](profiles)
+See [Profiles](profiles.md)
 
 ## Testing
 
